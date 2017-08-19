@@ -53,12 +53,20 @@
 			isa = PBXGroup;
 			children = (
 				95EE606A1F47EEC600C4D6C7 /* Main.storyboard */,
+				95EE60781F47EF9400C4D6C7 /* Resources */,
+			);
+			path = CupleWars;
+			sourceTree = "<group>";
+		};
+		95EE60781F47EF9400C4D6C7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				95EE60661F47EEC600C4D6C7 /* AppDelegate.swift */,
 				95EE606D1F47EEC600C4D6C7 /* Assets.xcassets */,
 				95EE606F1F47EEC600C4D6C7 /* LaunchScreen.storyboard */,
 				95EE60721F47EEC600C4D6C7 /* Info.plist */,
 			);
-			path = CupleWars;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
