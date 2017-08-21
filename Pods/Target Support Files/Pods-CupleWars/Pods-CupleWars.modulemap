@@ -1,0 +1,6 @@
+framework module Pods_CupleWars {
+  umbrella header "Pods-CupleWars-umbrella.h"
+
+  export *
+  module * { export * }
+}
