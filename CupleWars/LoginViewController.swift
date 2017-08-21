@@ -15,4 +15,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
     }
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBAction func loginButtonTapped(_ sender: Any) {
+    }
+    @IBAction func createAccountButtonTapped(_ sender: Any) {
+    }
 }

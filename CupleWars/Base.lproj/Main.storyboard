@@ -53,6 +53,9 @@
                                                 <integer key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loginButtonTapped:" destination="pBc-qf-65O" eventType="touchUpInside" id="JUy-Wc-nMY"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="voc-qN-uOO">
                                         <rect key="frame" x="103.5" y="56.5" width="128" height="41.5"/>
@@ -60,6 +63,9 @@
                                         <state key="normal" title="Create Account">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="createAccountButtonTapped:" destination="pBc-qf-65O" eventType="touchUpInside" id="aSt-yj-OtI"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -94,6 +100,11 @@
                             <constraint firstItem="ui7-Lo-FoZ" firstAttribute="leading" secondItem="gHV-2p-wsb" secondAttribute="leading" constant="58" id="xpq-2f-H46"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="KaM-D9-OXp" id="kpU-cU-0MT"/>
+                        <outlet property="passwordTextField" destination="a6m-xg-s0d" id="2Up-Y4-XLa"/>
+                        <outlet property="titleLabel" destination="GIj-lq-EYx" id="EyR-og-FVu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ckZ-ye-YQB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
