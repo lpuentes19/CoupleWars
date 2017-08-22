@@ -31,17 +31,15 @@ class LoginViewController: UIViewController {
             print("Success")
         }
     }
-    @IBAction func createAccountButtonTapped(_ sender: Any) {
-        
-        guard let email = emailTextField.text,
-            let password = passwordTextField.text else { return }
-        
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            print("Success")
-        }
-    }
+    
+//        guard let email = emailTextField.text,
+//            let password = passwordTextField.text else { return }
+//        
+//        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return
+//            }
+//            print("Success")
+//        }
 }
