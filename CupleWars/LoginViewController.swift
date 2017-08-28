@@ -23,12 +23,12 @@ class LoginViewController: UIViewController {
         guard let email = emailTextField.text,
             let password = passwordTextField.text else { return }
         
-        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+        Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             if let error = error {
                 print(error.localizedDescription)
                 return
             }
             print("Success")
-        }
+        })
     }
 }

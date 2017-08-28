@@ -19,6 +19,14 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var invalidInfoLabel: UILabel!
+        
+//        Auth.auth().sendPasswordReset(withEmail: "lusciouslou91@yahoo.com", completion: { (error) in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return
+//            }
+//            print("Success")
+//        })
     @IBAction func createAccountButtonTapped(_ sender: Any) {
         
         usernameTextField.layer.borderWidth = 0
@@ -39,7 +47,7 @@ class CreateAccountViewController: UIViewController {
         }
         
         if username.isEmpty && email.isEmpty && password.isEmpty {
-        
+            
             usernameTextField.layer.borderWidth = 1.5
             usernameTextField.layer.cornerRadius = 5
             usernameTextField.layer.borderColor = UIColor.red.cgColor
@@ -118,15 +126,26 @@ class CreateAccountViewController: UIViewController {
             invalidInfoLabel.text = "* Please enter a valid Username, Email, and/or Password."
             invalidInfoLabel.textColor = .red
         } else {
-            return
-        }
-
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            print("Success")
+            Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                print("Success")
+            })
+            
+            let alertController = UIAlertController(title: "Account Created", message: "Account successfully created!", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let viewController = storyboard.instantiateViewController(withIdentifier: "loginVC")
+                DispatchQueue.main.async {
+                    self.present(viewController, animated: true, completion: nil)
+                }
+            })
+            
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
         }
     }
 }

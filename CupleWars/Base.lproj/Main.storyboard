@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="mf5-8N-zoo">
             <objects>
-                <viewController id="pBc-qf-65O" customClass="LoginViewController" customModule="CupleWars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" id="pBc-qf-65O" customClass="LoginViewController" customModule="CupleWars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hVL-2t-LaU"/>
                         <viewControllerLayoutGuide type="bottom" id="tD5-Hq-Z16"/>
@@ -180,8 +180,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ty6-QA-WRo">
+                                <rect key="frame" x="110" y="575" width="155" height="33"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                <state key="normal" title="Forgot Password?">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="kr4-0E-Xxj" userLabel="Label Stack View">
-                                <rect key="frame" x="92" y="511" width="190.5" height="33"/>
+                                <rect key="frame" x="92" y="524" width="190.5" height="33"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already a member?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tLX-8K-s9E">
                                         <rect key="frame" x="0.0" y="0.0" width="134.5" height="33"/>
@@ -206,8 +213,11 @@
                         <constraints>
                             <constraint firstItem="irG-Kr-koq" firstAttribute="top" secondItem="ueX-Yw-Vhm" secondAttribute="bottom" constant="66" id="1ME-zm-ssV"/>
                             <constraint firstItem="LRk-hu-GPe" firstAttribute="top" secondItem="irG-Kr-koq" secondAttribute="bottom" constant="45" id="1V4-vZ-Xnd"/>
+                            <constraint firstItem="VeN-Gx-1Mj" firstAttribute="top" secondItem="Ty6-QA-WRo" secondAttribute="bottom" constant="59" id="470-fK-wTV"/>
                             <constraint firstAttribute="trailing" secondItem="6Sl-2q-v1X" secondAttribute="trailing" constant="20" id="BHE-bf-jsF"/>
+                            <constraint firstAttribute="trailing" secondItem="Ty6-QA-WRo" secondAttribute="trailing" constant="110" id="DEq-EX-kPK"/>
                             <constraint firstItem="LRk-hu-GPe" firstAttribute="leading" secondItem="8AP-CV-1wE" secondAttribute="leading" constant="20" id="J1E-Dn-yqh"/>
+                            <constraint firstItem="Ty6-QA-WRo" firstAttribute="leading" secondItem="8AP-CV-1wE" secondAttribute="leading" constant="110" id="JLe-DK-y9g"/>
                             <constraint firstAttribute="trailing" secondItem="kr4-0E-Xxj" secondAttribute="trailing" constant="92.5" id="KHQ-5v-K10"/>
                             <constraint firstItem="6Sl-2q-v1X" firstAttribute="top" secondItem="LRk-hu-GPe" secondAttribute="bottom" constant="57" id="NHG-i5-Ovl"/>
                             <constraint firstAttribute="trailing" secondItem="LRk-hu-GPe" secondAttribute="trailing" constant="20" id="V88-5b-3jW"/>
@@ -218,9 +228,10 @@
                             <constraint firstItem="6Sl-2q-v1X" firstAttribute="top" secondItem="LRk-hu-GPe" secondAttribute="bottom" constant="57" id="eoA-fu-e4m"/>
                             <constraint firstItem="irG-Kr-koq" firstAttribute="leading" secondItem="8AP-CV-1wE" secondAttribute="leading" constant="16" id="fdX-u1-rCF"/>
                             <constraint firstAttribute="trailing" secondItem="irG-Kr-koq" secondAttribute="trailing" constant="16" id="hTL-OT-LCD"/>
+                            <constraint firstItem="Ty6-QA-WRo" firstAttribute="top" secondItem="kr4-0E-Xxj" secondAttribute="bottom" constant="18" id="siG-jE-gtT"/>
                             <constraint firstAttribute="trailing" secondItem="VuF-p1-vic" secondAttribute="trailing" constant="20" id="uVv-fU-QoY"/>
-                            <constraint firstItem="VuF-p1-vic" firstAttribute="top" secondItem="kr4-0E-Xxj" secondAttribute="bottom" constant="43" id="vTB-ja-PFc"/>
-                            <constraint firstItem="kr4-0E-Xxj" firstAttribute="top" secondItem="6Sl-2q-v1X" secondAttribute="bottom" constant="19.5" id="vlB-aq-Nnj"/>
+                            <constraint firstItem="VuF-p1-vic" firstAttribute="top" secondItem="kr4-0E-Xxj" secondAttribute="bottom" constant="30" id="vTB-ja-PFc"/>
+                            <constraint firstItem="kr4-0E-Xxj" firstAttribute="top" secondItem="6Sl-2q-v1X" secondAttribute="bottom" constant="32.5" id="vlB-aq-Nnj"/>
                             <constraint firstItem="6Sl-2q-v1X" firstAttribute="leading" secondItem="8AP-CV-1wE" secondAttribute="leading" constant="20" id="xW1-Yr-7Vy"/>
                         </constraints>
                     </view>
