@@ -19,14 +19,7 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var invalidInfoLabel: UILabel!
-        
-//        Auth.auth().sendPasswordReset(withEmail: "lusciouslou91@yahoo.com", completion: { (error) in
-//            if let error = error {
-//                print(error.localizedDescription)
-//                return
-//            }
-//            print("Success")
-//        })
+
     @IBAction func createAccountButtonTapped(_ sender: Any) {
         
         usernameTextField.layer.borderWidth = 0

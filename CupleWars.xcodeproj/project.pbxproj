@@ -10,6 +10,7 @@
 		7E2331756D33972AF58A6C55 /* Pods_CupleWars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F5E34A3D5106E21E2C478B /* Pods_CupleWars.framework */; };
 		9511CA531F4CCFB200AFE442 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9511CA521F4CCFB200AFE442 /* CreateAccountViewController.swift */; };
 		9526064E1F4B96B2001330CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9526064D1F4B96B2001330CC /* LoginViewController.swift */; };
+		952BA7661F54D03400DD9716 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952BA7651F54D03400DD9716 /* ForgotPasswordViewController.swift */; };
 		959094BF1F4B854700456D11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 959094BE1F4B854700456D11 /* GoogleService-Info.plist */; };
 		95EE60671F47EEC600C4D6C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE60661F47EEC600C4D6C7 /* AppDelegate.swift */; };
 		95EE606C1F47EEC600C4D6C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95EE606A1F47EEC600C4D6C7 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 		75F5E34A3D5106E21E2C478B /* Pods_CupleWars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CupleWars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9511CA521F4CCFB200AFE442 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		9526064D1F4B96B2001330CC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		952BA7651F54D03400DD9716 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		959094BE1F4B854700456D11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		95EE60631F47EEC600C4D6C7 /* CupleWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CupleWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95EE60661F47EEC600C4D6C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				95EE606A1F47EEC600C4D6C7 /* Main.storyboard */,
 				9526064D1F4B96B2001330CC /* LoginViewController.swift */,
 				9511CA521F4CCFB200AFE442 /* CreateAccountViewController.swift */,
+				952BA7651F54D03400DD9716 /* ForgotPasswordViewController.swift */,
 				95EE60781F47EF9400C4D6C7 /* Resources */,
 			);
 			path = CupleWars;
@@ -227,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				952BA7661F54D03400DD9716 /* ForgotPasswordViewController.swift in Sources */,
 				9511CA531F4CCFB200AFE442 /* CreateAccountViewController.swift in Sources */,
 				9526064E1F4B96B2001330CC /* LoginViewController.swift in Sources */,
 				95EE60671F47EEC600C4D6C7 /* AppDelegate.swift in Sources */,
