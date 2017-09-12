@@ -39,7 +39,7 @@ class CreateAccountViewController: UIViewController {
             invalidInfoLabel.textColor = .red
         }
         
-        if username.isEmpty && email.isEmpty && password.isEmpty {
+        if username.isEmpty && email.isEmpty && password.isEmpty && password.characters.count < 6 {
             
             usernameTextField.layer.borderWidth = 1.5
             usernameTextField.layer.cornerRadius = 5
@@ -69,7 +69,7 @@ class CreateAccountViewController: UIViewController {
             invalidInfoLabel.text = "* Please enter a valid Username, Email, and/or Password."
             invalidInfoLabel.textColor = .red
             
-        } else if username.isEmpty && password.isEmpty {
+        } else if username.isEmpty && password.isEmpty && password.characters.count < 6 {
             
             usernameTextField.layer.borderWidth = 1.5
             usernameTextField.layer.cornerRadius = 5
@@ -82,7 +82,7 @@ class CreateAccountViewController: UIViewController {
             invalidInfoLabel.text = "* Please enter a valid Username, Email, and/or Password."
             invalidInfoLabel.textColor = .red
             
-        } else if email.isEmpty && password.isEmpty {
+        } else if email.isEmpty && password.isEmpty && password.characters.count < 6 {
             
             emailTextField.layer.borderWidth = 1.5
             emailTextField.layer.cornerRadius = 5
@@ -110,7 +110,7 @@ class CreateAccountViewController: UIViewController {
             
             invalidInfoLabel.text = "* Please enter a valid Username, Email, and/or Password."
             invalidInfoLabel.textColor = .red
-        } else if password.isEmpty {
+        } else if password.isEmpty && password.characters.count < 6 {
             
             passwordTextField.layer.borderWidth = 1.5
             passwordTextField.layer.cornerRadius = 5
@@ -125,20 +125,20 @@ class CreateAccountViewController: UIViewController {
                     return
                 }
                 print("Success")
+            
+                let alertController = UIAlertController(title: "Account Created", message: "Account successfully created!", preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "loginVC")
+                    DispatchQueue.main.async {
+                        self.present(viewController, animated: true, completion: nil)
+                    }
+                })
+                
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
             })
-            
-            let alertController = UIAlertController(title: "Account Created", message: "Account successfully created!", preferredStyle: .alert)
-            
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: { (_) in
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let viewController = storyboard.instantiateViewController(withIdentifier: "loginVC")
-                DispatchQueue.main.async {
-                    self.present(viewController, animated: true, completion: nil)
-                }
-            })
-            
-            alertController.addAction(okAction)
-            present(alertController, animated: true, completion: nil)
         }
     }
 }

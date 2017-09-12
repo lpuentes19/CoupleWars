@@ -27,6 +27,15 @@ class LoginViewController: UIViewController {
             if let error = error {
                 print(error.localizedDescription)
                 return
+            } else {
+                if email == email && password == password {
+                    
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "feedVC")
+                    DispatchQueue.main.async {
+                        self.present(viewController, animated: true, completion: nil)
+                    }
+                }
             }
             print("Success")
         })
