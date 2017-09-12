@@ -110,10 +110,10 @@
             </objects>
             <point key="canvasLocation" x="61.600000000000001" y="261.31934032983509"/>
         </scene>
-        <!--View Controller-->
+        <!--Cuple Wars Feed View Controller-->
         <scene sceneID="X1r-nw-5NS">
             <objects>
-                <viewController id="Mhz-dL-HsU" sceneMemberID="viewController">
+                <viewController id="Mhz-dL-HsU" customClass="CupleWarsFeedViewController" customModule="CupleWars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rYk-ca-SKX"/>
                         <viewControllerLayoutGuide type="bottom" id="qeK-tf-e0j"/>
@@ -141,7 +141,7 @@
                                 <rect key="frame" x="0.0" y="203" width="375" height="464"/>
                                 <color key="backgroundColor" red="0.25892877578735352" green="0.25891765952110291" blue="0.2589251697063446" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="tDP-13-WFe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCelll" rowHeight="200" id="tDP-13-WFe">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tDP-13-WFe" id="p90-fF-tln">
@@ -227,6 +227,10 @@
                             <constraint firstItem="xfh-Xd-XGh" firstAttribute="leading" secondItem="rka-KE-3LX" secondAttribute="leading" id="qe8-vl-eui"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="postTextField" destination="UA3-aE-ckQ" id="bJT-3H-FMv"/>
+                        <outlet property="tableView" destination="xfh-Xd-XGh" id="Ioc-w9-N0R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cW8-qV-i2g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
