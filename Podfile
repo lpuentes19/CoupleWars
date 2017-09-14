@@ -8,5 +8,7 @@ target 'CupleWars' do
   # Pods for CupleWars
 pod 'Firebase/Core'
 pod 'Firebase/Auth’
+pod 'Firebase/Database’
+pod 'Firebase/Storage’
 
 end

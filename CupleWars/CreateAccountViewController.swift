@@ -8,11 +8,20 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseStorage
+import FirebaseDatabase
 
 class CreateAccountViewController: UIViewController {
 
+    var userStorage: CreateUser?
+    var ref: DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference()
+//        ref?.reference = Database.database().reference()
+        let storage = Storage.storage().reference(forURL: "gs://cuplewars.appspot.com")
+        userStorage?.userStorage = storage.child("users")
     }
     
     @IBOutlet weak var usernameTextField: UITextField!
@@ -39,7 +48,7 @@ class CreateAccountViewController: UIViewController {
             invalidInfoLabel.textColor = .red
         }
         
-        if username.isEmpty && email.isEmpty && password.isEmpty && password.characters.count < 6 {
+        if username.isEmpty && email.isEmpty && password.isEmpty {
             
             usernameTextField.layer.borderWidth = 1.5
             usernameTextField.layer.cornerRadius = 5
@@ -69,7 +78,7 @@ class CreateAccountViewController: UIViewController {
             invalidInfoLabel.text = "* Please enter a valid Username, Email, and/or Password."
             invalidInfoLabel.textColor = .red
             
-        } else if username.isEmpty && password.isEmpty && password.characters.count < 6 {
+        } else if username.isEmpty && password.isEmpty {
             
             usernameTextField.layer.borderWidth = 1.5
             usernameTextField.layer.cornerRadius = 5
@@ -82,7 +91,7 @@ class CreateAccountViewController: UIViewController {
             invalidInfoLabel.text = "* Please enter a valid Username, Email, and/or Password."
             invalidInfoLabel.textColor = .red
             
-        } else if email.isEmpty && password.isEmpty && password.characters.count < 6 {
+        } else if email.isEmpty && password.isEmpty {
             
             emailTextField.layer.borderWidth = 1.5
             emailTextField.layer.cornerRadius = 5
@@ -102,7 +111,7 @@ class CreateAccountViewController: UIViewController {
             
             invalidInfoLabel.text = "* Please enter a valid Username, Email, and/or Password."
             invalidInfoLabel.textColor = .red
-        } else if email.isEmpty {
+        } else if email.isEmpty || !email.contains("@") {
             
             emailTextField.layer.borderWidth = 1.5
             emailTextField.layer.cornerRadius = 5
@@ -110,7 +119,7 @@ class CreateAccountViewController: UIViewController {
             
             invalidInfoLabel.text = "* Please enter a valid Username, Email, and/or Password."
             invalidInfoLabel.textColor = .red
-        } else if password.isEmpty && password.characters.count < 6 {
+        } else if password.isEmpty {
             
             passwordTextField.layer.borderWidth = 1.5
             passwordTextField.layer.cornerRadius = 5
@@ -119,10 +128,20 @@ class CreateAccountViewController: UIViewController {
             invalidInfoLabel.text = "* Please enter a valid Username, Email, and/or Password."
             invalidInfoLabel.textColor = .red
         } else {
+            
             Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
                 if let error = error {
                     print(error.localizedDescription)
+                    
                     return
+                }
+                
+                if let user = user {
+                    
+                    let userInfo: [String: Any] = ["UID": user.uid,
+                                                   "Username": username]
+                    
+                    self.ref.child("Users").setValue(userInfo)
                 }
                 print("Success")
             
