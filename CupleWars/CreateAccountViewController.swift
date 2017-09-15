@@ -18,10 +18,11 @@ class CreateAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         ref = Database.database().reference()
-//        ref?.reference = Database.database().reference()
-        let storage = Storage.storage().reference(forURL: "gs://cuplewars.appspot.com")
-        userStorage?.userStorage = storage.child("users")
+        
+//        let storage = Storage.storage().reference(forURL: "gs://cuplewars.appspot.com")
+//        userStorage?.userStorage = storage.child("users")
     }
     
     @IBOutlet weak var usernameTextField: UITextField!
@@ -141,7 +142,7 @@ class CreateAccountViewController: UIViewController {
                     let userInfo: [String: Any] = ["UID": user.uid,
                                                    "Username": username]
                     
-                    self.ref.child("Users").setValue(userInfo)
+                    self.ref.child("Users").child(user.uid).setValue(userInfo)
                 }
                 print("Success")
             

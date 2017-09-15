@@ -14,8 +14,8 @@ import FirebaseDatabase
 
 class CreateUser {
     
-    var userStorage: StorageReference?
-    var reference: DatabaseReference?
+    var userStorage: StorageReference
+    var reference: DatabaseReference
     
     init(userStorage: StorageReference, reference: DatabaseReference) {
         

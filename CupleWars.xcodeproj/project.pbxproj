@@ -10,6 +10,7 @@
 		7E2331756D33972AF58A6C55 /* Pods_CupleWars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F5E34A3D5106E21E2C478B /* Pods_CupleWars.framework */; };
 		950DDFFA1F6A08FB00F48008 /* CreateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950DDFF91F6A08FB00F48008 /* CreateUser.swift */; };
 		9511CA531F4CCFB200AFE442 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9511CA521F4CCFB200AFE442 /* CreateAccountViewController.swift */; };
+		95209D831F6C9F7400589961 /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95209D821F6C9F7400589961 /* PostsTableViewCell.swift */; };
 		9526064E1F4B96B2001330CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9526064D1F4B96B2001330CC /* LoginViewController.swift */; };
 		952BA7661F54D03400DD9716 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952BA7651F54D03400DD9716 /* ForgotPasswordViewController.swift */; };
 		956C3CCA1F67758900342E13 /* CupleWarsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C3CC91F67758900342E13 /* CupleWarsFeedViewController.swift */; };
@@ -25,6 +26,7 @@
 		75F5E34A3D5106E21E2C478B /* Pods_CupleWars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CupleWars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		950DDFF91F6A08FB00F48008 /* CreateUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUser.swift; sourceTree = "<group>"; };
 		9511CA521F4CCFB200AFE442 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		95209D821F6C9F7400589961 /* PostsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsTableViewCell.swift; sourceTree = "<group>"; };
 		9526064D1F4B96B2001330CC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		952BA7651F54D03400DD9716 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		956C3CC91F67758900342E13 /* CupleWarsFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CupleWarsFeedViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,22 @@
 				75F5E34A3D5106E21E2C478B /* Pods_CupleWars.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		95209D7D1F6C9ED100589961 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				950DDFF91F6A08FB00F48008 /* CreateUser.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		95209D841F6C9FFC00589961 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				95209D821F6C9F7400589961 /* PostsTableViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		956C3CC81F67611100342E13 /* ViewControllers */ = {
@@ -91,7 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				95EE606A1F47EEC600C4D6C7 /* Main.storyboard */,
-				950DDFF91F6A08FB00F48008 /* CreateUser.swift */,
+				95209D841F6C9FFC00589961 /* Views */,
+				95209D7D1F6C9ED100589961 /* Models */,
 				956C3CC81F67611100342E13 /* ViewControllers */,
 				95EE60781F47EF9400C4D6C7 /* Resources */,
 			);
@@ -249,6 +268,7 @@
 				9526064E1F4B96B2001330CC /* LoginViewController.swift in Sources */,
 				956C3CCA1F67758900342E13 /* CupleWarsFeedViewController.swift in Sources */,
 				950DDFFA1F6A08FB00F48008 /* CreateUser.swift in Sources */,
+				95209D831F6C9F7400589961 /* PostsTableViewCell.swift in Sources */,
 				95EE60671F47EEC600C4D6C7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
