@@ -14,6 +14,7 @@ class PostsViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         postTextView.delegate = self
         setupTextView()
+        self.automaticallyAdjustsScrollViewInsets = false
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PostsViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -55,5 +56,10 @@ class PostsViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var postTextView: UITextView!
     @IBAction func postButtonTapped(_ sender: Any) {
+    }
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "feedVC")
+        present(viewController, animated: true, completion: nil)
     }
 }

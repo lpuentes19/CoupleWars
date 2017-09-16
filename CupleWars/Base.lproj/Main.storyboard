@@ -253,7 +253,7 @@
         <!--Posts View Controller-->
         <scene sceneID="bfy-X4-TM9">
             <objects>
-                <viewController storyboardIdentifier="postVC" id="OSI-uk-9qF" customClass="PostsViewController" customModule="CupleWars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OSI-uk-9qF" customClass="PostsViewController" customModule="CupleWars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="29T-XO-vHd"/>
                         <viewControllerLayoutGuide type="bottom" id="uP5-kO-Rbl"/>
@@ -263,7 +263,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="19H-xf-BJi">
-                                <rect key="frame" x="29" y="170" width="317" height="335"/>
+                                <rect key="frame" x="29" y="214" width="317" height="291"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -279,7 +279,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let it out" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1Y-cu-WAs">
-                                <rect key="frame" x="52" y="50" width="270" height="118.5"/>
+                                <rect key="frame" x="52" y="94" width="270" height="118.5"/>
                                 <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="35"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -301,14 +301,20 @@
                             <constraint firstItem="19H-xf-BJi" firstAttribute="top" secondItem="u1Y-cu-WAs" secondAttribute="bottom" constant="1.5" id="yqY-Xb-GYt"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="USp-y3-nch"/>
+                    <navigationItem key="navigationItem" id="VQK-9A-Y28">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="0gR-Jo-6ej">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="OSI-uk-9qF" id="tDQ-Bc-hX8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="postTextView" destination="19H-xf-BJi" id="boa-3T-ZEQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wXC-ma-0T1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="831.20000000000005" y="1009.7451274362819"/>
+            <point key="canvasLocation" x="1770.4000000000001" y="1009.7451274362819"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="yd3-fV-3IE">
@@ -556,6 +562,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fk-JU-Umo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1646" y="261"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JFC-da-UpT">
+            <objects>
+                <navigationController storyboardIdentifier="postVC" automaticallyAdjustsScrollViewInsets="NO" id="WlV-9T-zye" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Yd-PC-RWU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OSI-uk-9qF" kind="relationship" relationship="rootViewController" id="Kwg-Am-cQd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0RS-nI-lRq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="831.20000000000005" y="1009.7451274362819"/>
         </scene>
     </scenes>
 </document>
