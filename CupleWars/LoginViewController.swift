@@ -20,14 +20,33 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBAction func loginButtonTapped(_ sender: Any) {
         
+        emailTextField.layer.borderWidth = 0
+        passwordTextField.layer.borderWidth = 0
+        invalidInfoLabel.text = ""
+        
         guard let email = emailTextField.text,
             let password = passwordTextField.text else { return }
         
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             if let error = error {
                 print(error.localizedDescription)
+                
+                self.emailTextField.layer.borderWidth = 1.5
+                self.emailTextField.layer.cornerRadius = 5
+                self.emailTextField.layer.borderColor = UIColor.red.cgColor
+                
+                self.passwordTextField.layer.borderWidth = 1.5
+                self.passwordTextField.layer.cornerRadius = 5
+                self.passwordTextField.layer.borderColor = UIColor.red.cgColor
+                
+                self.invalidInfoLabel.text = "* Invalid email or password. Please try again."
+                self.invalidInfoLabel.textColor = .red
+                self.invalidInfoLabel.textAlignment = .center
+                
                 return
+                
             } else {
+                
                 if email == email && password == password {
                     
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -40,4 +59,5 @@ class LoginViewController: UIViewController {
             print("Success")
         })
     }
+    @IBOutlet weak var invalidInfoLabel: UILabel!
 }
