@@ -23,29 +23,29 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
         postTextField.addTarget(self, action: #selector((toPostVC)), for: UIControlEvents.editingDidBegin)
     }
     
-    func retrieveUsers() {
-        
-        let ref = Database.database().reference()
-        ref.child("users").queryOrderedByKey().observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            let users = snapshot.value as! [String: AnyObject]
-            self.user.removeAll()
-            for (_, value) in users {
-                if let uid = value["uid"] as? String {
-                    if uid != Auth.auth().currentUser?.uid {
-                        let userToShow = User()
-                        if let username = value["username"] as? String {
-                            userToShow.userID = uid
-                            userToShow.username = username
-                            self.user.append(userToShow)
-                        }
-                    }
-                }
-            }
-            self.tableView.reloadData()
-        })
-        ref.removeAllObservers()
-    }
+//    func retrieveUsers() {
+//        
+//        let ref = Database.database().reference()
+//        ref.child("users").queryOrderedByKey().observeSingleEvent(of: .value, with: { (snapshot) in
+//            
+//            let users = snapshot.value as! [String: AnyObject]
+//            self.user.removeAll()
+//            for (_, value) in users {
+//                if let uid = value["uid"] as? String {
+//                    if uid != Auth.auth().currentUser?.uid {
+//                        let userToShow = User()
+//                        if let username = value["username"] as? String {
+//                            userToShow.userID = uid
+//                            userToShow.username = username
+//                            self.user.append(userToShow)
+//                        }
+//                    }
+//                }
+//            }
+//            self.tableView.reloadData()
+//        })
+//        ref.removeAllObservers()
+//    }
     
     func toPostVC() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

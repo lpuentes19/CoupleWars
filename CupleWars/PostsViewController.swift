@@ -13,13 +13,20 @@ class PostsViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         postTextView.delegate = self
-        
         setupTextView()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PostsViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     
     func setupTextView() {
         postTextView.text = "What is it now?..."
         postTextView.textColor = .lightGray
+        postTextView.layer.cornerRadius = 5
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
