@@ -13,7 +13,6 @@ import FirebaseDatabase
 
 class CreateAccountViewController: UIViewController {
 
-    var userStorage: CreateUser?
     var ref: DatabaseReference!
     
     override func viewDidLoad() {

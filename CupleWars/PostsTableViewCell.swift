@@ -10,15 +10,16 @@ import UIKit
 
 class PostsTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    @IBOutlet weak var usernameLabel: UILabel!
+
+    @IBOutlet weak var postTextView: UITextView!
+    @IBOutlet weak var himButton: UIButton!
+    @IBOutlet weak var herButton: UIButton!
+    @IBOutlet weak var hisCountLabel: UILabel!
+    @IBOutlet weak var herCountLabel: UILabel!
+    @IBAction func himButtonTapped(_ sender: Any) {
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBAction func herButtonTapped(_ sender: Any) {
     }
-
 }
