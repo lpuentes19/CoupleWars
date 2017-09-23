@@ -20,12 +20,28 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.delegate = self
         tableView.dataSource = self
         postTextField.addTarget(self, action: #selector((toPostVC)), for: UIControlEvents.editingDidBegin)
-//        fetchPosts()
+        fetchPosts()
     }
     
     func fetchPosts() {
         
+        let ref = Database.database().reference()
         
+        ref.child("Posts").observe(.childAdded) { (snapshot: DataSnapshot) in
+            
+            if let dict = snapshot.value as? [String: AnyObject] {
+                
+                let text = dict["post"] as! String
+                let postID = dict["postID"] as! String
+                let userID = dict["userID"] as! String
+                let username = dict["username"] as! String
+                
+                let post = Post(post: text, userID: userID, username: username, postID: postID)
+                
+                self.posts.append(post)
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func toPostVC() {
@@ -51,6 +67,7 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var postTextField: UITextField!
     @IBAction func logoutButtonTapped(_ sender: Any) {
+        
         do {
             try Auth.auth().signOut()
         } catch let logoutError {
