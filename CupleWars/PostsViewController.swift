@@ -55,7 +55,7 @@ class PostsViewController: UIViewController, UITextViewDelegate {
             
             guard let uid = Auth.auth().currentUser?.uid else { return }
             let ref = Database.database().reference()
-            let key = ref.child("posts").childByAutoId().key
+            let key = ref.child("Posts").childByAutoId().key
             
             let feed = ["userID": uid,
                         "username": Auth.auth().currentUser?.displayName ?? "",
@@ -64,7 +64,7 @@ class PostsViewController: UIViewController, UITextViewDelegate {
             
             let postFeed = ["\(key)": feed]
             
-            ref.child("posts").updateChildValues(postFeed)
+            ref.child("Posts").updateChildValues(postFeed)
             
             self.dismiss(animated: true, completion: nil)
         }

@@ -9,17 +9,17 @@
 import UIKit
 
 class PostsTableViewCell: UITableViewCell {
-
     
     @IBOutlet weak var usernameLabel: UILabel!
-
     @IBOutlet weak var postTextView: UITextView!
     @IBOutlet weak var himButton: UIButton!
     @IBOutlet weak var herButton: UIButton!
     @IBOutlet weak var hisCountLabel: UILabel!
     @IBOutlet weak var herCountLabel: UILabel!
+    
     @IBAction func himButtonTapped(_ sender: Any) {
     }
+    
     @IBAction func herButtonTapped(_ sender: Any) {
     }
 }

@@ -146,7 +146,7 @@
                                 <rect key="frame" x="0.0" y="248" width="375" height="419"/>
                                 <color key="backgroundColor" red="0.25892877578735352" green="0.25891765952110291" blue="0.2589251697063446" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCelll" rowHeight="200" id="tDP-13-WFe" customClass="PostsTableViewCell" customModule="CupleWars" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="200" id="tDP-13-WFe" customClass="PostsTableViewCell" customModule="CupleWars" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tDP-13-WFe" id="p90-fF-tln">
@@ -229,6 +229,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Mhz-dL-HsU" id="EfF-DZ-dvx"/>
+                                    <outlet property="delegate" destination="Mhz-dL-HsU" id="U1b-XO-LBj"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuple Wars" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WJ-oN-yoH">
                                 <rect key="frame" x="52" y="46" width="270" height="118.5"/>

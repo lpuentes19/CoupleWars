@@ -15,6 +15,7 @@
 		9526064E1F4B96B2001330CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9526064D1F4B96B2001330CC /* LoginViewController.swift */; };
 		952BA7661F54D03400DD9716 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952BA7651F54D03400DD9716 /* ForgotPasswordViewController.swift */; };
 		956C3CCA1F67758900342E13 /* CupleWarsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C3CC91F67758900342E13 /* CupleWarsFeedViewController.swift */; };
+		95867AD61F7610190024C516 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95867AD51F7610190024C516 /* Post.swift */; };
 		959094BF1F4B854700456D11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 959094BE1F4B854700456D11 /* GoogleService-Info.plist */; };
 		95EE60671F47EEC600C4D6C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE60661F47EEC600C4D6C7 /* AppDelegate.swift */; };
 		95EE606C1F47EEC600C4D6C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95EE606A1F47EEC600C4D6C7 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		9526064D1F4B96B2001330CC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		952BA7651F54D03400DD9716 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		956C3CC91F67758900342E13 /* CupleWarsFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CupleWarsFeedViewController.swift; sourceTree = "<group>"; };
+		95867AD51F7610190024C516 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		959094BE1F4B854700456D11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		95EE60631F47EEC600C4D6C7 /* CupleWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CupleWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95EE60661F47EEC600C4D6C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				95209D851F6CA1DB00589961 /* User.swift */,
+				95867AD51F7610190024C516 /* Post.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				956C3CCA1F67758900342E13 /* CupleWarsFeedViewController.swift in Sources */,
 				95209D881F6CC96900589961 /* PostsViewController.swift in Sources */,
 				95209D861F6CA1DB00589961 /* User.swift in Sources */,
+				95867AD61F7610190024C516 /* Post.swift in Sources */,
 				95209D831F6C9F7400589961 /* PostsTableViewCell.swift in Sources */,
 				95EE60671F47EEC600C4D6C7 /* AppDelegate.swift in Sources */,
 			);
