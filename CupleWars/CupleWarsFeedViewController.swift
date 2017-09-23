@@ -29,22 +29,25 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
         
         let ref = Database.database().reference()
         
-        ref.child("posts").queryOrderedByKey().observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("Posts").queryOrderedByKey().observeSingleEvent(of: .value, with: { (snapshot) in
             
-            let postsSnap = snapshot.value as? [String: Any]
+            guard let postsSnap = snapshot.value as? [String: AnyObject] else { return }
             
-            let post = Post()
-            
-            if let text = postsSnap?["post"] as? String, let postID = postsSnap?["postID"] as? String, let userID = postsSnap?["userID"] as? String, let username = postsSnap?["username"] as? String {
+            for (_, post) in postsSnap {
                 
-                post.post = text
-                post.postID = postID
-                post.userID = userID
-                post.username = username
+                let posst = Post()
                 
-                self.posts.append(post)
+                if let text = post["post"] as? String, let postID = post["postID"] as? String, let userID = post["userID"] as? String, let username = post["username"] as? String {
+                    
+                    posst.post = text
+                    posst.postID = postID
+                    posst.userID = userID
+                    posst.username = username
+                    
+                    self.posts.append(posst)
+                }
+                self.tableView.reloadData()
             }
-            self.tableView.reloadData()
         })
         ref.removeAllObservers()
     }

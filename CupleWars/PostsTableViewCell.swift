@@ -10,6 +10,17 @@ import UIKit
 
 class PostsTableViewCell: UITableViewCell {
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        setupTextView()
+    }
+    
+    func setupTextView() {
+        
+        postTextView.layer.cornerRadius = 5
+    }
+    
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var postTextView: UITextView!
     @IBOutlet weak var himButton: UIButton!
