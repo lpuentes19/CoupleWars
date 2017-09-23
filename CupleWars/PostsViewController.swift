@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class PostsViewController: UIViewController, UITextViewDelegate {
 
@@ -43,21 +45,33 @@ class PostsViewController: UIViewController, UITextViewDelegate {
             postTextView.textColor = .lightGray
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
     @IBOutlet weak var postTextView: UITextView!
     @IBAction func postButtonTapped(_ sender: Any) {
+        
+        if postTextView.text == "" {
+            return
+        } else {
+            
+            guard let uid = Auth.auth().currentUser?.uid else { return }
+            let ref = Database.database().reference()
+            let key = ref.child("posts").childByAutoId().key
+            
+            let feed = ["userID": uid,
+                        "username": Auth.auth().currentUser?.displayName ?? "",
+                        "post": postTextView.text,
+                        "postID": key] as [String: Any]
+            
+            let postFeed = ["\(key)": feed]
+            
+            ref.child("posts").updateChildValues(postFeed)
+            
+            self.dismiss(animated: true, completion: nil)
+        }
     }
+    
     @IBAction func cancelButtonTapped(_ sender: Any) {
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "feedVC")
         present(viewController, animated: true, completion: nil)

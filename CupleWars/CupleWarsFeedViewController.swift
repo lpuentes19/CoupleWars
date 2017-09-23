@@ -48,6 +48,7 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
 //    }
     
     func toPostVC() {
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "postVC")
         present(viewController, animated: true, completion: nil)

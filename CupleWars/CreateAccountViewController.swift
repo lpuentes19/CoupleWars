@@ -138,6 +138,10 @@ class CreateAccountViewController: UIViewController {
                 
                 if let user = user {
                     
+                    guard let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest() else { return }
+                    changeRequest.displayName = username
+                    changeRequest.commitChanges(completion: nil)
+                    
                     let userInfo: [String: Any] = ["UID": user.uid,
                                                    "Username": username]
                     
