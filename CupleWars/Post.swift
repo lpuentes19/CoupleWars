@@ -14,12 +14,19 @@ class Post {
     var userID: String
     var username: String
     var postID: String
+    var hisLikes: Int
+    var herLikes: Int
     
-    init(post: String, userID: String, username: String, postID: String) {
-        
+    var hisPeopleLikes: [String] = [String]()
+    var herPeopleLikes: [String] = [String]()
+    
+    init(post: String, userID: String, username: String, postID: String, hisLikes: Int, herLikes: Int) {
+    
         self.post = post
         self.userID = userID
         self.username = username
         self.postID = postID
+        self.hisLikes = hisLikes
+        self.herLikes = herLikes
     }
 }

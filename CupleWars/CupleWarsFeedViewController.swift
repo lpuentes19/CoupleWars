@@ -35,8 +35,10 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
                 let postID = dict["postID"] as! String
                 let userID = dict["userID"] as! String
                 let username = dict["username"] as! String
+                let hisLikes = dict["hisLikes"] as? Int ?? 0
+                let herLikes = dict["herLikes"] as? Int ?? 0
                 
-                let post = Post(post: text, userID: userID, username: username, postID: postID)
+                let post = Post(post: text, userID: userID, username: username, postID: postID, hisLikes: hisLikes, herLikes: herLikes)
                 
                 self.posts.append(post)
                 self.tableView.reloadData()
@@ -60,7 +62,10 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
         
         cell.usernameLabel.text = posts[indexPath.row].username
         cell.postTextView.text = posts[indexPath.row].post
-                
+        cell.hisCountLabel.text = "\(posts[indexPath.row].hisLikes) Like(s)"
+        cell.herCountLabel.text = "\(posts[indexPath.row].herLikes) Like(s)"
+        cell.pID = posts[indexPath.row].postID
+        
         return cell
     }
     
