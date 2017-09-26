@@ -47,6 +47,12 @@ class PostsViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBOutlet weak var postTextView: UITextView!
+    @IBAction func backButtonTapped(_ sender: Any) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "feedVC")
+        present(vc, animated: true, completion: nil)
+    }
+    
     @IBAction func postButtonTapped(_ sender: Any) {
         
         if postTextView.text == "" {

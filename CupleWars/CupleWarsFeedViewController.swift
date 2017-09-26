@@ -40,6 +40,18 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
                 
                 let post = Post(post: text, userID: userID, username: username, postID: postID, hisLikes: hisLikes, herLikes: herLikes)
                 
+//                if let people = dict["likesForHim"] as? [String : AnyObject] {
+//                    for (_, person) in people {
+//                        post.likesForHim.append(person as! String)
+//                    }
+//                }
+//                
+//                if let person = dict["likesForHer"] as? [String : AnyObject] {
+//                    for (_, people) in person {
+//                        post.likesForHer.append(people as! String)
+//                    }
+//                }
+                
                 self.posts.append(post)
                 self.tableView.reloadData()
             }
@@ -62,8 +74,19 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
         
         cell.usernameLabel.text = posts[indexPath.row].username
         cell.postTextView.text = posts[indexPath.row].post
-        cell.hisCountLabel.text = "\(posts[indexPath.row].hisLikes)"
-        cell.herCountLabel.text = "\(posts[indexPath.row].herLikes) Likes"
+        
+        if posts[indexPath.row].hisLikes == 1 {
+            cell.hisCountLabel.text = "\(posts[indexPath.row].hisLikes) Like(s)"
+        } else {
+            cell.hisCountLabel.text = "\(posts[indexPath.row].hisLikes) Likes"
+        }
+        
+        if posts[indexPath.row].herLikes == 1 {
+            cell.herCountLabel.text = "\(posts[indexPath.row].herLikes) Like(s)"
+        } else {
+            cell.herCountLabel.text = "\(posts[indexPath.row].herLikes) Likes"
+        }
+        
         cell.pID = posts[indexPath.row].postID
         
         return cell
