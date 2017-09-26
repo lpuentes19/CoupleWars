@@ -62,8 +62,8 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
         
         cell.usernameLabel.text = posts[indexPath.row].username
         cell.postTextView.text = posts[indexPath.row].post
-        cell.hisCountLabel.text = "\(posts[indexPath.row].hisLikes) Like(s)"
-        cell.herCountLabel.text = "\(posts[indexPath.row].herLikes) Like(s)"
+        cell.hisCountLabel.text = "\(posts[indexPath.row].hisLikes)"
+        cell.herCountLabel.text = "\(posts[indexPath.row].herLikes) Likes"
         cell.pID = posts[indexPath.row].postID
         
         return cell

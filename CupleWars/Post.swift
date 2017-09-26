@@ -17,8 +17,8 @@ class Post {
     var hisLikes: Int
     var herLikes: Int
     
-    var hisPeopleLikes: [String] = [String]()
-    var herPeopleLikes: [String] = [String]()
+    var likesForHim: [String] = [String]()
+    var likesForHer: [String] = [String]()
     
     init(post: String, userID: String, username: String, postID: String, hisLikes: Int, herLikes: Int) {
     
