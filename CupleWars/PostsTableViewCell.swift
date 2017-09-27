@@ -33,6 +33,9 @@ class PostsTableViewCell: UITableViewCell {
     @IBOutlet weak var herCountLabel: UILabel!
     
     @IBAction func himButtonTapped(_ sender: Any) {
+//        guard let user = Auth.auth().currentUser?.uid else { return }
+//        guard let postID = pID else { return }
+//        let ref = Database.database().reference()
         
         if isLiked == false {
             
