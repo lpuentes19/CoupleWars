@@ -5,15 +5,14 @@ An app where couples can sign into and share an argument or debate they had with
 * Swift 
 * Firebase
 * FirebaseAuth
+* FirebaseDatabase
 * UIKIT
 * CocoaPods
-* Core Location
 
 ### Features
-* Sign in flow.
-* Core Location is used so the user can share their argument/debate to other users near them. 
-* User can create a username that will be shown to others. 
-* The ability to vote on each post.
+* Sign in, create account, and forgot password flow.
+* Users can create a post and have it appear in the feed which is visible to all Users. 
+* The ability to "like" posts.
 
 ### Disclaimer
 Cuple Wars is a personal project created to learn and practice iOS development. It is currently open source to use as a resource for Swift development.
