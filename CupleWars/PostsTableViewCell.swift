@@ -14,6 +14,7 @@ class PostsTableViewCell: UITableViewCell {
     
     var pID: String?
     var isLiked = false
+    var delegate: PostsTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +24,11 @@ class PostsTableViewCell: UITableViewCell {
     
     func setupTextView() {
         postTextView.layer.cornerRadius = 5
+    }
+    
+    func updatePost(post: Post) {
+        
+        dateLabel.text = post.date.stringValue()
     }
     
     @IBOutlet weak var usernameLabel: UILabel!
@@ -197,4 +203,8 @@ class PostsTableViewCell: UITableViewCell {
             ref.removeAllObservers()
         }
     }
+}
+
+protocol PostsTableViewCellDelegate {
+
 }

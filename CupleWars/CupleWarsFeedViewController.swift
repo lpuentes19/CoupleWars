@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PostsTableViewCellDelegate {
 
     var posts = [Post]()
     
@@ -74,6 +74,9 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
         
         cell.usernameLabel.text = posts[indexPath.row].username
         cell.postTextView.text = posts[indexPath.row].post
+        
+        cell.delegate = self
+        cell.updatePost(post: posts[indexPath.row])
         
         if posts[indexPath.row].hisLikes == 1 {
             cell.hisCountLabel.text = "\(posts[indexPath.row].hisLikes) Like(s)"
