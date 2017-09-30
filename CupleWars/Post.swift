@@ -16,6 +16,7 @@ class Post {
     var postID: String
     var hisLikes: Int
     var herLikes: Int
+    var date: Date = Date()
     
     var likesForHim: [String] = [String]()
     var likesForHer: [String] = [String]()

@@ -218,6 +218,13 @@
                                                         </button>
                                                     </subviews>
                                                 </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DV2-Z9-AJi">
+                                                    <rect key="frame" x="266" y="10" width="101" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="1YS-fU-qND" secondAttribute="trailing" constant="8" id="5ew-of-MBa"/>
@@ -236,6 +243,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.25892877578735352" green="0.25891765952110291" blue="0.2589251697063446" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
+                                            <outlet property="dateLabel" destination="DV2-Z9-AJi" id="PYw-NF-3xq"/>
                                             <outlet property="herButton" destination="lM3-V4-wqp" id="0Ch-Qj-cMO"/>
                                             <outlet property="herCountLabel" destination="tIb-YV-U6c" id="VF5-BQ-9cL"/>
                                             <outlet property="himButton" destination="BId-H8-1WD" id="J42-Eg-8C0"/>

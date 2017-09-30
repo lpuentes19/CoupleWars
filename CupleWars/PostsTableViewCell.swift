@@ -31,6 +31,7 @@ class PostsTableViewCell: UITableViewCell {
     @IBOutlet weak var herButton: UIButton!
     @IBOutlet weak var hisCountLabel: UILabel!
     @IBOutlet weak var herCountLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     @IBAction func himButtonTapped(_ sender: Any) {
 //        guard let user = Auth.auth().currentUser?.uid else { return }
