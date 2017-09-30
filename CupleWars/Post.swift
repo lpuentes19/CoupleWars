@@ -7,27 +7,51 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseDatabase
 
 class Post {
     
-    var post: String
+    var postRef = Database.database().reference()
+    
+    var postText: String
     var userID: String
     var username: String
-    var postID: String
     var hisLikes: Int
     var herLikes: Int
     var date: Date = Date()
     
-    var likesForHim: [String] = [String]()
-    var likesForHer: [String] = [String]()
+//    var likesForHim: [String] = [String]()
+//    var likesForHer: [String] = [String]()
     
-    init(post: String, userID: String, username: String, postID: String, hisLikes: Int, herLikes: Int) {
-    
-        self.post = post
+    init(postText: String, userID: String, username: String, hisLikes: Int, herLikes: Int) {
+
+        self.postText = postText
         self.userID = userID
         self.username = username
-        self.postID = postID
         self.hisLikes = hisLikes
         self.herLikes = herLikes
+    }
+    
+    func addSubtractVoteHisVotes(addVote: Bool) {
+        
+        if addVote {
+            hisLikes = hisLikes + 1
+        } else {
+            hisLikes = hisLikes - 1
+        }
+        
+        postRef.child("hisLikes").setValue(hisLikes)
+    }
+    
+    func addSubtractVoteHerVotes(addVote: Bool) {
+        
+        if addVote {
+            herLikes = herLikes + 1
+        } else {
+            herLikes = herLikes - 1
+        }
+        
+        postRef.child("herLikes").setValue(herLikes)
     }
 }

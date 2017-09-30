@@ -28,30 +28,29 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
         let ref = Database.database().reference()
         
         ref.child("Posts").observe(.childAdded) { (snapshot: DataSnapshot) in
-            
-            if let dict = snapshot.value as? [String: AnyObject] {
-                
-                let text = dict["post"] as! String
-                let postID = dict["postID"] as! String
-                let userID = dict["userID"] as! String
-                let username = dict["username"] as! String
-                let hisLikes = dict["hisLikes"] as? Int ?? 0
-                let herLikes = dict["herLikes"] as? Int ?? 0
-                
-                let post = Post(post: text, userID: userID, username: username, postID: postID, hisLikes: hisLikes, herLikes: herLikes)
-                
+
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+
+                let text = dictionary["post"] as! String
+                let userID = dictionary["userID"] as! String
+                let username = dictionary["username"] as! String
+                let hisLikes = dictionary["hisLikes"] as? Int ?? 0
+                let herLikes = dictionary["herLikes"] as? Int ?? 0
+
+                let post = Post(postText: text, userID: userID, username: username, hisLikes: hisLikes, herLikes: herLikes)
+
 //                if let people = dict["likesForHim"] as? [String : AnyObject] {
-//                    for (_, person) in people {
+//                   for (_, person) in people {
 //                        post.likesForHim.append(person as! String)
 //                    }
 //                }
-//                
+//
 //                if let person = dict["likesForHer"] as? [String : AnyObject] {
 //                    for (_, people) in person {
 //                        post.likesForHer.append(people as! String)
 //                    }
 //                }
-                
+
                 self.posts.append(post)
                 self.tableView.reloadData()
             }
@@ -71,12 +70,12 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostsTableViewCell
-        
-        cell.usernameLabel.text = posts[indexPath.row].username
-        cell.postTextView.text = posts[indexPath.row].post
+        let post = posts[indexPath.row]
+//        cell.usernameLabel.text = posts[indexPath.row].username
+//        cell.postTextView.text = posts[indexPath.row].postText
         
         cell.delegate = self
-        cell.updatePost(post: posts[indexPath.row])
+        cell.configureCell(post: post)
         
         if posts[indexPath.row].hisLikes == 1 {
             cell.hisCountLabel.text = "\(posts[indexPath.row].hisLikes) Like(s)"
@@ -89,8 +88,6 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
         } else {
             cell.herCountLabel.text = "\(posts[indexPath.row].herLikes) Likes"
         }
-        
-        cell.pID = posts[indexPath.row].postID
         
         return cell
     }

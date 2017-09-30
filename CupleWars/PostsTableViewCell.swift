@@ -12,8 +12,10 @@ import FirebaseDatabase
 
 class PostsTableViewCell: UITableViewCell {
     
+    var post: Post?
+    var postLikeRef = Database.database().reference()
     var pID: String?
-    var isLiked = false
+    // var isLiked = false
     var delegate: PostsTableViewCellDelegate?
     
     override func awakeFromNib() {
@@ -26,9 +28,24 @@ class PostsTableViewCell: UITableViewCell {
         postTextView.layer.cornerRadius = 5
     }
     
-    func updatePost(post: Post) {
+    func configureCell(post: Post) {
+        self.post = post
         
+        usernameLabel.text = post.username
+        postTextView.text = post.postText
         dateLabel.text = post.date.stringValue()
+        
+        if post.hisLikes == 1 {
+            hisCountLabel.text = "\(post.hisLikes) Like(s)"
+        } else {
+            hisCountLabel.text = "\(post.hisLikes) Likes"
+        }
+        
+        if post.herLikes == 1 {
+            herCountLabel.text = "\(post.herLikes) Like(s)"
+        } else {
+            herCountLabel.text = "\(post.herLikes) Likes"
+        }
     }
     
     @IBOutlet weak var usernameLabel: UILabel!
@@ -40,169 +57,191 @@ class PostsTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     
     @IBAction func himButtonTapped(_ sender: Any) {
-//        guard let user = Auth.auth().currentUser?.uid else { return }
-//        guard let postID = pID else { return }
-//        let ref = Database.database().reference()
+        guard let post = post else { return }
         
-        if isLiked == false {
-            
-            isLiked = true
-            let ref = Database.database().reference()
-            let keyToPost = ref.child("Posts").childByAutoId().key
-            
-            guard let postID = pID else { return }
-            
-            ref.child("Posts").child(postID).observeSingleEvent(of: .value, with: { (snapshot) in
-                if let post = snapshot.value as? [String: AnyObject] {
-                    let updateLikes: [String: Any] = ["likesForHim/\(keyToPost)" : Auth.auth().currentUser?.uid]
-                    ref.child("Posts").child(postID).updateChildValues(updateLikes, withCompletionBlock: { (error, reff) in
-                        
-                        if error == nil {
-                            ref.child("Posts").child(postID).observeSingleEvent(of: .value, with: { (snap) in
-                                
-                                if let properties = snap.value as? [String: AnyObject] {
-                                    if let likes = properties["likesForHim"] as? [String: AnyObject] {
-                                        let count = likes.count
-                                        if count <= 1 {
-                                            self.hisCountLabel.text = "\(count) Like(s)"
-                                        } else {
-                                            self.hisCountLabel.text = "\(count) Likes"
-                                        }
-                                        
-                                        let update = ["hisLikes": count]
-                                        ref.child("Posts").child(postID).updateChildValues(update)
-                                    }
-                                }
-                            })
-                        }
-                    })
-                }
-            })
-            ref.removeAllObservers()
-            
-        } else {
-            
-            isLiked = false
-            let ref = Database.database().reference()
-            guard let postID = pID else { return }
-            
-            ref.child("Posts").child(postID).observeSingleEvent(of: .value, with: { (snapshot) in
-                if let properties = snapshot.value as? [String : Any] {
-                    if let peopleWhoLike = properties["likesForHim"] as? [String : AnyObject] {
-                        for (id, person) in peopleWhoLike {
-                            if person as? String == Auth.auth().currentUser?.uid {
-                                ref.child("Posts").child(postID).child("likesForHim").child(id).removeValue(completionBlock: { (error, reff) in
-                                    
-                                    if error == nil {
-                                        
-                                        ref.child("Posts").child(postID).observeSingleEvent(of: .value, with: { (snap) in
-                                            if let prop = snap.value as? [String : AnyObject] {
-                                                if let likes = prop["likesForHim"] as? [String : AnyObject] {
-                                                    let count = likes.count
-                                                    if count <= 1 {
-                                                       self.hisCountLabel.text = "\(count) Like(s)"
-                                                    } else {
-                                                       self.hisCountLabel.text = "\(count) Likes"
-                                                    }
-                                                    
-                                                    ref.child("Posts").child(postID).updateChildValues(["hisLikes" : count])
-                                                } else {
-                                                    self.hisCountLabel.text = "0 Likes"
-                                                    ref.child("Posts").child(postID).child("hisLikes").removeValue()
-                                                }
-                                            }
-                                        })
-                                    }
-                                })
-                                break
-                            }
-                        }
-                    }
-                }
-            })
-            ref.removeAllObservers()
-        }
+        postLikeRef.child("hisLikes").observeSingleEvent(of: .value, with: { (snapshot) in
+            if let thumbsUpDown = snapshot.value as? Int {
+                print(thumbsUpDown)
+                
+                post.addSubtractVoteHisVotes(addVote: true)
+                self.postLikeRef.setValue(true)
+            } else {
+                post.addSubtractVoteHisVotes(addVote: false)
+                self.postLikeRef.removeValue()
+            }
+        })
     }
+        
+//        if isLiked == false {
+//
+//            isLiked = true
+//            let ref = Database.database().reference()
+//            let keyToPost = ref.child("Posts").childByAutoId().key
+//
+//            guard let postID = pID else { return }
+//
+//            ref.child("Posts").child(postID).observeSingleEvent(of: .value, with: { (snapshot) in
+//                if let _ = snapshot.value as? [String: AnyObject] {
+//                    let updateLikes: [String: Any] = ["likesForHim/\(keyToPost)" : Auth.auth().currentUser?.uid]
+//                    ref.child("Posts").child(postID).updateChildValues(updateLikes, withCompletionBlock: { (error, reff) in
+//
+//                        if error == nil {
+//                            ref.child("Posts").child(postID).observeSingleEvent(of: .value, with: { (snap) in
+//
+//                                if let properties = snap.value as? [String: AnyObject] {
+//                                    if let likes = properties["likesForHim"] as? [String: AnyObject] {
+//                                        let count = likes.count
+//                                        if count <= 1 {
+//                                            self.hisCountLabel.text = "\(count) Like(s)"
+//                                        } else {
+//                                            self.hisCountLabel.text = "\(count) Likes"
+//                                        }
+//
+//                                        let update = ["hisLikes": count]
+//                                        ref.child("Posts").child(postID).updateChildValues(update)
+//                                    }
+//                                }
+//                            })
+//                        }
+//                    })
+//                }
+//            })
+//            ref.removeAllObservers()
+//
+//        } else {
+//
+//            isLiked = false
+//            let ref = Database.database().reference()
+//            guard let postID = pID else { return }
+//
+//            ref.child("Posts").child(postID).observeSingleEvent(of: .value, with: { (snapshot) in
+//                if let properties = snapshot.value as? [String : Any] {
+//                    if let peopleWhoLike = properties["likesForHim"] as? [String : AnyObject] {
+//                        for (id, person) in peopleWhoLike {
+//                            if person as? String == Auth.auth().currentUser?.uid {
+//                                ref.child("Posts").child(postID).child("likesForHim").child(id).removeValue(completionBlock: { (error, reff) in
+//
+//                                    if error == nil {
+//
+//                                        ref.child("Posts").child(postID).observeSingleEvent(of: .value, with: { (snap) in
+//                                            if let prop = snap.value as? [String : AnyObject] {
+//                                                if let likes = prop["likesForHim"] as? [String : AnyObject] {
+//                                                    let count = likes.count
+//                                                    if count <= 1 {
+//                                                       self.hisCountLabel.text = "\(count) Like(s)"
+//                                                    } else {
+//                                                       self.hisCountLabel.text = "\(count) Likes"
+//                                                    }
+//
+//                                                    ref.child("Posts").child(postID).updateChildValues(["hisLikes" : count])
+//                                                } else {
+//                                                    self.hisCountLabel.text = "0 Likes"
+//                                                    ref.child("Posts").child(postID).child("hisLikes").removeValue()
+//                                                }
+//                                            }
+//                                        })
+//                                    }
+//                                })
+//                                break
+//                            }
+//                        }
+//                    }
+//                }
+//            })
+//            ref.removeAllObservers()
+//        }
     
     @IBAction func herButtonTapped(_ sender: Any) {
-        
-        if isLiked == false {
-            
-            isLiked = true
-            let ref = Database.database().reference()
-            let keyToPost = ref.child("Posts").childByAutoId().key
-            
-            guard let postID = pID else { return }
-            
-            ref.child("Posts").child(postID).observeSingleEvent(of: .value, with: { (snapshot) in
-                if let post = snapshot.value as? [String: AnyObject] {
-                    let updateLikes: [String: Any] = ["likesForHer/\(keyToPost)" : Auth.auth().currentUser?.uid]
-                    ref.child("Posts").child(postID).updateChildValues(updateLikes, withCompletionBlock: { (error, reff) in
-                        
-                        if error == nil {
-                            ref.child("Posts").child(postID).observeSingleEvent(of: .value, with: { (snap) in
-                                
-                                if let properties = snap.value as? [String: AnyObject] {
-                                    if let likes = properties["likesForHer"] as? [String: AnyObject] {
-                                        let count = likes.count
-                                        if count <= 1 {
-                                            self.herCountLabel.text = "\(count) Like(s)"
-                                        } else {
-                                            self.herCountLabel.text = "\(count) Likes"
-                                        }
-                                        let update = ["herLikes": count]
-                                        ref.child("Posts").child(postID).updateChildValues(update)
-                                    }
-                                }
-                            })
-                        }
-                    })
-                }
-            })
-            ref.removeAllObservers()
-            
-        } else {
-            
-            isLiked = false
-            let ref = Database.database().reference()
-            guard let postID = pID else { return }
-            
-            ref.child("Posts").child(postID).observeSingleEvent(of: .value, with: { (snapshot) in
-                if let properties = snapshot.value as? [String : Any] {
-                    if let peopleWhoLike = properties["likesForHer"] as? [String : AnyObject] {
-                        for (id, person) in peopleWhoLike {
-                            if person as? String == Auth.auth().currentUser?.uid {
-                                ref.child("Posts").child(postID).child("likesForHer").child(id).removeValue(completionBlock: { (error, reff) in
-                                    
-                                    if error == nil {
-                                        
-                                        ref.child("Posts").child(postID).observeSingleEvent(of: .value, with: { (snap) in
-                                            if let prop = snap.value as? [String : AnyObject] {
-                                                if let likes = prop["likesForHer"] as? [String : AnyObject] {
-                                                    let count = likes.count
-                                                    if count <= 1 {
-                                                        self.herCountLabel.text = "\(count) Like(s)"
-                                                    } else {
-                                                        self.herCountLabel.text = "\(count) Likes"
-                                                    }
-                                                    ref.child("Posts").child(postID).updateChildValues(["herLikes" : count])
-                                                } else {
-                                                    self.herCountLabel.text = "0 Likes"
-                                                    ref.child("Posts").child(postID).child("herLikes").removeValue()
-                                                }
-                                            }
-                                        })
-                                    }
-                                })
-                                break
-                            }
-                        }
-                    }
-                }
-            })
-            ref.removeAllObservers()
-        }
+                
+        postLikeRef.child("Posts").child("herLikes").observeSingleEvent(of: .value, with: { (snapshot) in
+            if let thumbsUpDown = snapshot.value as? NSNull {
+                print(thumbsUpDown)
+                
+                self.post?.addSubtractVoteHerVotes(addVote: true)
+                self.postLikeRef.setValue(true)
+            } else {
+                self.post?.addSubtractVoteHerVotes(addVote: false)
+                self.postLikeRef.removeValue()
+            }
+        })
     }
+        
+//        if isLiked == false {
+//
+//            isLiked = true
+//            let ref = Database.database().reference()
+//            let keyToPost = ref.child("Posts").childByAutoId().key
+//
+//            guard let postID = pID else { return }
+//
+//            ref.child("Posts").child(postID).observeSingleEvent(of: .value, with: { (snapshot) in
+//                if let _ = snapshot.value as? [String: AnyObject] {
+//                    let updateLikes: [String: Any] = ["likesForHer/\(keyToPost)" : Auth.auth().currentUser?.uid]
+//                    ref.child("Posts").child(postID).updateChildValues(updateLikes, withCompletionBlock: { (error, reff) in
+//
+//                        if error == nil {
+//                            ref.child("Posts").child(postID).observeSingleEvent(of: .value, with: { (snap) in
+//
+//                                if let properties = snap.value as? [String: AnyObject] {
+//                                    if let likes = properties["likesForHer"] as? [String: AnyObject] {
+//                                        let count = likes.count
+//                                        if count <= 1 {
+//                                            self.herCountLabel.text = "\(count) Like(s)"
+//                                        } else {
+//                                            self.herCountLabel.text = "\(count) Likes"
+//                                        }
+//                                        let update = ["herLikes": count]
+//                                        ref.child("Posts").child(postID).updateChildValues(update)
+//                                    }
+//                                }
+//                            })
+//                        }
+//                    })
+//                }
+//            })
+//            ref.removeAllObservers()
+//
+//        } else {
+//
+//            isLiked = false
+//            let ref = Database.database().reference()
+//            guard let postID = pID else { return }
+//
+//            ref.child("Posts").child(postID).observeSingleEvent(of: .value, with: { (snapshot) in
+//                if let properties = snapshot.value as? [String : Any] {
+//                    if let peopleWhoLike = properties["likesForHer"] as? [String : AnyObject] {
+//                        for (id, person) in peopleWhoLike {
+//                            if person as? String == Auth.auth().currentUser?.uid {
+//                                ref.child("Posts").child(postID).child("likesForHer").child(id).removeValue(completionBlock: { (error, reff) in
+//
+//                                    if error == nil {
+//
+//                                        ref.child("Posts").child(postID).observeSingleEvent(of: .value, with: { (snap) in
+//                                            if let prop = snap.value as? [String : AnyObject] {
+//                                                if let likes = prop["likesForHer"] as? [String : AnyObject] {
+//                                                    let count = likes.count
+//                                                    if count <= 1 {
+//                                                        self.herCountLabel.text = "\(count) Like(s)"
+//                                                    } else {
+//                                                        self.herCountLabel.text = "\(count) Likes"
+//                                                    }
+//                                                    ref.child("Posts").child(postID).updateChildValues(["herLikes" : count])
+//                                                } else {
+//                                                    self.herCountLabel.text = "0 Likes"
+//                                                    ref.child("Posts").child(postID).child("herLikes").removeValue()
+//                                                }
+//                                            }
+//                                        })
+//                                    }
+//                                })
+//                                break
+//                            }
+//                        }
+//                    }
+//                }
+//            })
+//            ref.removeAllObservers()
+//        }
 }
 
 protocol PostsTableViewCellDelegate {

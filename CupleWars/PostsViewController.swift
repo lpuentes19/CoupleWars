@@ -12,6 +12,8 @@ import FirebaseDatabase
 
 class PostsViewController: UIViewController, UITextViewDelegate {
 
+    var post: Post?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         postTextView.delegate = self
@@ -66,7 +68,8 @@ class PostsViewController: UIViewController, UITextViewDelegate {
             let feed = ["userID": uid,
                         "username": Auth.auth().currentUser?.displayName ?? "",
                         "post": postTextView.text,
-                        "postID": key] as [String: Any]
+                        "hisLikes": post?.hisLikes ?? 0,
+                        "herLikes": post?.herLikes ?? 0] as [String: Any]
             
             let postFeed = ["\(key)": feed]
             
