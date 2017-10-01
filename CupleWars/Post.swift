@@ -21,8 +21,8 @@ class Post {
     var herLikes: Int
     var date: Date = Date()
     
-//    var likesForHim: [String] = [String]()
-//    var likesForHer: [String] = [String]()
+    var likesForHim: [String] = [String]()
+    var likesForHer: [String] = [String]()
     
     init(postText: String, userID: String, username: String, hisLikes: Int, herLikes: Int) {
 
@@ -33,7 +33,7 @@ class Post {
         self.herLikes = herLikes
     }
     
-    func addSubtractVoteHisVotes(addVote: Bool) {
+    func addSubtractHisVotes(addVote: Bool) {
         
         if addVote {
             hisLikes = hisLikes + 1
@@ -44,7 +44,7 @@ class Post {
         postRef.child("hisLikes").setValue(hisLikes)
     }
     
-    func addSubtractVoteHerVotes(addVote: Bool) {
+    func addSubtractHerVotes(addVote: Bool) {
         
         if addVote {
             herLikes = herLikes + 1
