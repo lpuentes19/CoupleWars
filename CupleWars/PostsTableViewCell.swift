@@ -34,7 +34,7 @@ class PostsTableViewCell: UITableViewCell {
         
         usernameLabel.text = post.username
         postTextView.text = post.postText
-        dateLabel.text = post.date.stringValue()
+        dateLabel.text = post.date.toString(dateFormat: "dd-MMM-yyyy")
         
         if post.hisLikes == 1 {
             hisCountLabel.text = "\(post.hisLikes) Like(s)"

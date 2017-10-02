@@ -19,7 +19,7 @@ class Post {
     var username: String
     var hisLikes: Int
     var herLikes: Int
-    var date: Date = Date()
+    var date: NSDate = NSDate()
     
     var likesForHim: [String] = [String]()
     var likesForHer: [String] = [String]()
