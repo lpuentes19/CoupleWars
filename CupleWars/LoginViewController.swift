@@ -13,6 +13,17 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        Auth.auth().addStateDidChangeListener { (auth, user) in
+//            if Auth.auth().currentUser != nil {
+//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                let viewController = storyboard.instantiateViewController(withIdentifier: "feedVC")
+//                self.present(viewController, animated: true, completion: nil)
+//                
+//            } else {
+//                print("User must sign in")
+//            }
+//        }
     }
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -48,7 +59,7 @@ class LoginViewController: UIViewController {
             } else {
                 
                 if email == email && password == password {
-                    
+
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let viewController = storyboard.instantiateViewController(withIdentifier: "feedVC")
                     DispatchQueue.main.async {
