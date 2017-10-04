@@ -30,26 +30,7 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
         ref.child("Posts").observe(.childAdded) { (snapshot: DataSnapshot) in
 
             if let dictionary = snapshot.value as? [String: AnyObject] {
-
-                let text = dictionary["post"] as! String
-                let userID = dictionary["userID"] as! String
-                let username = dictionary["username"] as! String
-                let hisLikes = dictionary["hisLikes"] as? Int ?? 0
-                let herLikes = dictionary["herLikes"] as? Int ?? 0
-
-                let post = Post(postText: text, userID: userID, username: username, hisLikes: hisLikes, herLikes: herLikes)
-
-//                if let people = dict["likesForHim"] as? [String : AnyObject] {
-//                   for (_, person) in people {
-//                        post.likesForHim.append(person as! String)
-//                    }
-//                }
-//
-//                if let person = dict["likesForHer"] as? [String : AnyObject] {
-//                    for (_, people) in person {
-//                        post.likesForHer.append(people as! String)
-//                    }
-//                }
+                let post = Post().transformPost(dict: dictionary)
 
                 self.posts.append(post)
                 self.tableView.reloadData()
