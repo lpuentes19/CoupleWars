@@ -22,7 +22,7 @@ class Post {
 
 extension Post {
     // Extracting data from Firebase (snapshot.value)
-    func transformPost(dict: [String: Any]) -> Post {
+    static func transformPost(dict: [String: Any]) -> Post {
         let post = Post()
         
         post.postText = dict["post"] as? String

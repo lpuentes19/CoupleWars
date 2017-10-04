@@ -142,8 +142,8 @@ class CreateAccountViewController: UIViewController {
                     changeRequest.displayName = username
                     changeRequest.commitChanges(completion: nil)
                     
-                    let userInfo: [String: Any] = ["UID": user.uid,
-                                                   "Username": username]
+                    let userInfo: [String: Any] = ["uid": user.uid,
+                                                   "username": username]
                     
                     self.ref.child("Users").child(user.uid).setValue(userInfo)
                 }

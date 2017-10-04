@@ -13,15 +13,16 @@ import FirebaseAuth
 
 class PostsTableViewCell: UITableViewCell {
     
-    var post: Post?
-    var postLikeRef = Database.database().reference().child("Posts")
-    var pID: String?
-    // var isLiked = false
     var delegate: PostsTableViewCellDelegate?
+    
+    var post: Post? {
+        didSet {
+            updateViews()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         setupTextView()
     }
     
@@ -29,24 +30,12 @@ class PostsTableViewCell: UITableViewCell {
         postTextView.layer.cornerRadius = 5
     }
     
-    func configureCell(post: Post) {
-        self.post = post
+    func updateViews() {
+        guard let post = post else { return }
         
         usernameLabel.text = post.username
         postTextView.text = post.postText
         dateLabel.text = post.date.toString(dateFormat: "dd-MMM-yyyy")
-        
-        if post.hisLikes == 1 {
-            hisCountLabel.text = "\(post.hisLikes) Like(s)"
-        } else {
-            hisCountLabel.text = "\(post.hisLikes) Likes"
-        }
-        
-        if post.herLikes == 1 {
-            herCountLabel.text = "\(post.herLikes) Like(s)"
-        } else {
-            herCountLabel.text = "\(post.herLikes) Likes"
-        }
     }
     
     @IBOutlet weak var usernameLabel: UILabel!
@@ -79,5 +68,4 @@ class PostsTableViewCell: UITableViewCell {
 }
 
 protocol PostsTableViewCellDelegate {
-
 }

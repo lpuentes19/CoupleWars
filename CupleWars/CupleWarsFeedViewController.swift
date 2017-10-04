@@ -26,13 +26,11 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
     func fetchPosts() {
         
         let ref = Database.database().reference()
-        
         ref.child("Posts").observe(.childAdded) { (snapshot: DataSnapshot) in
 
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                let post = Post().transformPost(dict: dictionary)
-
-                self.posts.append(post)
+                let newPost = Post.transformPost(dict: dictionary)
+                self.posts.append(newPost)
                 self.tableView.reloadData()
             }
         }
@@ -52,24 +50,10 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostsTableViewCell
         let post = posts[indexPath.row]
-//        cell.usernameLabel.text = posts[indexPath.row].username
-//        cell.postTextView.text = posts[indexPath.row].postText
         
+        cell.post = post
         cell.delegate = self
-        cell.configureCell(post: post)
-        
-        if posts[indexPath.row].hisLikes == 1 {
-            cell.hisCountLabel.text = "\(posts[indexPath.row].hisLikes) Like(s)"
-        } else {
-            cell.hisCountLabel.text = "\(posts[indexPath.row].hisLikes) Likes"
-        }
-        
-        if posts[indexPath.row].herLikes == 1 {
-            cell.herCountLabel.text = "\(posts[indexPath.row].herLikes) Like(s)"
-        } else {
-            cell.herCountLabel.text = "\(posts[indexPath.row].herLikes) Likes"
-        }
-        
+
         return cell
     }
     
