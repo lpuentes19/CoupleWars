@@ -21,6 +21,12 @@ class PostsTableViewCell: UITableViewCell {
         }
     }
     
+    var user: User? {
+        didSet {
+            setupUserInfo()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupTextView()
@@ -33,9 +39,15 @@ class PostsTableViewCell: UITableViewCell {
     func updateViews() {
         guard let post = post else { return }
         
-        usernameLabel.text = post.username
         postTextView.text = post.postText
         dateLabel.text = post.date.toString(dateFormat: "dd-MMM-yyyy")
+        setupUserInfo()
+    }
+    
+    func setupUserInfo() {
+        guard let user = user else { return }
+        
+        usernameLabel.text = user.username
     }
     
     @IBOutlet weak var usernameLabel: UILabel!

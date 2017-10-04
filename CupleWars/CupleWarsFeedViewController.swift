@@ -13,6 +13,7 @@ import FirebaseDatabase
 class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PostsTableViewCellDelegate {
 
     var posts = [Post]()
+    var users = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +31,23 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
 
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let newPost = Post.transformPost(dict: dictionary)
-                self.posts.append(newPost)
-                self.tableView.reloadData()
+                guard let postID = newPost.userID else { return }
+                self.fetchUser(userID: postID, completed: {
+                    self.posts.append(newPost)
+                    self.tableView.reloadData()
+                })
             }
         }
+    }
+    
+    func fetchUser(userID: String, completed: @escaping () -> Void) {
+        Database.database().reference().child("Users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                let user = User.transformUser(dict: dict)
+                self.users.append(user)
+                completed()
+            }
+        })
     }
     
     func toPostVC() {
@@ -50,8 +64,10 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostsTableViewCell
         let post = posts[indexPath.row]
+        let user = users[indexPath.row]
         
         cell.post = post
+        cell.user = user
         cell.delegate = self
 
         return cell
