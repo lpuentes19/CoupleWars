@@ -13,15 +13,10 @@ import FirebaseDatabase
 
 class CreateAccountViewController: UIViewController {
 
-    var ref: DatabaseReference!
+    var ref = Database.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        ref = Database.database().reference()
-        
-//        let storage = Storage.storage().reference(forURL: "gs://cuplewars.appspot.com")
-//        userStorage?.userStorage = storage.child("users")
     }
     
     @IBOutlet weak var usernameTextField: UITextField!
