@@ -9,7 +9,7 @@
 import Foundation
 import FirebaseDatabase
 
-class PostApi {
+class PostAPI {
     var ref_Posts = Database.database().reference().child("Posts")
     
     func observePosts(completion: @escaping (Post) -> Void) {

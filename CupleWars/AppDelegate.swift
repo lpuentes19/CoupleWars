@@ -19,16 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-        Auth.auth().addStateDidChangeListener { (auth, user) in
-            if Auth.auth().currentUser != nil {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let viewController = storyboard.instantiateViewController(withIdentifier: "feedVC")
-                self.window?.rootViewController = viewController
-                
-            } else {
-                print("User must sign in")
-            }
-        }
         return true
     }
 }

@@ -150,13 +150,10 @@ class CreateAccountViewController: UIViewController {
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: { (_) in
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let viewController = storyboard.instantiateViewController(withIdentifier: "loginVC")
-                    DispatchQueue.main.async {
-                        self.present(viewController, animated: true, completion: nil)
-                    }
+                    self.present(viewController, animated: true, completion: nil)
                 })
-                
-                alertController.addAction(okAction)
-                self.present(alertController, animated: true, completion: nil)
+                    alertController.addAction(okAction)
+                    self.present(alertController, animated: true, completion: nil)
             })
         }
     }

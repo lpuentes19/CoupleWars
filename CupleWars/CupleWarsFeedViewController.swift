@@ -25,7 +25,7 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func fetchPosts() {
-        PostApi().observePosts { (post) in
+        API.Post.observePosts { (post) in
             guard let postID = post.userID else { return }
             self.fetchUser(userID: postID, completed: {
                 self.posts.append(post)
@@ -35,12 +35,9 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func fetchUser(userID: String, completed: @escaping () -> Void) {
-        Database.database().reference().child("Users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
-            if let dict = snapshot.value as? [String: Any] {
-                let user = User.transformUser(dict: dict)
-                self.users.append(user)
-                completed()
-            }
+        API.User.observeUsers(withID: userID, completion: { (user) in
+            self.users.append(user)
+            completed()
         })
     }
     

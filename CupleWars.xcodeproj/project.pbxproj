@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7E2331756D33972AF58A6C55 /* Pods_CupleWars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F5E34A3D5106E21E2C478B /* Pods_CupleWars.framework */; };
 		950DDD281F882F8000F5341C /* PostAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950DDD271F882F8000F5341C /* PostAPI.swift */; };
+		950DDD2C1F8836D500F5341C /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950DDD2B1F8836D500F5341C /* UserAPI.swift */; };
+		950DDD2E1F88493400F5341C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950DDD2D1F88493400F5341C /* API.swift */; };
 		9511CA531F4CCFB200AFE442 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9511CA521F4CCFB200AFE442 /* CreateAccountViewController.swift */; };
 		95209D831F6C9F7400589961 /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95209D821F6C9F7400589961 /* PostsTableViewCell.swift */; };
 		95209D861F6CA1DB00589961 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95209D851F6CA1DB00589961 /* User.swift */; };
@@ -29,6 +31,8 @@
 		1292EFC7B4F30414FFAAC50A /* Pods-CupleWars.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CupleWars.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CupleWars/Pods-CupleWars.debug.xcconfig"; sourceTree = "<group>"; };
 		75F5E34A3D5106E21E2C478B /* Pods_CupleWars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CupleWars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		950DDD271F882F8000F5341C /* PostAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPI.swift; sourceTree = "<group>"; };
+		950DDD2B1F8836D500F5341C /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		950DDD2D1F88493400F5341C /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		9511CA521F4CCFB200AFE442 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		95209D821F6C9F7400589961 /* PostsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsTableViewCell.swift; sourceTree = "<group>"; };
 		95209D851F6CA1DB00589961 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 				95209D851F6CA1DB00589961 /* User.swift */,
 				95867AD51F7610190024C516 /* Post.swift */,
 				950DDD271F882F8000F5341C /* PostAPI.swift */,
+				950DDD2B1F8836D500F5341C /* UserAPI.swift */,
+				950DDD2D1F88493400F5341C /* API.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -288,8 +294,10 @@
 				9526064E1F4B96B2001330CC /* LoginViewController.swift in Sources */,
 				956C3CCA1F67758900342E13 /* CupleWarsFeedViewController.swift in Sources */,
 				95209D881F6CC96900589961 /* PostsViewController.swift in Sources */,
+				950DDD2C1F8836D500F5341C /* UserAPI.swift in Sources */,
 				950DDD281F882F8000F5341C /* PostAPI.swift in Sources */,
 				958BC7441F7F4B180056CF95 /* DateHelper.swift in Sources */,
+				950DDD2E1F88493400F5341C /* API.swift in Sources */,
 				95209D861F6CA1DB00589961 /* User.swift in Sources */,
 				95867AD61F7610190024C516 /* Post.swift in Sources */,
 				95209D831F6C9F7400589961 /* PostsTableViewCell.swift in Sources */,
