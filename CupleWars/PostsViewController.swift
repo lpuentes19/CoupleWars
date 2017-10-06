@@ -66,15 +66,13 @@ class PostsViewController: UIViewController, UITextViewDelegate {
             let key = ref.child("Posts").childByAutoId().key
             
             let feed = ["userID": uid,
-                        "username": Auth.auth().currentUser?.displayName ?? "",
+                        "username": post?.username ?? "",
                         "post": postTextView.text,
                         "hisLikes": post?.hisLikes ?? 0,
                         "herLikes": post?.herLikes ?? 0] as [String: Any]
             
             let postFeed = ["\(key)": feed]
-            
             ref.child("Posts").updateChildValues(postFeed)
-            
             self.dismiss(animated: true, completion: nil)
         }
     }

@@ -25,18 +25,12 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func fetchPosts() {
-        
-        let ref = Database.database().reference()
-        ref.child("Posts").observe(.childAdded) { (snapshot: DataSnapshot) in
-
-            if let dictionary = snapshot.value as? [String: AnyObject] {
-                let newPost = Post.transformPost(dict: dictionary)
-                guard let postID = newPost.userID else { return }
-                self.fetchUser(userID: postID, completed: {
-                    self.posts.append(newPost)
-                    self.tableView.reloadData()
-                })
-            }
+        PostApi().observePosts { (post) in
+            guard let postID = post.userID else { return }
+            self.fetchUser(userID: postID, completed: {
+                self.posts.append(post)
+                self.tableView.reloadData()
+            })
         }
     }
     
