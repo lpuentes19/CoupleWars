@@ -79,20 +79,20 @@ class PostsTableViewCell: UITableViewCell {
     func incrementLikes(forRef ref: DatabaseReference) {
         ref.runTransactionBlock({ (currentData: MutableData) -> TransactionResult in
             if var post = currentData.value as? [String : AnyObject], let uid = Auth.auth().currentUser?.uid {
-                var stars: Dictionary<String, Bool>
-                stars = post["stars"] as? [String : Bool] ?? [:]
-                var starCount = post["starCount"] as? Int ?? 0
-                if let _ = stars[uid] {
-                    // Unstar the post and remove self from stars
-                    starCount -= 1
-                    stars.removeValue(forKey: uid)
+                var likes: Dictionary<String, Bool>
+                likes = post["likes"] as? [String : Bool] ?? [:]
+                var hisLikeCount = post["hisLikeCount"] as? Int ?? 0
+                if let _ = likes[uid] {
+                    // Unstar the post and remove self from likes
+                    hisLikeCount -= 1
+                    likes.removeValue(forKey: uid)
                 } else {
-                    // Star the post and add self to stars
-                    starCount += 1
-                    stars[uid] = true
+                    // Like the post and add self to likes
+                    hisLikeCount += 1
+                    likes[uid] = true
                 }
-                post["starCount"] = starCount as AnyObject?
-                post["stars"] = stars as AnyObject?
+                post["hisLikeCount"] = hisLikeCount as AnyObject?
+                post["likes"] = likes as AnyObject?
                 
                 // Set value and report transaction success
                 currentData.value = post
