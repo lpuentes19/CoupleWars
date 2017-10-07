@@ -14,6 +14,7 @@ import FirebaseAuth
 class PostsTableViewCell: UITableViewCell {
     
     var delegate: PostsTableViewCellDelegate?
+    var postRef: DatabaseReference!
     
     var post: Post? {
         didSet {
@@ -30,6 +31,10 @@ class PostsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupTextView()
+        
+        let tapGestureForHisLikeImage = UITapGestureRecognizer(target: self, action: #selector(self.hisLikeImageTapped))
+        hisLikeImageView.addGestureRecognizer(tapGestureForHisLikeImage)
+        hisLikeImageView.isUserInteractionEnabled = true
     }
     
     func setupTextView() {
@@ -41,8 +46,67 @@ class PostsTableViewCell: UITableViewCell {
         
         postTextView.text = post.postText
         dateLabel.text = post.date.toString(dateFormat: "dd-MMM-yyyy")
-        setupUserInfo()
+        
+        if let currentUser = Auth.auth().currentUser {
+            API.User.ref_Users.child(currentUser.uid).child("likes").child(post.postID!).observeSingleEvent(of: .value, with: { (snapshot) in
+                if let _ = snapshot.value as? NSNull {
+                    self.hisLikeImageView.image = UIImage(named: "man")
+                } else {
+                    self.hisLikeImageView.image = UIImage(named: "manFilled")
+                }
+            })
+        }
     }
+    
+    func hisLikeImageTapped() {
+        
+        postRef = API.Post.ref_Posts.child(post!.postID!)
+        incrementLikes(forRef: postRef)
+        
+//        if let currentUser = Auth.auth().currentUser {
+//            API.User.ref_Users.child(currentUser.uid).child("likes").child(post!.postID!).observeSingleEvent(of: .value, with: { (snapshot) in
+//                if let _ = snapshot.value as? NSNull {
+//                    API.User.ref_Users.child(currentUser.uid).child("likes").child(self.post!.postID!).setValue(true)
+//                    self.hisLikeImageView.image = UIImage(named: "man")
+//                } else {
+//                    API.User.ref_Users.child(currentUser.uid).child("likes").child(self.post!.postID!).removeValue()
+//                    self.hisLikeImageView.image = UIImage(named: "manFilled")
+//                }
+//            })
+//        }
+    }
+    
+    func incrementLikes(forRef ref: DatabaseReference) {
+        ref.runTransactionBlock({ (currentData: MutableData) -> TransactionResult in
+            if var post = currentData.value as? [String : AnyObject], let uid = Auth.auth().currentUser?.uid {
+                var stars: Dictionary<String, Bool>
+                stars = post["stars"] as? [String : Bool] ?? [:]
+                var starCount = post["starCount"] as? Int ?? 0
+                if let _ = stars[uid] {
+                    // Unstar the post and remove self from stars
+                    starCount -= 1
+                    stars.removeValue(forKey: uid)
+                } else {
+                    // Star the post and add self to stars
+                    starCount += 1
+                    stars[uid] = true
+                }
+                post["starCount"] = starCount as AnyObject?
+                post["stars"] = stars as AnyObject?
+                
+                // Set value and report transaction success
+                currentData.value = post
+                
+                return TransactionResult.success(withValue: currentData)
+            }
+            return TransactionResult.success(withValue: currentData)
+        }) { (error, committed, snapshot) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
     
     func setupUserInfo() {
         guard let user = user else { return }
@@ -52,33 +116,12 @@ class PostsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var postTextView: UITextView!
-    @IBOutlet weak var himButton: UIButton!
-    @IBOutlet weak var herButton: UIButton!
     @IBOutlet weak var hisCountLabel: UILabel!
     @IBOutlet weak var herCountLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var hisLikeButton: UIButton!
-    @IBOutlet weak var herLikeButton: UIButton!
-    @IBOutlet weak var hisUnlikeButton: UIButton!
-    @IBOutlet weak var herUnlikeButton: UIButton!
+    @IBOutlet weak var hisLikeImageView: UIImageView!
+    @IBOutlet weak var herLikeImageView: UIImageView!
     
-    @IBAction func hisUnlikeButtonTapped(_ sender: Any) {
-       
-    }
-    
-    @IBAction func herUnlikeButtonTapped(_ sender: Any) {
-       
-    }
-    
-    @IBAction func himButtonTapped(_ sender: Any) {
-        if let currentUser = Auth.auth().currentUser {
-            API.User.ref_Users.child(currentUser.uid).child("likes").child(post!.postID!).setValue(true)
-        }
-    }
-    
-    @IBAction func herButtonTapped(_ sender: Any) {
-        
-    }
 }
 
 protocol PostsTableViewCellDelegate {
