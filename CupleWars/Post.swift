@@ -11,7 +11,8 @@ import Firebase
 import FirebaseDatabase
 
 class Post {
-        
+    
+    var postID: String?
     var postText: String?
     var userID: String?
     var username: String?
@@ -22,9 +23,10 @@ class Post {
 
 extension Post {
     // Extracting data from Firebase (snapshot.value)
-    static func transformPost(dict: [String: Any]) -> Post {
+    static func transformPost(dict: [String: Any], key: String) -> Post {
         let post = Post()
         
+        post.postID = key
         post.postText = dict["post"] as? String
         post.userID = dict["userID"] as? String
         post.username = dict["username"] as? String

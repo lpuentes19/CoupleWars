@@ -61,19 +61,25 @@ class PostsViewController: UIViewController, UITextViewDelegate {
             return
         } else {
             
-            guard let uid = Auth.auth().currentUser?.uid else { return }
+            guard let text = postTextView.text else { return }
+            guard let username = Auth.auth().currentUser?.displayName else { return }
+            guard let userID = Auth.auth().currentUser?.uid else { return }
+            
             let ref = Database.database().reference()
-            let key = ref.child("Posts").childByAutoId().key
-            
-            let feed = ["userID": uid,
-                        "username": Auth.auth().currentUser?.displayName,
-                        "post": postTextView.text,
-                        "hisLikes": post?.hisLikes ?? 0,
-                        "herLikes": post?.herLikes ?? 0] as [String: Any]
-            
-            let postFeed = ["\(key)": feed]
-            ref.child("Posts").updateChildValues(postFeed)
-            self.dismiss(animated: true, completion: nil)
+            let postReference = ref.child("Posts")
+            let newPostID = postReference.childByAutoId().key
+            let newPostReference = postReference.child(newPostID)
+            newPostReference.setValue(["post": text,
+                                       "username": username,
+                                       "userID": userID,
+                                       "hisLikes": post?.hisLikes ?? 0,
+                                       "herLikes": post?.herLikes ?? 0], withCompletionBlock: { (error, ref) in
+                if error != nil {
+                    print(error!.localizedDescription)
+                }
+                self.postTextView.text = ""
+                self.dismiss(animated: true, completion: nil)
+            })
         }
     }
     

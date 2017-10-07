@@ -71,7 +71,9 @@ class PostsTableViewCell: UITableViewCell {
     }
     
     @IBAction func himButtonTapped(_ sender: Any) {
-
+        if let currentUser = Auth.auth().currentUser {
+            API.User.ref_Users.child(currentUser.uid).child("likes").child(post!.postID!).setValue(true)
+        }
     }
     
     @IBAction func herButtonTapped(_ sender: Any) {

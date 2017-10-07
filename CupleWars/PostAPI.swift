@@ -15,7 +15,7 @@ class PostAPI {
     func observePosts(completion: @escaping (Post) -> Void) {
         ref_Posts.observe(.childAdded) { (snapshot: DataSnapshot) in
             if let dict = snapshot.value as? [String: Any] {
-                let newPost = Post.transformPost(dict: dict)
+                let newPost = Post.transformPost(dict: dict, key: snapshot.key)
                 completion(newPost)
             }
         }
