@@ -48,6 +48,11 @@ class PostsTableViewCell: UITableViewCell {
         dateLabel.text = post.date.toString(dateFormat: "dd-MMM-yyyy")
         
         updateLike(post: post)
+        API.Post.ref_Posts.child(post.postID!).observe(.childChanged, with: { (snapshot) in
+            if let value = snapshot.value as? Int {
+                self.hisCountLabel.text = "\(value) Likes"
+            }
+        })
         
 //        if let currentUser = Auth.auth().currentUser {
 //            API.User.ref_Users.child(currentUser.uid).child("likes").child(post.postID!).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -64,7 +69,8 @@ class PostsTableViewCell: UITableViewCell {
         let imageName = post.likes == nil || !post.isLiked! ? "man" : "manFilled"
         hisLikeImageView.image = UIImage(named: imageName)
         
-        if let count = post.hisLikes, count != 0 {
+        guard let count = post.hisLikes else { return }
+        if count != 0 {
             hisCountLabel.text = "\(count) Likes"
         } else if post.hisLikes == 0 {
             hisCountLabel.text = "0 Likes"
