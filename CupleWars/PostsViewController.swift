@@ -72,8 +72,8 @@ class PostsViewController: UIViewController, UITextViewDelegate {
             newPostReference.setValue(["post": text,
                                        "username": username,
                                        "userID": userID,
-                                       "hisLikes": post?.hisLikes ?? 0,
-                                       "herLikes": post?.herLikes ?? 0], withCompletionBlock: { (error, ref) in
+                                       "hisLikes": post?.hisLikeCount ?? 0,
+                                       "herLikes": post?.herLikeCount ?? 0], withCompletionBlock: { (error, ref) in
                 if error != nil {
                     print(error!.localizedDescription)
                 }

@@ -16,9 +16,10 @@ class Post {
     var postText: String?
     var userID: String?
     var username: String?
-    var hisLikes: Int?
-    var herLikes: Int?
-    var likes: Dictionary<String, Any>?
+    var hisLikeCount: Int?
+    var herLikeCount: Int?
+    var hisLikes: Dictionary<String, Any>?
+    var herLikes: Dictionary<String, Any>?
     var isLiked: Bool?
     var date: Date = Date()
 }
@@ -32,12 +33,24 @@ extension Post {
         post.postText = dict["post"] as? String
         post.userID = dict["userID"] as? String
         post.username = dict["username"] as? String
-        post.hisLikes = dict["hisLikes"] as? Int ?? 0
-        post.herLikes = dict["herLikes"] as? Int ?? 0
-        post.likes = dict["likes"] as? Dictionary<String, Any>
+        post.hisLikeCount = dict["hisLikeCount"] as? Int ?? 0
+        post.herLikeCount = dict["herLikeCount"] as? Int ?? 0
+        post.hisLikes = dict["hisLikes"] as? Dictionary<String, Any>
+        post.herLikes = dict["herLikes"] as? Dictionary<String, Any>
+        
         if let currentUserID = Auth.auth().currentUser?.uid {
-            if post.likes != nil {
-                if post.likes?[currentUserID] != nil {
+            if post.hisLikes != nil {
+                if post.hisLikes?[currentUserID] != nil {
+                    post.isLiked = true
+                } else {
+                    post.isLiked = false
+                }
+            }
+        }
+        
+        if let currentUserID = Auth.auth().currentUser?.uid {
+            if post.herLikes != nil {
+                if post.herLikes?[currentUserID] != nil {
                     post.isLiked = true
                 } else {
                     post.isLiked = false

@@ -35,10 +35,19 @@ class PostsTableViewCell: UITableViewCell {
         let tapGestureForHisLikeImage = UITapGestureRecognizer(target: self, action: #selector(self.hisLikeImageTapped))
         hisLikeImageView.addGestureRecognizer(tapGestureForHisLikeImage)
         hisLikeImageView.isUserInteractionEnabled = true
+        
+        let tapGestureForHerLikeImage = UITapGestureRecognizer(target: self, action: #selector(self.herLikeImageTapped))
+        herLikeImageView.addGestureRecognizer(tapGestureForHerLikeImage)
+        herLikeImageView.isUserInteractionEnabled = true
     }
     
     func setupTextView() {
         postTextView.layer.cornerRadius = 5
+    }
+    
+    func setupUserInfo() {
+        guard let user = user else { return }
+        usernameLabel.text = user.username
     }
     
     func updateViews() {
@@ -46,50 +55,57 @@ class PostsTableViewCell: UITableViewCell {
         
         postTextView.text = post.postText
         dateLabel.text = post.date.toString(dateFormat: "dd-MMM-yyyy")
-        updateLike(post: post)
+        updateHisLike(post: post)
+        updateHerLike(post: post)
         
-        // Method below checks for changes in likes and updates them in real time
-        API.Post.ref_Posts.child(post.postID!).observe(.childChanged, with: { (snapshot) in
+        // Methods below checks for changes in his and her likes and updates them in real time
+        API.Post.ref_Posts.child(post.postID!).child("hisLikes").observe(.childChanged, with: { (snapshot) in
             if let value = snapshot.value as? Int {
                 self.hisCountLabel.text = "\(value) Likes"
             }
         })
-    }
-    
-    func updateLike(post: Post) {
-        let imageName = post.likes == nil || !post.isLiked! ? "man" : "manFilled"
-        hisLikeImageView.image = UIImage(named: imageName)
         
-        guard let count = post.hisLikes else { return }
-        if count != 0 {
-            hisCountLabel.text = "\(count) Likes"
-        } else if post.hisLikes == 0 {
-            hisCountLabel.text = "0 Likes"
-        }
+        API.Post.ref_Posts.child(post.postID!).child("herLikes").observe(.childChanged, with: { (snapshot) in
+            if let value = snapshot.value as? Int {
+                self.herCountLabel.text = "\(value) Likes"
+            }
+        })
     }
     
     func hisLikeImageTapped() {
         postRef = API.Post.ref_Posts.child(post!.postID!)
-        incrementLikes(forRef: postRef)
+        incrementLikesForHim(forRef: postRef)
     }
     
-    func incrementLikes(forRef ref: DatabaseReference) {
+    func updateHisLike(post: Post) {
+        let imageName = post.hisLikes == nil || !post.isLiked! ? "man" : "manFilled"
+        hisLikeImageView.image = UIImage(named: imageName)
+        
+        guard let count = post.hisLikeCount else { return }
+        if count != 0 {
+            hisCountLabel.text = "\(count) Likes"
+        } else if post.hisLikeCount == 0 {
+            hisCountLabel.text = "0 Likes"
+        }
+    }
+    
+    func incrementLikesForHim(forRef ref: DatabaseReference) {
         ref.runTransactionBlock({ (currentData: MutableData) -> TransactionResult in
             if var post = currentData.value as? [String : AnyObject], let uid = Auth.auth().currentUser?.uid {
-                var likes: Dictionary<String, Bool>
-                likes = post["likes"] as? [String : Bool] ?? [:]
-                var hisLikes = post["hisLikes"] as? Int ?? 0
-                if let _ = likes[uid] {
+                var hisLikes: Dictionary<String, Bool>
+                hisLikes = post["hisLikes"] as? [String : Bool] ?? [:]
+                var hisLikeCount = post["hisLikeCount"] as? Int ?? 0
+                if let _ = hisLikes[uid] {
                     // Unstar the post and remove self from likes
-                    hisLikes -= 1
-                    likes.removeValue(forKey: uid)
+                    hisLikeCount -= 1
+                    hisLikes.removeValue(forKey: uid)
                 } else {
                     // Like the post and add self to likes
-                    hisLikes += 1
-                    likes[uid] = true
+                    hisLikeCount += 1
+                    hisLikes[uid] = true
                 }
+                post["hisLikeCount"] = hisLikeCount as AnyObject?
                 post["hisLikes"] = hisLikes as AnyObject?
-                post["likes"] = likes as AnyObject?
                 
                 // Set value and report transaction success
                 currentData.value = post
@@ -103,15 +119,61 @@ class PostsTableViewCell: UITableViewCell {
             }
             if let dict = snapshot?.value as? [String: Any] {
                 let post = Post.transformPost(dict: dict, key: snapshot!.key)
-                self.updateLike(post: post)
+                self.updateHisLike(post: post)
             }
         }
     }
     
-    func setupUserInfo() {
-        guard let user = user else { return }
+    func herLikeImageTapped() {
+        postRef = API.Post.ref_Posts.child(post!.postID!)
+        incrementLikesForHer(forRef: postRef)
+    }
+    
+    func updateHerLike(post: Post) {
+        let imageName = post.herLikes == nil || !post.isLiked! ? "women" : "womanFilled"
+        herLikeImageView.image = UIImage(named: imageName)
         
-        usernameLabel.text = user.username
+        guard let count = post.herLikeCount else { return }
+        if count != 0 {
+            herCountLabel.text = "\(count) Likes"
+        } else if post.herLikeCount == 0 {
+            herCountLabel.text = "0 Likes"
+        }
+    }
+    
+    func incrementLikesForHer(forRef ref: DatabaseReference) {
+        ref.runTransactionBlock({ (currentData: MutableData) -> TransactionResult in
+            if var post = currentData.value as? [String : AnyObject], let uid = Auth.auth().currentUser?.uid {
+                var herLikes: Dictionary<String, Bool>
+                herLikes = post["herLikes"] as? [String : Bool] ?? [:]
+                var herLikeCount = post["herLikeCount"] as? Int ?? 0
+                if let _ = herLikes[uid] {
+                    // Unstar the post and remove self from likes
+                    herLikeCount -= 1
+                    herLikes.removeValue(forKey: uid)
+                } else {
+                    // Like the post and add self to likes
+                    herLikeCount += 1
+                    herLikes[uid] = true
+                }
+                post["herLikeCount"] = herLikeCount as AnyObject?
+                post["herLikes"] = herLikes as AnyObject?
+                
+                // Set value and report transaction success
+                currentData.value = post
+                
+                return TransactionResult.success(withValue: currentData)
+            }
+            return TransactionResult.success(withValue: currentData)
+        }) { (error, committed, snapshot) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            if let dict = snapshot?.value as? [String: Any] {
+                let post = Post.transformPost(dict: dict, key: snapshot!.key)
+                self.updateHerLike(post: post)
+            }
+        }
     }
     
     @IBOutlet weak var usernameLabel: UILabel!
