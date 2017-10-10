@@ -18,6 +18,8 @@ class Post {
     var username: String?
     var hisLikes: Int?
     var herLikes: Int?
+    var likes: Dictionary<String, Any>?
+    var isLiked: Bool?
     var date: NSDate = NSDate()
 }
 
@@ -32,6 +34,16 @@ extension Post {
         post.username = dict["username"] as? String
         post.hisLikes = dict["hisLikes"] as? Int ?? 0
         post.herLikes = dict["herLikes"] as? Int ?? 0
+        post.likes = dict["likes"] as? Dictionary<String, Any>
+        if let currentUserID = Auth.auth().currentUser?.uid {
+            if post.likes != nil {
+                if post.likes?[currentUserID] != nil {
+                    post.isLiked = true
+                } else {
+                    post.isLiked = false
+                }
+            }
+        }
         
         return post
     }
