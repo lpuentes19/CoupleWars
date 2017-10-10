@@ -20,7 +20,7 @@ class Post {
     var herLikes: Int?
     var likes: Dictionary<String, Any>?
     var isLiked: Bool?
-    var date: NSDate = NSDate()
+    var date: Date = Date()
 }
 
 extension Post {
@@ -44,7 +44,6 @@ extension Post {
                 }
             }
         }
-        
         return post
     }
 }

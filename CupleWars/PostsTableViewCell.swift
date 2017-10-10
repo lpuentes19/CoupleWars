@@ -46,23 +46,14 @@ class PostsTableViewCell: UITableViewCell {
         
         postTextView.text = post.postText
         dateLabel.text = post.date.toString(dateFormat: "dd-MMM-yyyy")
-        
         updateLike(post: post)
+        
+        // Method below checks for changes in likes and updates them in real time
         API.Post.ref_Posts.child(post.postID!).observe(.childChanged, with: { (snapshot) in
             if let value = snapshot.value as? Int {
                 self.hisCountLabel.text = "\(value) Likes"
             }
         })
-        
-//        if let currentUser = Auth.auth().currentUser {
-//            API.User.ref_Users.child(currentUser.uid).child("likes").child(post.postID!).observeSingleEvent(of: .value, with: { (snapshot) in
-//                if let _ = snapshot.value as? NSNull {
-//                    self.hisLikeImageView.image = UIImage(named: "man")
-//                } else {
-//                    self.hisLikeImageView.image = UIImage(named: "manFilled")
-//                }
-//            })
-//        }
     }
     
     func updateLike(post: Post) {
@@ -78,21 +69,8 @@ class PostsTableViewCell: UITableViewCell {
     }
     
     func hisLikeImageTapped() {
-        
         postRef = API.Post.ref_Posts.child(post!.postID!)
         incrementLikes(forRef: postRef)
-        
-//        if let currentUser = Auth.auth().currentUser {
-//            API.User.ref_Users.child(currentUser.uid).child("likes").child(post!.postID!).observeSingleEvent(of: .value, with: { (snapshot) in
-//                if let _ = snapshot.value as? NSNull {
-//                    API.User.ref_Users.child(currentUser.uid).child("likes").child(self.post!.postID!).setValue(true)
-//                    self.hisLikeImageView.image = UIImage(named: "man")
-//                } else {
-//                    API.User.ref_Users.child(currentUser.uid).child("likes").child(self.post!.postID!).removeValue()
-//                    self.hisLikeImageView.image = UIImage(named: "manFilled")
-//                }
-//            })
-//        }
     }
     
     func incrementLikes(forRef ref: DatabaseReference) {
@@ -129,7 +107,6 @@ class PostsTableViewCell: UITableViewCell {
             }
         }
     }
-    
     
     func setupUserInfo() {
         guard let user = user else { return }
