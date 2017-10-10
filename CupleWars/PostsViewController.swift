@@ -73,7 +73,8 @@ class PostsViewController: UIViewController, UITextViewDelegate {
                                        "username": username,
                                        "userID": userID,
                                        "hisLikes": post?.hisLikeCount ?? 0,
-                                       "herLikes": post?.herLikeCount ?? 0], withCompletionBlock: { (error, ref) in
+                                       "herLikes": post?.herLikeCount ?? 0,
+                                       "timestamp": ServerValue.timestamp()], withCompletionBlock: { (error, ref) in
                 if error != nil {
                     print(error!.localizedDescription)
                 }

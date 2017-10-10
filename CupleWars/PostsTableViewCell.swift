@@ -54,7 +54,7 @@ class PostsTableViewCell: UITableViewCell {
         guard let post = post else { return }
         
         postTextView.text = post.postText
-        dateLabel.text = post.date.toString(dateFormat: "dd-MMM-yyyy")
+//        dateLabel.text = post.date
         updateHisLike(post: post)
         updateHerLike(post: post)
         

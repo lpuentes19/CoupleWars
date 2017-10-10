@@ -329,24 +329,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5g-Rc-aWt">
-                                <rect key="frame" x="156" y="541" width="38" height="40"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
-                                <state key="normal" title="Post">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="postButtonTapped:" destination="OSI-uk-9qF" eventType="touchUpInside" id="7rf-YD-Rye"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let it out" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1Y-cu-WAs">
-                                <rect key="frame" x="52" y="50" width="202.5" height="118.5"/>
+                                <rect key="frame" x="74" y="49" width="202.5" height="118.5"/>
                                 <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="35"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWy-Af-2Hw">
-                                <rect key="frame" x="0.0" y="20" width="38" height="36"/>
+                                <rect key="frame" x="16" y="20" width="38" height="36"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -356,21 +346,31 @@
                                     <action selector="logoutButtonTapped:" destination="Mhz-dL-HsU" eventType="touchUpInside" id="lMe-07-5DR"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5g-Rc-aWt">
+                                <rect key="frame" x="168" y="540" width="38" height="40"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                <state key="normal" title="Post">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="postButtonTapped:" destination="OSI-uk-9qF" eventType="touchUpInside" id="7rf-YD-Rye"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.25892877578735352" green="0.25891765952110291" blue="0.2589251697063446" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="u1Y-cu-WAs" firstAttribute="top" secondItem="29T-XO-vHd" secondAttribute="bottom" constant="30" id="6Ay-2d-aXj"/>
+                            <constraint firstItem="u1Y-cu-WAs" firstAttribute="top" secondItem="29T-XO-vHd" secondAttribute="bottom" constant="29" id="6Ay-2d-aXj"/>
                             <constraint firstItem="19H-xf-BJi" firstAttribute="top" secondItem="IWy-Af-2Hw" secondAttribute="bottom" constant="114" id="DWa-RD-Cdu"/>
-                            <constraint firstItem="IWy-Af-2Hw" firstAttribute="leading" secondItem="9Bp-cU-o8x" secondAttribute="leading" id="IMO-ie-BRR"/>
+                            <constraint firstItem="IWy-Af-2Hw" firstAttribute="leading" secondItem="9Bp-cU-o8x" secondAttribute="leading" constant="16" id="IMO-ie-BRR"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="M5g-Rc-aWt" secondAttribute="trailing" id="Lkm-Sh-EJp"/>
-                            <constraint firstItem="u1Y-cu-WAs" firstAttribute="leading" secondItem="9Bp-cU-o8x" secondAttribute="leading" constant="52" id="Yf7-hS-fKR"/>
+                            <constraint firstItem="u1Y-cu-WAs" firstAttribute="leading" secondItem="9Bp-cU-o8x" secondAttribute="leading" constant="74" id="Yf7-hS-fKR"/>
                             <constraint firstAttribute="trailing" secondItem="19H-xf-BJi" secondAttribute="trailing" constant="29" id="a16-fL-UfK"/>
                             <constraint firstItem="IWy-Af-2Hw" firstAttribute="top" secondItem="29T-XO-vHd" secondAttribute="bottom" id="bWk-QC-rx9"/>
-                            <constraint firstItem="uP5-kO-Rbl" firstAttribute="top" secondItem="M5g-Rc-aWt" secondAttribute="bottom" constant="86" id="dg7-VN-DXk"/>
+                            <constraint firstItem="uP5-kO-Rbl" firstAttribute="top" secondItem="M5g-Rc-aWt" secondAttribute="bottom" constant="87" id="dg7-VN-DXk"/>
                             <constraint firstItem="19H-xf-BJi" firstAttribute="leading" secondItem="9Bp-cU-o8x" secondAttribute="leading" constant="29" id="es7-pt-NwC"/>
-                            <constraint firstItem="M5g-Rc-aWt" firstAttribute="top" secondItem="19H-xf-BJi" secondAttribute="bottom" constant="15" id="fzn-h1-pvH"/>
-                            <constraint firstItem="19H-xf-BJi" firstAttribute="top" secondItem="u1Y-cu-WAs" secondAttribute="bottom" constant="1.5" id="j0O-Nd-8pY"/>
-                            <constraint firstItem="M5g-Rc-aWt" firstAttribute="leading" secondItem="9Bp-cU-o8x" secondAttribute="leading" constant="156" id="nbX-T6-nE9"/>
+                            <constraint firstItem="M5g-Rc-aWt" firstAttribute="top" secondItem="19H-xf-BJi" secondAttribute="bottom" constant="14" id="fzn-h1-pvH"/>
+                            <constraint firstItem="19H-xf-BJi" firstAttribute="top" secondItem="u1Y-cu-WAs" secondAttribute="bottom" constant="2.5" id="j0O-Nd-8pY"/>
+                            <constraint firstItem="M5g-Rc-aWt" firstAttribute="leading" secondItem="9Bp-cU-o8x" secondAttribute="leading" constant="168" id="nbX-T6-nE9"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IWy-Af-2Hw" secondAttribute="trailing" id="xJg-zH-fZ0"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="u1Y-cu-WAs" secondAttribute="trailing" id="yPj-tg-00d"/>
                         </constraints>
