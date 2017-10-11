@@ -15,7 +15,8 @@ class PostsTableViewCell: UITableViewCell {
     
     var delegate: PostsTableViewCellDelegate?
     var postRef: DatabaseReference!
-    
+//    var date = API.Post.ref_Posts.child("timestamp")
+    var timestamp = ServerValue.timestamp()
     var post: Post? {
         didSet {
             updateViews()
@@ -52,9 +53,9 @@ class PostsTableViewCell: UITableViewCell {
     
     func updateViews() {
         guard let post = post else { return }
-        
+        let timestampDate = NSDate(timeIntervalSince1970: Double(timestamp as! NSNumber)/1000)
         postTextView.text = post.postText
-//        dateLabel.text = post.date
+        dateLabel.text = timestampDate.toString(dateFormat: "dd-MMM-yyyy")
         updateHisLike(post: post)
         updateHerLike(post: post)
         
