@@ -62,12 +62,10 @@ class PostsTableViewCell: UITableViewCell {
             if let timestamp = snapshot.value as? TimeInterval {
                 post.date = Date(timeIntervalSince1970: timestamp / 1000)
                 let formatter = DateFormatter()
-                formatter.timeZone = .current
                 formatter.dateFormat = "dd-MMM-yyyy"
-                formatter.string(from: post.date as Date)
+                let date = formatter.string(from: post.date as Date)
                 
-                self.dateLabel.text = "\(post.date)"
-                print("\(post.date)HELLLOOOOO")
+                self.dateLabel.text = "\(date)"
             }
         })
         
