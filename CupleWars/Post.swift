@@ -21,7 +21,7 @@ class Post {
     var hisLikes: Dictionary<String, Any>?
     var herLikes: Dictionary<String, Any>?
     var isLiked: Bool?
-    var date: ServerValue?
+    var date: Date = Date()
     
 }
 
@@ -31,7 +31,6 @@ extension Post {
         let post = Post()
         
         post.postID = key
-//        post.date = dict["date"] as? Date
         post.postText = dict["post"] as? String
         post.userID = dict["userID"] as? String
         post.username = dict["username"] as? String
