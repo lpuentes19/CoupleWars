@@ -15,7 +15,6 @@ class PostsTableViewCell: UITableViewCell {
     
     var delegate: PostsTableViewCellDelegate?
     var postRef: DatabaseReference!
-    var date = API.Post.ref_Posts.child("timestamp")
     
     var post: Post? {
         didSet {
@@ -57,7 +56,8 @@ class PostsTableViewCell: UITableViewCell {
         postTextView.text = post.postText
         updateHisLike(post: post)
         updateHerLike(post: post)
-      
+        
+      // This method converts Firebase Timestamp to a Date
         API.Post.ref_Posts.child(post.postID!).child("timestamp").observe(.value, with: { (snapshot) in
             if let timestamp = snapshot.value as? TimeInterval {
                 post.date = Date(timeIntervalSince1970: timestamp / 1000)
@@ -72,13 +72,25 @@ class PostsTableViewCell: UITableViewCell {
         // Methods below checks for changes in his and her likes and updates them in real time
         API.Post.ref_Posts.child(post.postID!).child("hisLikes").observe(.childChanged, with: { (snapshot) in
             if let value = snapshot.value as? Int {
-                self.hisCountLabel.text = "\(value) Likes"
+                if value == 1 {
+                    self.hisCountLabel.text = "\(value) Like"
+                } else {
+                    if value != 0 {
+                        self.hisCountLabel.text = "\(value) Likes"
+                    }
+                }
             }
         })
         
         API.Post.ref_Posts.child(post.postID!).child("herLikes").observe(.childChanged, with: { (snapshot) in
             if let value = snapshot.value as? Int {
-                self.herCountLabel.text = "\(value) Likes"
+                if value == 1 {
+                    self.herCountLabel.text = "\(value) Like"
+                } else {
+                    if value != 0 {
+                        self.herCountLabel.text = "\(value) Likes"
+                    }
+                }
             }
         })
     }
@@ -93,10 +105,14 @@ class PostsTableViewCell: UITableViewCell {
         hisLikeImageView.image = UIImage(named: imageName)
         
         guard let count = post.hisLikeCount else { return }
-        if count != 0 {
+        if count == 1 {
+            hisCountLabel.text = "\(count) Like"
+        } else if count != 0 {
             hisCountLabel.text = "\(count) Likes"
-        } else if post.hisLikeCount == 0 {
-            hisCountLabel.text = "0 Likes"
+        } else {
+            if count == 0 {
+                hisCountLabel.text = "0 Likes"
+            }
         }
     }
     
@@ -145,10 +161,14 @@ class PostsTableViewCell: UITableViewCell {
         herLikeImageView.image = UIImage(named: imageName)
         
         guard let count = post.herLikeCount else { return }
-        if count != 0 {
+        if count == 1 {
+            herCountLabel.text = "\(count) Like"
+        } else if count != 0 {
             herCountLabel.text = "\(count) Likes"
-        } else if post.herLikeCount == 0 {
-            herCountLabel.text = "0 Likes"
+        } else {
+            if count == 0 {
+                herCountLabel.text = "0 Likes"
+            }
         }
     }
     

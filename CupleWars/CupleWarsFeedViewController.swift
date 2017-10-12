@@ -25,11 +25,13 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func fetchPosts() {
+        activityIndicator.startAnimating()
         API.Post.observePosts { (post) in
             guard let postID = post.userID else { return }
             self.fetchUser(userID: postID, completed: {
                 self.posts.append(post)
                 self.posts.sort(by: {$0.date > $1.date})
+                self.activityIndicator.stopAnimating()
                 self.tableView.reloadData()
             })
         }
@@ -72,6 +74,7 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var postTextField: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBAction func logoutButtonTapped(_ sender: Any) {
         
         do {

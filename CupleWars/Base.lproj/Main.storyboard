@@ -285,7 +285,7 @@
                                     <outlet property="delegate" destination="Mhz-dL-HsU" id="U1b-XO-LBj"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ZP0-Ra-fgm">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ZP0-Ra-fgm">
                                 <rect key="frame" x="177" y="323" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -309,6 +309,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="ZP0-Ra-fgm" id="Jdb-bP-KrQ"/>
                         <outlet property="postTextField" destination="UA3-aE-ckQ" id="bJT-3H-FMv"/>
                         <outlet property="tableView" destination="xfh-Xd-XGh" id="Ioc-w9-N0R"/>
                     </connections>
