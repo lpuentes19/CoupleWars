@@ -285,10 +285,14 @@
                                     <outlet property="delegate" destination="Mhz-dL-HsU" id="U1b-XO-LBj"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ZP0-Ra-fgm">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.25892877578735352" green="0.25891765952110291" blue="0.2589251697063446" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="UA3-aE-ckQ" secondAttribute="trailing" constant="16" id="9t5-Qu-aM6"/>
+                            <constraint firstItem="ZP0-Ra-fgm" firstAttribute="centerX" secondItem="rka-KE-3LX" secondAttribute="centerX" id="IiT-kR-TLv"/>
                             <constraint firstAttribute="trailing" secondItem="gms-bd-fcS" secondAttribute="trailing" constant="16" id="Oa5-NF-XqI"/>
                             <constraint firstItem="qeK-tf-e0j" firstAttribute="top" secondItem="xfh-Xd-XGh" secondAttribute="bottom" id="P9a-bD-mJ9"/>
                             <constraint firstItem="xfh-Xd-XGh" firstAttribute="top" secondItem="UA3-aE-ckQ" secondAttribute="bottom" constant="23" id="Pey-W7-gwn"/>
@@ -300,6 +304,7 @@
                             <constraint firstItem="5WJ-oN-yoH" firstAttribute="leading" secondItem="rka-KE-3LX" secondAttribute="leading" constant="52" id="d1h-Fy-ylS"/>
                             <constraint firstItem="5WJ-oN-yoH" firstAttribute="top" secondItem="rka-KE-3LX" secondAttribute="top" constant="46" id="hyR-b5-Fkz"/>
                             <constraint firstAttribute="trailing" secondItem="xfh-Xd-XGh" secondAttribute="trailing" id="p7q-4h-QA2"/>
+                            <constraint firstItem="ZP0-Ra-fgm" firstAttribute="centerY" secondItem="rka-KE-3LX" secondAttribute="centerY" id="pRM-t6-RFH"/>
                             <constraint firstItem="xfh-Xd-XGh" firstAttribute="leading" secondItem="rka-KE-3LX" secondAttribute="leading" id="qe8-vl-eui"/>
                         </constraints>
                     </view>

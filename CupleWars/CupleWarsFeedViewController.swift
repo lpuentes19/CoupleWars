@@ -29,6 +29,7 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
             guard let postID = post.userID else { return }
             self.fetchUser(userID: postID, completed: {
                 self.posts.append(post)
+                self.posts.sort(by: {$0.date > $1.date})
                 self.tableView.reloadData()
             })
         }
@@ -42,10 +43,15 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func toPostVC() {
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "postVC")
         present(viewController, animated: true, completion: nil)
+    }
+    
+    func sortPosts() -> [Post] {
+        let sortedPost = posts.sorted(by: { ($0.0.date < ($0.0.date))})
+        self.posts = sortedPost
+        return sortedPost
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
