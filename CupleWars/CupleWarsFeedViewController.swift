@@ -30,7 +30,7 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
             guard let postID = post.userID else { return }
             self.fetchUser(userID: postID, completed: {
                 self.posts.append(post)
-                self.posts.sort(by: {$0.date > $1.date})
+//                self.posts.sort(by: {$0.date > $1.date})
                 self.activityIndicator.stopAnimating()
                 self.tableView.reloadData()
             })
