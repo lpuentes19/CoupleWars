@@ -50,12 +50,6 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
         present(viewController, animated: true, completion: nil)
     }
     
-    func sortPosts() -> [Post] {
-        let sortedPost = posts.sorted(by: { ($0.0.date < ($0.0.date))})
-        self.posts = sortedPost
-        return sortedPost
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
