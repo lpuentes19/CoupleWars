@@ -22,7 +22,7 @@
         <!--Login View Controller-->
         <scene sceneID="mf5-8N-zoo">
             <objects>
-                <viewController storyboardIdentifier="loginVC" id="pBc-qf-65O" customClass="LoginViewController" customModule="CupleWars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pBc-qf-65O" customClass="LoginViewController" customModule="CupleWars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hVL-2t-LaU"/>
                         <viewControllerLayoutGuide type="bottom" id="tD5-Hq-Z16"/>

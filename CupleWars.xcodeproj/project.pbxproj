@@ -133,6 +133,7 @@
 				95209D7D1F6C9ED100589961 /* Models */,
 				956C3CC81F67611100342E13 /* ViewControllers */,
 				95EE60781F47EF9400C4D6C7 /* Resources */,
+				9559E4B11F927A750065A4F5 /* CupleWars-Bridging-Header.h */,
 			);
 			path = CupleWars;
 			sourceTree = "<group>";
@@ -148,7 +149,6 @@
 				9559E4B41F927A760065A4F5 /* ProgressHUD.bundle */,
 				9559E4B31F927A760065A4F5 /* ProgressHUD.h */,
 				9559E4B21F927A760065A4F5 /* ProgressHUD.m */,
-				9559E4B11F927A750065A4F5 /* CupleWars-Bridging-Header.h */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
