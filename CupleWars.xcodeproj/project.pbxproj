@@ -17,6 +17,7 @@
 		95209D881F6CC96900589961 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95209D871F6CC96900589961 /* PostsViewController.swift */; };
 		9526064E1F4B96B2001330CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9526064D1F4B96B2001330CC /* LoginViewController.swift */; };
 		952BA7661F54D03400DD9716 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952BA7651F54D03400DD9716 /* ForgotPasswordViewController.swift */; };
+		9559E4B51F927A760065A4F5 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9559E4B21F927A760065A4F5 /* ProgressHUD.m */; };
 		956C3CCA1F67758900342E13 /* CupleWarsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C3CC91F67758900342E13 /* CupleWarsFeedViewController.swift */; };
 		95867AD61F7610190024C516 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95867AD51F7610190024C516 /* Post.swift */; };
 		959094BF1F4B854700456D11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 959094BE1F4B854700456D11 /* GoogleService-Info.plist */; };
@@ -38,6 +39,10 @@
 		95209D871F6CC96900589961 /* PostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		9526064D1F4B96B2001330CC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		952BA7651F54D03400DD9716 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		9559E4B11F927A750065A4F5 /* CupleWars-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CupleWars-Bridging-Header.h"; sourceTree = "<group>"; };
+		9559E4B21F927A760065A4F5 /* ProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		9559E4B31F927A760065A4F5 /* ProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		9559E4B41F927A760065A4F5 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		956C3CC91F67758900342E13 /* CupleWarsFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CupleWarsFeedViewController.swift; sourceTree = "<group>"; };
 		95867AD51F7610190024C516 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		959094BE1F4B854700456D11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -140,6 +145,10 @@
 				95EE606F1F47EEC600C4D6C7 /* LaunchScreen.storyboard */,
 				95EE60721F47EEC600C4D6C7 /* Info.plist */,
 				959094BE1F4B854700456D11 /* GoogleService-Info.plist */,
+				9559E4B41F927A760065A4F5 /* ProgressHUD.bundle */,
+				9559E4B31F927A760065A4F5 /* ProgressHUD.h */,
+				9559E4B21F927A760065A4F5 /* ProgressHUD.m */,
+				9559E4B11F927A750065A4F5 /* CupleWars-Bridging-Header.h */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -189,6 +198,7 @@
 					95EE60621F47EEC600C4D6C7 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = H9L7P6ZCN6;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -279,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				952BA7661F54D03400DD9716 /* ForgotPasswordViewController.swift in Sources */,
+				9559E4B51F927A760065A4F5 /* ProgressHUD.m in Sources */,
 				9511CA531F4CCFB200AFE442 /* CreateAccountViewController.swift in Sources */,
 				9526064E1F4B96B2001330CC /* LoginViewController.swift in Sources */,
 				956C3CCA1F67758900342E13 /* CupleWarsFeedViewController.swift in Sources */,
@@ -415,11 +426,14 @@
 			baseConfigurationReference = 1292EFC7B4F30414FFAAC50A /* Pods-CupleWars.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = H9L7P6ZCN6;
 				INFOPLIST_FILE = CupleWars/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CupleWars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CupleWars/CupleWars-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -429,11 +443,13 @@
 			baseConfigurationReference = E7A5EA74129D9167BD3656ED /* Pods-CupleWars.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = H9L7P6ZCN6;
 				INFOPLIST_FILE = CupleWars/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CupleWars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CupleWars/CupleWars-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
