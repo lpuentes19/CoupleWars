@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
@@ -25,8 +26,8 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var invalidInfoLabel: UILabel!
 
     @IBAction func createAccountButtonTapped(_ sender: Any) {
-        ProgressHUD.show("Waiting...")
-        
+        ProgressHUD.show("Waiting...", interaction: false)
+    
         usernameTextField.layer.borderWidth = 0
         emailTextField.layer.borderWidth = 0
         passwordTextField.layer.borderWidth = 0
@@ -135,7 +136,7 @@ class CreateAccountViewController: UIViewController {
                 }
                 
                 if let user = user {
-                    
+                    ProgressHUD.showSuccess("Success")
                     guard let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest() else { return }
                     changeRequest.displayName = username
                     changeRequest.commitChanges(completion: nil)
@@ -145,7 +146,6 @@ class CreateAccountViewController: UIViewController {
                                                    "username": username]
                     
                     self.ref.child("Users").child(user.uid).setValue(userInfo)
-                    ProgressHUD.showSuccess("Success")
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let viewController = storyboard.instantiateViewController(withIdentifier: "loginVC")
                     self.present(viewController, animated: true, completion: nil)

@@ -152,7 +152,7 @@
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	self.statusFont			= [UIFont boldSystemFontOfSize:16];
 	self.statusColor		= [UIColor blackColor];
-	self.spinnerColor		= [UIColor grayColor];
+	self.spinnerColor		= [UIColor greenColor];
 	self.hudColor			= [UIColor colorWithWhite:0.0 alpha:0.1];
 	self.backgroundColor	= [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.2];
 	NSBundle *bundle		= [NSBundle bundleForClass:[self class]];

@@ -18,7 +18,7 @@ class PostsViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         postTextView.delegate = self
         setupTextView()
-        self.automaticallyAdjustsScrollViewInsets = false
+//        self.automaticallyAdjustsScrollViewInsets = false
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PostsViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
