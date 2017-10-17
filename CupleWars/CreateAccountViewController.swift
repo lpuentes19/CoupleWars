@@ -138,19 +138,21 @@ class CreateAccountViewController: UIViewController {
                 
                 if let user = user {
                     
-                    ProgressHUD.showSuccess("Success")
                     guard let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest() else { return }
                     changeRequest.displayName = username
                     changeRequest.commitChanges(completion: nil)
-                
+                    
                     let userInfo: [String: Any] = ["email": email,
                                                    "uid": user.uid,
                                                    "username": username]
                     
                     self.ref.child("Users").child(user.uid).setValue(userInfo)
+                    
+                    ProgressHUD.showSuccess("Success")
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let viewController = storyboard.instantiateViewController(withIdentifier: "loginVC")
                     self.present(viewController, animated: true, completion: nil)
+                    ProgressHUD.showSuccess("Success")
                 }
             
 //                let alertController = UIAlertController(title: "Account Created", message: "Account successfully created!", preferredStyle: .alert)
