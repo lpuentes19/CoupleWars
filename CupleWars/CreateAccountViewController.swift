@@ -27,7 +27,7 @@ class CreateAccountViewController: UIViewController {
 
     @IBAction func createAccountButtonTapped(_ sender: Any) {
         ProgressHUD.show("Waiting...", interaction: false)
-    
+        
         usernameTextField.layer.borderWidth = 0
         emailTextField.layer.borderWidth = 0
         passwordTextField.layer.borderWidth = 0
@@ -127,8 +127,9 @@ class CreateAccountViewController: UIViewController {
             
             invalidInfoLabel.text = "* Please enter a valid Username, Email, and/or Password."
             invalidInfoLabel.textColor = .red
-        } else {
             
+        } else {
+
             Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
                 if let error = error {
                     ProgressHUD.showError("\(error.localizedDescription)")
@@ -136,6 +137,7 @@ class CreateAccountViewController: UIViewController {
                 }
                 
                 if let user = user {
+                    
                     ProgressHUD.showSuccess("Success")
                     guard let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest() else { return }
                     changeRequest.displayName = username
