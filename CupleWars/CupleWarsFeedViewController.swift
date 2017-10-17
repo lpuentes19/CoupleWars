@@ -30,6 +30,7 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
             guard let postID = post.userID else { return }
             self.fetchUser(userID: postID, completed: {
                 self.posts.append(post)
+                Database.database().reference().queryOrdered(byChild: "date")
 //                self.posts.sort(by: {$0.date > $1.date})
                 self.activityIndicator.stopAnimating()
                 self.tableView.reloadData()
@@ -56,6 +57,7 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostsTableViewCell
+        
         let post = posts[indexPath.row]
         let user = users[indexPath.row]
         

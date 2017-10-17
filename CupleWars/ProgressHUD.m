@@ -152,12 +152,14 @@
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	self.statusFont			= [UIFont boldSystemFontOfSize:16];
 	self.statusColor		= [UIColor blackColor];
-	self.spinnerColor		= [UIColor greenColor];
+	self.spinnerColor		= [UIColor blackColor];
 	self.hudColor			= [UIColor colorWithWhite:0.0 alpha:0.1];
 	self.backgroundColor	= [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.2];
-	NSBundle *bundle		= [NSBundle bundleForClass:[self class]];
-	self.imageSuccess		= [UIImage imageNamed:@"ProgressHUD.bundle/progresshud-success" inBundle:bundle compatibleWithTraitCollection:nil];
-	self.imageError			= [UIImage imageNamed:@"ProgressHUD.bundle/progresshud-error" inBundle:bundle compatibleWithTraitCollection:nil];
+//    NSBundle *bundle        = [NSBundle bundleForClass:[self class]];
+//    self.imageSuccess        = [UIImage imageNamed:@"ProgressHUD.bundle/progresshud-success" inBundle:bundle compatibleWithTraitCollection:nil];
+    self.imageSuccess        = [UIImage imageNamed:@"progresshud-success"];
+//    self.imageError            = [UIImage imageNamed:@"ProgressHUD.bundle/progresshud-error" inBundle:bundle compatibleWithTraitCollection:nil];
+    self.imageError            = [UIImage imageNamed:@"progresshud-error"];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	id<UIApplicationDelegate> delegate = [[UIApplication sharedApplication] delegate];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
