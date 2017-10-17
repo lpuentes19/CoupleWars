@@ -40,7 +40,6 @@
 		9526064D1F4B96B2001330CC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		952BA7651F54D03400DD9716 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		956C3CC91F67758900342E13 /* CupleWarsFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CupleWarsFeedViewController.swift; sourceTree = "<group>"; };
-		9584CE4C1F92F964004E1BB9 /* CupleWars-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CupleWars-Bridging-Header.h"; sourceTree = "<group>"; };
 		9584CE4D1F92F9A0004E1BB9 /* ProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		9584CE4E1F92F9A0004E1BB9 /* ProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		9584CE4F1F92F9A0004E1BB9 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
@@ -52,6 +51,7 @@
 		95EE606D1F47EEC600C4D6C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95EE60701F47EEC600C4D6C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95EE60721F47EEC600C4D6C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95F4B8D71F96C1970012B516 /* CupleWars-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CupleWars-Bridging-Header.h"; sourceTree = "<group>"; };
 		E7A5EA74129D9167BD3656ED /* Pods-CupleWars.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CupleWars.release.xcconfig"; path = "Pods/Target Support Files/Pods-CupleWars/Pods-CupleWars.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,7 +133,7 @@
 				95209D7D1F6C9ED100589961 /* Models */,
 				956C3CC81F67611100342E13 /* ViewControllers */,
 				95EE60781F47EF9400C4D6C7 /* Resources */,
-				9584CE4C1F92F964004E1BB9 /* CupleWars-Bridging-Header.h */,
+				95F4B8D71F96C1970012B516 /* CupleWars-Bridging-Header.h */,
 			);
 			path = CupleWars;
 			sourceTree = "<group>";
@@ -448,7 +448,7 @@
 				DEVELOPMENT_TEAM = H9L7P6ZCN6;
 				INFOPLIST_FILE = CupleWars/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.CupleWars;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CoupleWars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CupleWars/CupleWars-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -465,7 +465,7 @@
 				DEVELOPMENT_TEAM = H9L7P6ZCN6;
 				INFOPLIST_FILE = CupleWars/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.CupleWars;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CoupleWars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CupleWars/CupleWars-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
