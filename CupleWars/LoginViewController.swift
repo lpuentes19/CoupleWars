@@ -13,6 +13,10 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PostsViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
         // Listen to see if we should keep user logged in
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if Auth.auth().currentUser != nil {
@@ -24,6 +28,10 @@ class LoginViewController: UIViewController {
                 print("User must sign in")
             }
         }
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @IBOutlet weak var titleLabel: UILabel!
