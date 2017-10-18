@@ -1,4 +1,4 @@
-# CupleWars
+# CoupleWars
 An app where couples can sign into and share an argument or debate they had with their partner/spouse. Others can view these arguments/debates and vote on who they think is in the right.
 
 ### Technologies
@@ -8,6 +8,7 @@ An app where couples can sign into and share an argument or debate they had with
 * FirebaseDatabase
 * UIKIT
 * CocoaPods
+* ProgressHUD
 
 ### Features
 * Sign in, create account, and forgot password flow.
