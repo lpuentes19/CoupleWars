@@ -24,14 +24,22 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
         fetchPosts()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // checkForPosts()
+    }
+    
     func fetchPosts() {
         activityIndicator.startAnimating()
         API.Post.observePosts { (post) in
+            
             guard let postID = post.userID else { return }
+            
             self.fetchUser(userID: postID, completed: {
                 self.posts.append(post)
+                self.posts.reverse()
                 Database.database().reference().queryOrdered(byChild: "date")
-//                self.posts.sort(by: {$0.date > $1.date})
                 self.activityIndicator.stopAnimating()
                 self.tableView.reloadData()
             })
@@ -41,6 +49,7 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
     func fetchUser(userID: String, completed: @escaping () -> Void) {
         API.User.observeUsers(withID: userID, completion: { (user) in
             self.users.append(user)
+            self.users.reverse()
             completed()
         })
     }
@@ -50,6 +59,16 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
         let viewController = storyboard.instantiateViewController(withIdentifier: "postVC")
         present(viewController, animated: true, completion: nil)
     }
+    
+//    func checkForPosts() {
+//        if self.posts.count == 0 {
+//            self.activityIndicator.stopAnimating()
+//            self.noPostsLabel.text = "There are currently no posts"
+//            self.noPostsLabel.isHidden = false
+//        } else {
+//            self.noPostsLabel.isHidden = true
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
@@ -64,12 +83,15 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
         cell.post = post
         cell.user = user
         cell.delegate = self
-
+//        checkForPosts()
+        
+        
         return cell
     }
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var postTextField: UITextField!
+    @IBOutlet weak var noPostsLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBAction func logoutButtonTapped(_ sender: Any) {
         

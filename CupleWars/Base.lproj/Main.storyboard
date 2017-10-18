@@ -326,9 +326,16 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ZP0-Ra-fgm">
                                 <rect key="frame" x="177" y="323" width="20" height="20"/>
                             </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoW-hj-8YZ">
+                                <rect key="frame" x="166" y="322" width="43" height="23.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.25892877578735352" green="0.25891765952110291" blue="0.2589251697063446" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="aoW-hj-8YZ" firstAttribute="centerY" secondItem="rka-KE-3LX" secondAttribute="centerY" id="2c6-Oy-Ija"/>
                             <constraint firstAttribute="trailing" secondItem="UA3-aE-ckQ" secondAttribute="trailing" constant="16" id="9t5-Qu-aM6"/>
                             <constraint firstItem="ZP0-Ra-fgm" firstAttribute="centerX" secondItem="rka-KE-3LX" secondAttribute="centerX" id="IiT-kR-TLv"/>
                             <constraint firstAttribute="trailing" secondItem="gms-bd-fcS" secondAttribute="trailing" constant="16" id="Oa5-NF-XqI"/>
@@ -341,6 +348,7 @@
                             <constraint firstItem="gms-bd-fcS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rka-KE-3LX" secondAttribute="leading" id="cx9-Ic-Mep"/>
                             <constraint firstItem="5WJ-oN-yoH" firstAttribute="leading" secondItem="rka-KE-3LX" secondAttribute="leading" constant="52" id="d1h-Fy-ylS"/>
                             <constraint firstItem="5WJ-oN-yoH" firstAttribute="top" secondItem="rka-KE-3LX" secondAttribute="top" constant="46" id="hyR-b5-Fkz"/>
+                            <constraint firstItem="aoW-hj-8YZ" firstAttribute="centerX" secondItem="rka-KE-3LX" secondAttribute="centerX" id="kVu-pA-ycK"/>
                             <constraint firstAttribute="trailing" secondItem="xfh-Xd-XGh" secondAttribute="trailing" id="p7q-4h-QA2"/>
                             <constraint firstItem="ZP0-Ra-fgm" firstAttribute="centerY" secondItem="rka-KE-3LX" secondAttribute="centerY" id="pRM-t6-RFH"/>
                             <constraint firstItem="xfh-Xd-XGh" firstAttribute="leading" secondItem="rka-KE-3LX" secondAttribute="leading" id="qe8-vl-eui"/>
@@ -348,6 +356,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="ZP0-Ra-fgm" id="Jdb-bP-KrQ"/>
+                        <outlet property="noPostsLabel" destination="aoW-hj-8YZ" id="XqP-Wg-zFL"/>
                         <outlet property="postTextField" destination="UA3-aE-ckQ" id="bJT-3H-FMv"/>
                         <outlet property="tableView" destination="xfh-Xd-XGh" id="Ioc-w9-N0R"/>
                     </connections>
