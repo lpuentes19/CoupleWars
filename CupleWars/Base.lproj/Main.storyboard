@@ -21,7 +21,7 @@
         <!--Login View Controller-->
         <scene sceneID="mf5-8N-zoo">
             <objects>
-                <viewController storyboardIdentifier="loginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pBc-qf-65O" customClass="LoginViewController" customModule="CupleWars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pBc-qf-65O" customClass="LoginViewController" customModule="CoupleWars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hVL-2t-LaU"/>
                         <viewControllerLayoutGuide type="bottom" id="tD5-Hq-Z16"/>
@@ -30,7 +30,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KaM-D9-OXp">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KaM-D9-OXp">
                                 <rect key="frame" x="20" y="290" width="335" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="oxn-YU-Mbb"/>
@@ -67,10 +67,9 @@
                                     <action selector="loginButtonTapped:" destination="pBc-qf-65O" eventType="touchUpInside" id="JUy-Wc-nMY"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Couple Wars" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIj-lq-EYx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Couple Wars" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIj-lq-EYx">
                                 <rect key="frame" x="20" y="43" width="335" height="118"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="335" id="SNy-0i-wRn"/>
                                     <constraint firstAttribute="height" constant="118" id="bhe-1H-pNT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="32"/>
@@ -99,7 +98,7 @@
                                     <segue destination="nCc-Za-HfA" kind="show" id="Jnt-Oh-PVi"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="rose" translatesAutoresizingMaskIntoConstraints="NO" id="Wx4-oP-zLg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" image="rose" translatesAutoresizingMaskIntoConstraints="NO" id="Wx4-oP-zLg">
                                 <rect key="frame" x="20" y="169" width="335" height="77"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="77" id="6ed-ai-zFs"/>
@@ -116,6 +115,7 @@
                             <constraint firstItem="Wx4-oP-zLg" firstAttribute="top" secondItem="GIj-lq-EYx" secondAttribute="bottom" constant="8" id="B6c-rl-gdj"/>
                             <constraint firstItem="a6m-xg-s0d" firstAttribute="top" secondItem="KaM-D9-OXp" secondAttribute="bottom" constant="8" id="E4u-bL-Qgs"/>
                             <constraint firstItem="voc-qN-uOO" firstAttribute="top" secondItem="akg-jS-hQ2" secondAttribute="bottom" constant="25" id="EqV-Rr-Cu3"/>
+                            <constraint firstItem="KaM-D9-OXp" firstAttribute="top" secondItem="Wx4-oP-zLg" secondAttribute="bottom" constant="44" id="Hgh-aL-Q5h"/>
                             <constraint firstItem="KaM-D9-OXp" firstAttribute="leading" secondItem="gHV-2p-wsb" secondAttribute="leading" constant="20" id="JYl-85-8mK"/>
                             <constraint firstAttribute="trailing" secondItem="KaM-D9-OXp" secondAttribute="trailing" constant="20" id="Jq2-MK-ytf"/>
                             <constraint firstAttribute="trailing" secondItem="P8f-cG-LZ1" secondAttribute="trailing" constant="20" id="PiH-My-PIv"/>
@@ -147,7 +147,7 @@
         <!--Cuple Wars Feed View Controller-->
         <scene sceneID="X1r-nw-5NS">
             <objects>
-                <viewController storyboardIdentifier="feedVC" id="Mhz-dL-HsU" customClass="CupleWarsFeedViewController" customModule="CupleWars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="feedVC" id="Mhz-dL-HsU" customClass="CupleWarsFeedViewController" customModule="CoupleWars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rYk-ca-SKX"/>
                         <viewControllerLayoutGuide type="bottom" id="qeK-tf-e0j"/>
@@ -186,7 +186,7 @@
                                 <rect key="frame" x="0.0" y="241" width="375" height="426"/>
                                 <color key="backgroundColor" red="0.25892877578735352" green="0.25891765952110291" blue="0.2589251697063446" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="postCell" rowHeight="200" id="tDP-13-WFe" customClass="PostsTableViewCell" customModule="CupleWars" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="postCell" rowHeight="200" id="tDP-13-WFe" customClass="PostsTableViewCell" customModule="CoupleWars" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tDP-13-WFe" id="p90-fF-tln">
@@ -336,7 +336,7 @@
         <!--Posts View Controller-->
         <scene sceneID="bfy-X4-TM9">
             <objects>
-                <viewController storyboardIdentifier="postVC" id="OSI-uk-9qF" customClass="PostsViewController" customModule="CupleWars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="postVC" id="OSI-uk-9qF" customClass="PostsViewController" customModule="CoupleWars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="29T-XO-vHd"/>
                         <viewControllerLayoutGuide type="bottom" id="uP5-kO-Rbl"/>
@@ -414,7 +414,7 @@
         <!--Create Account View Controller-->
         <scene sceneID="yd3-fV-3IE">
             <objects>
-                <viewController storyboardIdentifier="createAccountVC" id="nCc-Za-HfA" customClass="CreateAccountViewController" customModule="CupleWars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="createAccountVC" id="nCc-Za-HfA" customClass="CreateAccountViewController" customModule="CoupleWars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ueX-Yw-Vhm"/>
                         <viewControllerLayoutGuide type="bottom" id="VeN-Gx-1Mj"/>
@@ -565,7 +565,7 @@
         <!--Forgot Password View Controller-->
         <scene sceneID="TAD-3K-xGP">
             <objects>
-                <viewController id="wIN-iK-0Je" customClass="ForgotPasswordViewController" customModule="CupleWars" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wIN-iK-0Je" customClass="ForgotPasswordViewController" customModule="CoupleWars" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5AR-pd-hfa"/>
                         <viewControllerLayoutGuide type="bottom" id="ocn-fH-eL8"/>
