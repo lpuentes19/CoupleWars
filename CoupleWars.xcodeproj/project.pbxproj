@@ -45,7 +45,7 @@
 		9584CE4F1F92F9A0004E1BB9 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		95867AD51F7610190024C516 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		959094BE1F4B854700456D11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		95EE60631F47EEC600C4D6C7 /* CupleWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CupleWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		95EE60631F47EEC600C4D6C7 /* CoupleWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoupleWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95EE60661F47EEC600C4D6C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95EE606B1F47EEC600C4D6C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95EE606D1F47EEC600C4D6C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 		95EE60641F47EEC600C4D6C7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				95EE60631F47EEC600C4D6C7 /* CupleWars.app */,
+				95EE60631F47EEC600C4D6C7 /* CoupleWars.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,9 +165,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		95EE60621F47EEC600C4D6C7 /* CupleWars */ = {
+		95EE60621F47EEC600C4D6C7 /* CoupleWars */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 95EE60751F47EEC600C4D6C7 /* Build configuration list for PBXNativeTarget "CupleWars" */;
+			buildConfigurationList = 95EE60751F47EEC600C4D6C7 /* Build configuration list for PBXNativeTarget "CoupleWars" */;
 			buildPhases = (
 				A7D5A052AAA5F55DE823D3E5 /* [CP] Check Pods Manifest.lock */,
 				95EE605F1F47EEC600C4D6C7 /* Sources */,
@@ -180,9 +180,9 @@
 			);
 			dependencies = (
 			);
-			name = CupleWars;
+			name = CoupleWars;
 			productName = CupleWars;
-			productReference = 95EE60631F47EEC600C4D6C7 /* CupleWars.app */;
+			productReference = 95EE60631F47EEC600C4D6C7 /* CoupleWars.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -203,7 +203,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 95EE605E1F47EEC600C4D6C7 /* Build configuration list for PBXProject "CupleWars" */;
+			buildConfigurationList = 95EE605E1F47EEC600C4D6C7 /* Build configuration list for PBXProject "CoupleWars" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -216,7 +216,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				95EE60621F47EEC600C4D6C7 /* CupleWars */,
+				95EE60621F47EEC600C4D6C7 /* CoupleWars */,
 			);
 		};
 /* End PBXProject section */
@@ -475,7 +475,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		95EE605E1F47EEC600C4D6C7 /* Build configuration list for PBXProject "CupleWars" */ = {
+		95EE605E1F47EEC600C4D6C7 /* Build configuration list for PBXProject "CoupleWars" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95EE60731F47EEC600C4D6C7 /* Debug */,
@@ -484,7 +484,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95EE60751F47EEC600C4D6C7 /* Build configuration list for PBXNativeTarget "CupleWars" */ = {
+		95EE60751F47EEC600C4D6C7 /* Build configuration list for PBXNativeTarget "CoupleWars" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95EE60761F47EEC600C4D6C7 /* Debug */,
