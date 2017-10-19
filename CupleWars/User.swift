@@ -13,15 +13,16 @@ class User {
     var email: String?
     var userID: String?
     var username: String?
+    var isFollowing: Bool?
 }
 
 extension User {
-    static func transformUser(dict: [String: Any]) -> User {
+    static func transformUser(dict: [String: Any], key: String) -> User {
         let user = User()
         
         user.email = dict["email"] as? String
-        user.userID = dict["userID"] as? String
         user.username = dict["username"] as? String
+        user.userID = key
         
         return user
     }
