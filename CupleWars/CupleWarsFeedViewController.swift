@@ -21,6 +21,7 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.delegate = self
         tableView.dataSource = self
         postTextField.addTarget(self, action: #selector((toPostVC)), for: UIControlEvents.editingDidBegin)
+        
         fetchPosts()
     }
     
@@ -57,6 +58,12 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
     func toPostVC() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "postVC")
+        present(viewController, animated: true, completion: nil)
+    }
+    
+    func toProfileVC() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "profileVC")
         present(viewController, animated: true, completion: nil)
     }
     
