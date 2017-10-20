@@ -13,7 +13,7 @@ import FirebaseDatabase
 class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PostsTableViewCellDelegate {
 
     var posts = [Post]()
-    var users = [User]()
+    var users = [UserModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

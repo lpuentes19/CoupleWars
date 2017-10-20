@@ -19,6 +19,7 @@
 		95209D861F6CA1DB00589961 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95209D851F6CA1DB00589961 /* User.swift */; };
 		95209D881F6CC96900589961 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95209D871F6CC96900589961 /* PostsViewController.swift */; };
 		9526064E1F4B96B2001330CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9526064D1F4B96B2001330CC /* LoginViewController.swift */; };
+		952871681F9A5E2700F594A8 /* MyPostsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952871671F9A5E2700F594A8 /* MyPostsAPI.swift */; };
 		952BA7661F54D03400DD9716 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952BA7651F54D03400DD9716 /* ForgotPasswordViewController.swift */; };
 		956C3CCA1F67758900342E13 /* CupleWarsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C3CC91F67758900342E13 /* CupleWarsFeedViewController.swift */; };
 		9584CE501F92FE63004E1BB9 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9584CE4D1F92F9A0004E1BB9 /* ProgressHUD.m */; };
@@ -44,6 +45,7 @@
 		95209D851F6CA1DB00589961 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		95209D871F6CC96900589961 /* PostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		9526064D1F4B96B2001330CC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		952871671F9A5E2700F594A8 /* MyPostsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsAPI.swift; sourceTree = "<group>"; };
 		952BA7651F54D03400DD9716 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		956C3CC91F67758900342E13 /* CupleWarsFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CupleWarsFeedViewController.swift; sourceTree = "<group>"; };
 		9584CE4D1F92F9A0004E1BB9 /* ProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				950DDD271F882F8000F5341C /* PostAPI.swift */,
 				950DDD2B1F8836D500F5341C /* UserAPI.swift */,
 				950847011F99668200FC7315 /* FollowAPI.swift */,
+				952871671F9A5E2700F594A8 /* MyPostsAPI.swift */,
 				950DDD2D1F88493400F5341C /* API.swift */,
 			);
 			name = Models;
@@ -299,6 +302,7 @@
 			files = (
 				950846FE1F99541700FC7315 /* DiscoverTableViewController.swift in Sources */,
 				952BA7661F54D03400DD9716 /* ForgotPasswordViewController.swift in Sources */,
+				952871681F9A5E2700F594A8 /* MyPostsAPI.swift in Sources */,
 				9584CE501F92FE63004E1BB9 /* ProgressHUD.m in Sources */,
 				9511CA531F4CCFB200AFE442 /* CreateAccountViewController.swift in Sources */,
 				9526064E1F4B96B2001330CC /* LoginViewController.swift in Sources */,

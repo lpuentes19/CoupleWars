@@ -12,7 +12,7 @@ import FirebaseDatabase
 
 class DiscoverTableViewController: UITableViewController {
 
-    var users: [User] = []
+    var users: [UserModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

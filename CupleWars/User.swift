@@ -8,7 +8,7 @@
 
 import Foundation
 
-class User {
+class UserModel {
     
     var email: String?
     var userID: String?
@@ -16,9 +16,9 @@ class User {
     var isFollowing: Bool?
 }
 
-extension User {
-    static func transformUser(dict: [String: Any], key: String) -> User {
-        let user = User()
+extension UserModel {
+    static func transformUser(dict: [String: Any], key: String) -> UserModel {
+        let user = UserModel()
         
         user.email = dict["email"] as? String
         user.username = dict["username"] as? String

@@ -11,7 +11,7 @@ import FirebaseAuth
 
 class DiscoverTableViewCell: UITableViewCell {
 
-    var user: User? {
+    var user: UserModel? {
         didSet {
             updateView()
         }

@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
         
         // Listen to see if we should keep user logged in
         Auth.auth().addStateDidChangeListener { (auth, user) in
-            if Auth.auth().currentUser != nil {
+            if API.User.current_User != nil {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let viewController = storyboard.instantiateViewController(withIdentifier: "feedVC")
                 self.present(viewController, animated: true, completion: nil)
