@@ -32,21 +32,40 @@ class DiscoverTableViewCell: UITableViewCell {
     }
     
     func followAction() {
-        API.Follow.followAction(withUser: user!.userID!)
-        configureUnFollowButton()
+        if user!.isFollowing! == false {
+            API.Follow.followAction(withUser: user!.userID!)
+            configureUnFollowButton()
+            user!.isFollowing! = true
+        }
+        
     }
     
     func unFollowAction() {
-        API.Follow.unFollowAction(withUser: user!.userID!)
-        configureFollowButton()
+        if user!.isFollowing! == true {
+            API.Follow.unFollowAction(withUser: user!.userID!)
+            configureFollowButton()
+            user!.isFollowing! = false
+        }
     }
     
     func configureFollowButton() {
+        followButton.layer.borderWidth = 1
+        followButton.layer.cornerRadius = 5
+        followButton.layer.borderColor = UIColor.black.cgColor
+        followButton.backgroundColor = UIColor(red: 69/255, green: 142/255, blue: 255/255, alpha: 1)
+        followButton.setTitleColor(.white, for: .normal)
+        
         self.followButton.setTitle("Follow", for: .normal)
         followButton.addTarget(self, action: #selector(followAction), for: .touchUpInside)
     }
     
     func configureUnFollowButton() {
+        followButton.layer.borderWidth = 1
+        followButton.layer.cornerRadius = 5
+        followButton.layer.borderColor = UIColor.black.cgColor
+        followButton.backgroundColor = .white
+        followButton.setTitleColor(.black, for: .normal)
+        
         self.followButton.setTitle("Following", for: .normal)
         followButton.addTarget(self, action: #selector(unFollowAction), for: .touchUpInside)
     }
