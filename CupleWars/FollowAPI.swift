@@ -24,4 +24,15 @@ class FollowAPI {
         ref_Followers.child(id).child(Auth.auth().currentUser!.uid).setValue(NSNull())
         ref_Following.child(Auth.auth().currentUser!.uid).child(id).setValue(NSNull())
     }
+    
+    func isFollowing(userID: String, completion: @escaping (Bool) -> Void) {
+        ref_Followers.child(userID).child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let _ = snapshot.value as? NSNull {
+                completion(false)
+            } else {
+                completion(true)
+            }
+            
+        })
+    }
 }

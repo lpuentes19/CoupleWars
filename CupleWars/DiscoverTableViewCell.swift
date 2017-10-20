@@ -19,21 +19,36 @@ class DiscoverTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        followButton.addTarget(self, action: #selector(followAction), for: .touchUpInside)
-        followButton.addTarget(self, action: #selector(unFollowAction), for: .touchUpInside)
-    }
-    
-    func followAction() {
-        API.Follow.followAction(withUser: user!.userID!)
-    }
-    
-    func unFollowAction() {
-        API.Follow.unFollowAction(withUser: user!.userID!)
     }
     
     func updateView() {
         usernameLabel.text = user?.username
+        
+        if user!.isFollowing! == true {
+            configureUnFollowButton()
+        } else {
+            configureFollowButton()
+        }
+    }
+    
+    func followAction() {
+        API.Follow.followAction(withUser: user!.userID!)
+        configureUnFollowButton()
+    }
+    
+    func unFollowAction() {
+        API.Follow.unFollowAction(withUser: user!.userID!)
+        configureFollowButton()
+    }
+    
+    func configureFollowButton() {
+        self.followButton.setTitle("Follow", for: .normal)
+        followButton.addTarget(self, action: #selector(followAction), for: .touchUpInside)
+    }
+    
+    func configureUnFollowButton() {
+        self.followButton.setTitle("Following", for: .normal)
+        followButton.addTarget(self, action: #selector(unFollowAction), for: .touchUpInside)
     }
     
     @IBOutlet weak var usernameLabel: UILabel!

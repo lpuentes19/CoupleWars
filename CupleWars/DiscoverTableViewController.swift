@@ -22,13 +22,16 @@ class DiscoverTableViewController: UITableViewController {
     
     func loadAllUsers() {
         API.User.observeUser { (user) in
-            self.users.append(user)
-            self.tableView.reloadData()
+            self.isFollowing(userID: user.userID!, completion: { (value) in
+                user.isFollowing = value
+                self.users.append(user)
+                self.tableView.reloadData()
+            })
         }
     }
     
-    func isFollowing(userID: String) {
-        
+    func isFollowing(userID: String, completion: @escaping (Bool) -> Void) {
+        API.Follow.isFollowing(userID: userID, completion: completion)
     }
     
     // MARK: - Table view data source
