@@ -299,12 +299,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T50-Nw-i3W">
-                                <rect key="frame" x="16" y="22" width="32" height="32"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T50-Nw-i3W">
+                                <rect key="frame" x="16" y="28" width="28" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="Cra-iW-WXo"/>
-                                    <constraint firstAttribute="height" constant="32" id="ubG-Ov-7Wm"/>
+                                    <constraint firstAttribute="width" constant="28" id="Cra-iW-WXo"/>
+                                    <constraint firstAttribute="height" constant="25" id="ubG-Ov-7Wm"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" image="add-user"/>
                                 <connections>
                                     <segue destination="Zoe-Ne-zNl" kind="show" id="HGI-a1-tlQ"/>
@@ -331,7 +332,7 @@
                             <constraint firstAttribute="trailing" secondItem="xfh-Xd-XGh" secondAttribute="trailing" id="p7q-4h-QA2"/>
                             <constraint firstItem="ZP0-Ra-fgm" firstAttribute="centerY" secondItem="rka-KE-3LX" secondAttribute="centerY" id="pRM-t6-RFH"/>
                             <constraint firstItem="xfh-Xd-XGh" firstAttribute="leading" secondItem="rka-KE-3LX" secondAttribute="leading" id="qe8-vl-eui"/>
-                            <constraint firstItem="T50-Nw-i3W" firstAttribute="top" secondItem="rYk-ca-SKX" secondAttribute="bottom" constant="2" id="y2A-q3-Xbc"/>
+                            <constraint firstItem="T50-Nw-i3W" firstAttribute="top" secondItem="rYk-ca-SKX" secondAttribute="bottom" constant="8" id="y2A-q3-Xbc"/>
                         </constraints>
                     </view>
                     <connections>
@@ -383,7 +384,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="discoverUsersCell" rowHeight="70" id="HhX-zb-X10" customClass="DiscoverTableViewCell" customModule="CoupleWars" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="discoverUsersCell" rowHeight="70" id="HhX-zb-X10" customClass="DiscoverTableViewCell" customModule="CoupleWars" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HhX-zb-X10" id="byZ-ac-20C">
@@ -789,6 +790,6 @@
         <image name="women" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2rU-cm-7Hc"/>
+        <segue reference="HGI-a1-tlQ"/>
     </inferredMetricsTieBreakers>
 </document>
