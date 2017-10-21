@@ -78,6 +78,8 @@ class PostsViewController: UIViewController, UITextViewDelegate {
                 if error != nil {
                     ProgressHUD.showError("\(error!.localizedDescription)")
                 }
+                
+                API.Feed.ref_Feed.child(API.User.current_User!.uid).child(newPostID).setValue(true)
                                         
                 let myPostRef = API.MyPosts.ref_MyPosts.child(userID).child(newPostID)
                 myPostRef.setValue(true, withCompletionBlock: { (error, ref) in

@@ -33,8 +33,7 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
     
     func fetchPosts() {
         activityIndicator.startAnimating()
-        API.Post.observePosts { (post) in
-            
+        API.Feed.observeFeed(withUserID: API.User.current_User!.uid) { (post) in
             guard let postID = post.userID else { return }
             
             self.fetchUser(userID: postID, completed: {
@@ -44,6 +43,11 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
                 self.activityIndicator.stopAnimating()
                 self.tableView.reloadData()
             })
+        }
+        
+        API.Feed.observeFeedRemoved(withUserID: API.User.current_User!.uid) { (key) in
+            self.posts = self.posts.filter{ $0.postID != key }
+            self.tableView.reloadData()
         }
     }
     

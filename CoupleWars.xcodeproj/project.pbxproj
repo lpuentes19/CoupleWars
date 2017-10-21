@@ -22,6 +22,7 @@
 		952871681F9A5E2700F594A8 /* MyPostsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952871671F9A5E2700F594A8 /* MyPostsAPI.swift */; };
 		952BA7661F54D03400DD9716 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952BA7651F54D03400DD9716 /* ForgotPasswordViewController.swift */; };
 		956C3CCA1F67758900342E13 /* CupleWarsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C3CC91F67758900342E13 /* CupleWarsFeedViewController.swift */; };
+		958206801F9ACDC300EEFB8E /* FeedAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9582067F1F9ACDC300EEFB8E /* FeedAPI.swift */; };
 		9584CE501F92FE63004E1BB9 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9584CE4D1F92F9A0004E1BB9 /* ProgressHUD.m */; };
 		95867AD61F7610190024C516 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95867AD51F7610190024C516 /* Post.swift */; };
 		959094BF1F4B854700456D11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 959094BE1F4B854700456D11 /* GoogleService-Info.plist */; };
@@ -48,6 +49,7 @@
 		952871671F9A5E2700F594A8 /* MyPostsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsAPI.swift; sourceTree = "<group>"; };
 		952BA7651F54D03400DD9716 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		956C3CC91F67758900342E13 /* CupleWarsFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CupleWarsFeedViewController.swift; sourceTree = "<group>"; };
+		9582067F1F9ACDC300EEFB8E /* FeedAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAPI.swift; sourceTree = "<group>"; };
 		9584CE4D1F92F9A0004E1BB9 /* ProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		9584CE4E1F92F9A0004E1BB9 /* ProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		9584CE4F1F92F9A0004E1BB9 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				950DDD2B1F8836D500F5341C /* UserAPI.swift */,
 				950847011F99668200FC7315 /* FollowAPI.swift */,
 				952871671F9A5E2700F594A8 /* MyPostsAPI.swift */,
+				9582067F1F9ACDC300EEFB8E /* FeedAPI.swift */,
 				950DDD2D1F88493400F5341C /* API.swift */,
 			);
 			name = Models;
@@ -306,6 +309,7 @@
 				9584CE501F92FE63004E1BB9 /* ProgressHUD.m in Sources */,
 				9511CA531F4CCFB200AFE442 /* CreateAccountViewController.swift in Sources */,
 				9526064E1F4B96B2001330CC /* LoginViewController.swift in Sources */,
+				958206801F9ACDC300EEFB8E /* FeedAPI.swift in Sources */,
 				956C3CCA1F67758900342E13 /* CupleWarsFeedViewController.swift in Sources */,
 				95209D881F6CC96900589961 /* PostsViewController.swift in Sources */,
 				950847021F99668200FC7315 /* FollowAPI.swift in Sources */,
