@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -247,6 +247,13 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4QD-2b-5MS">
+                                                    <rect key="frame" x="172" y="166" width="30" height="30"/>
+                                                    <state key="normal" image="flag"/>
+                                                    <connections>
+                                                        <action selector="flagButtonTapped:" destination="tDP-13-WFe" eventType="touchUpInside" id="c1t-2Q-1Bn"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="tIb-YV-U6c" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="p90-fF-tln" secondAttribute="leading" constant="20" symbolic="YES" id="0Zx-pe-2dU"/>
@@ -258,8 +265,10 @@
                                                 <constraint firstItem="BcD-9i-FnQ" firstAttribute="leading" secondItem="p90-fF-tln" secondAttribute="leading" constant="8" id="DQ8-nN-nAm"/>
                                                 <constraint firstAttribute="bottom" secondItem="8Ww-SI-Tpe" secondAttribute="bottom" id="FNB-ec-xGq"/>
                                                 <constraint firstAttribute="bottom" secondItem="SAi-sv-JqH" secondAttribute="bottom" id="Gmm-fd-dw6"/>
+                                                <constraint firstItem="4QD-2b-5MS" firstAttribute="leading" secondItem="SAi-sv-JqH" secondAttribute="trailing" constant="58.5" id="Iml-jZ-DIc"/>
                                                 <constraint firstAttribute="bottom" secondItem="MQj-Aw-rsQ" secondAttribute="bottom" id="JJS-SW-feS"/>
                                                 <constraint firstItem="SAi-sv-JqH" firstAttribute="leading" secondItem="MQj-Aw-rsQ" secondAttribute="trailing" constant="8" symbolic="YES" id="JSk-SV-EmW"/>
+                                                <constraint firstItem="tIb-YV-U6c" firstAttribute="leading" secondItem="4QD-2b-5MS" secondAttribute="trailing" constant="58.5" id="KM8-Ot-LXG"/>
                                                 <constraint firstItem="DV2-Z9-AJi" firstAttribute="top" secondItem="p90-fF-tln" secondAttribute="top" constant="7" id="Ug1-sq-T08"/>
                                                 <constraint firstItem="DV2-Z9-AJi" firstAttribute="leading" secondItem="I9T-GY-AxC" secondAttribute="trailing" constant="8" id="YKG-Od-qDa"/>
                                                 <constraint firstItem="DV2-Z9-AJi" firstAttribute="leading" secondItem="I9T-GY-AxC" secondAttribute="trailing" constant="8" id="ZP8-QL-66D"/>
@@ -271,6 +280,8 @@
                                                 <constraint firstAttribute="bottom" secondItem="tIb-YV-U6c" secondAttribute="bottom" id="ool-zY-nDo"/>
                                                 <constraint firstItem="MQj-Aw-rsQ" firstAttribute="leading" secondItem="p90-fF-tln" secondAttribute="leading" constant="8" id="rYM-qm-KLz"/>
                                                 <constraint firstItem="I9T-GY-AxC" firstAttribute="leading" secondItem="p90-fF-tln" secondAttribute="leading" constant="8" id="txZ-i0-ie3"/>
+                                                <constraint firstItem="4QD-2b-5MS" firstAttribute="top" secondItem="BcD-9i-FnQ" secondAttribute="bottom" constant="4" id="xye-XX-bT3"/>
+                                                <constraint firstAttribute="bottom" secondItem="4QD-2b-5MS" secondAttribute="bottom" constant="3.5" id="yXP-dY-QVr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.25892877578735352" green="0.25891765952110291" blue="0.2589251697063446" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -784,11 +795,12 @@
     </scenes>
     <resources>
         <image name="add-user" width="32" height="32"/>
+        <image name="flag" width="30" height="30"/>
         <image name="man" width="30" height="30"/>
         <image name="rose" width="410" height="544"/>
         <image name="women" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2rU-cm-7Hc"/>
+        <segue reference="HGI-a1-tlQ"/>
     </inferredMetricsTieBreakers>
 </document>

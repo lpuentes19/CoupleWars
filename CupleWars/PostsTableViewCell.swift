@@ -143,6 +143,20 @@ class PostsTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var hisLikeImageView: UIImageView!
     @IBOutlet weak var herLikeImageView: UIImageView!
+    @IBAction func flagButtonTapped(_ sender: Any) {
+        
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let flagAsInnappropriate = UIAlertAction(title: "Flag as innapropriate", style: .destructive) { (action) in
+            print(action)
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(flagAsInnappropriate)
+        alertController.addAction(cancel)
+//        self.present(alertController, animated: true, completion: nil)
+    }
     
 }
 
