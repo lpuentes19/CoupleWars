@@ -148,8 +148,16 @@ class PostsTableViewCell: UITableViewCell {
         if let topController = UIApplication.topViewController() {
             let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
-            let flagAsInnappropriate = UIAlertAction(title: "Report as innapropriate", style: .destructive) { (action) in
-                print(action)
+            let flagAsInnappropriate = UIAlertAction(title: "Report as innapropriate", style: .destructive) { (_) in
+                
+                let successAlertController = UIAlertController(title: "Success", message: "You have successfully reported this post. It will be reviewed shortly.", preferredStyle: .alert)
+                
+                let okAlert = UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                    API.Report.reportPosts(postID: self.post!.postID!)
+                })
+                
+                successAlertController.addAction(okAlert)
+                topController.present(successAlertController, animated: true, completion: nil)
             }
             
             let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
