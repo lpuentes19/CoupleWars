@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7E2331756D33972AF58A6C55 /* Pods_CupleWars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F5E34A3D5106E21E2C478B /* Pods_CupleWars.framework */; };
+		9504AFA91F9E9B7C0090FEE7 /* TopViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9504AFA81F9E9B7C0090FEE7 /* TopViewController+Extension.swift */; };
 		950846FE1F99541700FC7315 /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950846FD1F99541700FC7315 /* DiscoverTableViewController.swift */; };
 		950847001F99554C00FC7315 /* DiscoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950846FF1F99554C00FC7315 /* DiscoverTableViewCell.swift */; };
 		950847021F99668200FC7315 /* FollowAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950847011F99668200FC7315 /* FollowAPI.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		1292EFC7B4F30414FFAAC50A /* Pods-CupleWars.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CupleWars.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CupleWars/Pods-CupleWars.debug.xcconfig"; sourceTree = "<group>"; };
 		75F5E34A3D5106E21E2C478B /* Pods_CupleWars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CupleWars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9504AFA81F9E9B7C0090FEE7 /* TopViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopViewController+Extension.swift"; sourceTree = "<group>"; };
 		950846FD1F99541700FC7315 /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		950846FF1F99554C00FC7315 /* DiscoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewCell.swift; sourceTree = "<group>"; };
 		950847011F99668200FC7315 /* FollowAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowAPI.swift; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 				75F5E34A3D5106E21E2C478B /* Pods_CupleWars.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9504AFAA1F9E9B8A0090FEE7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9504AFA81F9E9B7C0090FEE7 /* TopViewController+Extension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		95209D7D1F6C9ED100589961 /* Models */ = {
@@ -144,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				95EE606A1F47EEC600C4D6C7 /* Main.storyboard */,
+				9504AFAA1F9E9B8A0090FEE7 /* Extensions */,
 				95209D841F6C9FFC00589961 /* Views */,
 				95209D7D1F6C9ED100589961 /* Models */,
 				956C3CC81F67611100342E13 /* ViewControllers */,
@@ -319,6 +330,7 @@
 				95209D861F6CA1DB00589961 /* User.swift in Sources */,
 				950847001F99554C00FC7315 /* DiscoverTableViewCell.swift in Sources */,
 				95867AD61F7610190024C516 /* Post.swift in Sources */,
+				9504AFA91F9E9B7C0090FEE7 /* TopViewController+Extension.swift in Sources */,
 				95209D831F6C9F7400589961 /* PostsTableViewCell.swift in Sources */,
 				95EE60671F47EEC600C4D6C7 /* AppDelegate.swift in Sources */,
 			);
