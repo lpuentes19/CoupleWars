@@ -14,11 +14,10 @@ class ReportAPI {
 
     let ref_ReportPost = Database.database().reference().child("ReportedPosts")
     
-    func reportPosts(postID: String) {
-        
-        ref_ReportPost.setValue(["\(API.User.current_User!.uid)": "\(postID)"], withCompletionBlock: { (error, ref) in
-            if error != nil {
-                ProgressHUD.showError("\(error!.localizedDescription)")
+    func observeReports(user: String, postID: String) {
+        API.Feed.ref_Feed.child(user).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let _ = snapshot.value as? [String: Any] {
+                self.ref_ReportPost.child(postID).setValue(["\(API.User.current_User!.uid)": "\(postID)"])
             }
         })
     }

@@ -66,7 +66,6 @@ class PostsTableViewCell: UITableViewCell {
         })
         
         // Methods below checks for changes in his and her likes and updates them in real time
-        
         API.Post.observeHisLikeCount(withID: post.postID!) { (value) in
             if value == 1 {
                 self.hisCountLabel.text = "\(value) Like"
@@ -143,6 +142,7 @@ class PostsTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var hisLikeImageView: UIImageView!
     @IBOutlet weak var herLikeImageView: UIImageView!
+    @IBOutlet weak var flagButton: UIButton!
     @IBAction func flagButtonTapped(_ sender: Any) {
         
         if let topController = UIApplication.topViewController() {
@@ -150,10 +150,11 @@ class PostsTableViewCell: UITableViewCell {
             
             let flagAsInnappropriate = UIAlertAction(title: "Report as innapropriate", style: .destructive) { (_) in
                 
+                // Creating a alertcontroller if they select to flag post, to let the user know they successfully did it
                 let successAlertController = UIAlertController(title: "Success", message: "You have successfully reported this post. It will be reviewed shortly.", preferredStyle: .alert)
                 
                 let okAlert = UIAlertAction(title: "OK", style: .default, handler: { (_) in
-                    API.Report.reportPosts(postID: self.post!.postID!)
+                    API.Report.observeReports(user: self.post!.userID!, postID: self.post!.postID!)
                 })
                 
                 successAlertController.addAction(okAlert)
@@ -162,8 +163,15 @@ class PostsTableViewCell: UITableViewCell {
             
             let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             
+            // Action sheet alertcontroller actions
             alertController.addAction(flagAsInnappropriate)
             alertController.addAction(cancel)
+            
+            // If I ever decide to release this app for the iPad, this ensures the Alert Controllers are presented
+            if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
+                alertController.popoverPresentationController?.sourceView = sender as? UIView
+                alertController.popoverPresentationController?.sourceRect = (sender as AnyObject).bounds
+            }
             topController.present(alertController, animated: true, completion: nil)
         }
 
