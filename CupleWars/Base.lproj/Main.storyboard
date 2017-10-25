@@ -693,6 +693,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="createAccountButton" destination="6Sl-2q-v1X" id="dNg-9l-fIp"/>
                         <outlet property="emailTextField" destination="MiM-e1-wfq" id="zqd-Fm-6xZ"/>
                         <outlet property="invalidInfoLabel" destination="VuF-p1-vic" id="59f-5c-6L7"/>
                         <outlet property="licensingSwitch" destination="dps-hG-RMi" id="o1e-6b-yHc"/>
@@ -899,6 +900,7 @@ In order to ensure Couple Wars provides the best experience possible for everyon
         <image name="women" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="aPc-bC-ZeB"/>
         <segue reference="rb6-M6-A5c"/>
         <segue reference="YcU-5o-M1P"/>
     </inferredMetricsTieBreakers>
