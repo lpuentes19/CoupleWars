@@ -31,7 +31,10 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var invalidInfoLabel: UILabel!
-
+    @IBOutlet weak var licensingSwitch: UISwitch!
+    
+    @IBAction func licensingSwitchTouched(_ sender: Any) {
+    }
     @IBAction func createAccountButtonTapped(_ sender: Any) {
         ProgressHUD.show("Waiting...", interaction: false)
         
@@ -161,15 +164,8 @@ class CreateAccountViewController: UIViewController {
                     self.present(viewController, animated: true, completion: nil)
                     ProgressHUD.showSuccess("Success")
                 }
-            
-//                let alertController = UIAlertController(title: "Account Created", message: "Account successfully created!", preferredStyle: .alert)
-                
-//                let okAction = UIAlertAction(title: "OK", style: .default, handler: { (_) in
-//
-//                })
-//                    alertController.addAction(okAction)
-//                    self.present(alertController, animated: true, completion: nil)
             })
         }
     }
+    
 }
