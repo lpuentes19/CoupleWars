@@ -640,7 +640,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0H-Ym-JJr">
-                                <rect key="frame" x="119" y="381" width="136" height="33"/>
+                                <rect key="frame" x="119" y="395" width="136" height="33"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <state key="normal" title="licensed agreement"/>
                                 <connections>
@@ -654,7 +654,7 @@
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I have read and agree to the" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EoH-Xx-aWi">
-                                <rect key="frame" x="91" y="352" width="192.5" height="20.5"/>
+                                <rect key="frame" x="91" y="375" width="192.5" height="20.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -662,14 +662,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.25892877578735352" green="0.25891765952110291" blue="0.2589251697063446" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="d0H-Ym-JJr" firstAttribute="top" secondItem="EoH-Xx-aWi" secondAttribute="bottom" constant="8" id="03e-sw-KVD"/>
+                            <constraint firstItem="d0H-Ym-JJr" firstAttribute="top" secondItem="EoH-Xx-aWi" secondAttribute="bottom" constant="-0.5" id="03e-sw-KVD"/>
                             <constraint firstItem="irG-Kr-koq" firstAttribute="leading" secondItem="8AP-CV-1wE" secondAttribute="leading" constant="16" id="09v-Ff-Lqh"/>
                             <constraint firstAttribute="trailing" secondItem="kr4-0E-Xxj" secondAttribute="trailing" constant="92.5" id="1Io-wS-5FT"/>
                             <constraint firstItem="5ou-vk-PSu" firstAttribute="leading" secondItem="8AP-CV-1wE" secondAttribute="leading" constant="20" id="1Rc-hr-EZQ"/>
                             <constraint firstItem="kr4-0E-Xxj" firstAttribute="top" secondItem="6Sl-2q-v1X" secondAttribute="bottom" constant="19" id="1wW-i3-2yn"/>
                             <constraint firstItem="dps-hG-RMi" firstAttribute="leading" secondItem="8AP-CV-1wE" secondAttribute="leading" constant="20" id="3kY-Db-Sai"/>
                             <constraint firstAttribute="trailing" secondItem="5ou-vk-PSu" secondAttribute="trailing" constant="20" id="65c-76-xCz"/>
-                            <constraint firstItem="EoH-Xx-aWi" firstAttribute="top" secondItem="5ou-vk-PSu" secondAttribute="bottom" constant="8" id="8v1-rg-Qur"/>
+                            <constraint firstItem="EoH-Xx-aWi" firstAttribute="top" secondItem="5ou-vk-PSu" secondAttribute="bottom" constant="31" id="8v1-rg-Qur"/>
                             <constraint firstItem="VeN-Gx-1Mj" firstAttribute="top" secondItem="VuF-p1-vic" secondAttribute="bottom" constant="45" id="970-dw-Qa9"/>
                             <constraint firstItem="d0H-Ym-JJr" firstAttribute="leading" secondItem="dps-hG-RMi" secondAttribute="trailing" constant="50" id="CFQ-w4-3cN"/>
                             <constraint firstAttribute="trailing" secondItem="irG-Kr-koq" secondAttribute="trailing" constant="16" id="IYf-It-rvE"/>
@@ -689,7 +689,7 @@
                             <constraint firstItem="dps-hG-RMi" firstAttribute="top" secondItem="5ou-vk-PSu" secondAttribute="bottom" constant="53" id="kBl-L4-qMg"/>
                             <constraint firstItem="6Sl-2q-v1X" firstAttribute="top" secondItem="dps-hG-RMi" secondAttribute="bottom" constant="17" id="nBi-DH-cpq"/>
                             <constraint firstItem="EoH-Xx-aWi" firstAttribute="centerX" secondItem="8AP-CV-1wE" secondAttribute="centerX" id="ndG-py-2xo"/>
-                            <constraint firstItem="6Sl-2q-v1X" firstAttribute="top" secondItem="d0H-Ym-JJr" secondAttribute="bottom" constant="31" id="oIp-g4-YwQ"/>
+                            <constraint firstItem="6Sl-2q-v1X" firstAttribute="top" secondItem="d0H-Ym-JJr" secondAttribute="bottom" constant="17" id="oIp-g4-YwQ"/>
                             <constraint firstAttribute="trailing" secondItem="Zuo-az-Su1" secondAttribute="trailing" constant="20" id="ouI-R2-Q1o"/>
                             <constraint firstAttribute="trailing" secondItem="MiM-e1-wfq" secondAttribute="trailing" constant="20" id="q1L-u4-s0U"/>
                             <constraint firstItem="irG-Kr-koq" firstAttribute="top" secondItem="ueX-Yw-Vhm" secondAttribute="bottom" constant="8" id="qyN-x0-tr2"/>
