@@ -174,9 +174,7 @@ class PostsTableViewCell: UITableViewCell {
             }
             topController.present(alertController, animated: true, completion: nil)
         }
-
     }
-    
 }
 
 protocol PostsTableViewCellDelegate {

@@ -87,20 +87,20 @@ class PostAPI {
         let postRef = API.Post.ref_Posts.child(postID)
         postRef.runTransactionBlock({ (currentData: MutableData) -> TransactionResult in
             if var post = currentData.value as? [String : AnyObject], let uid = API.User.current_User?.uid {
-                var hisLikes: Dictionary<String, Bool>
-                hisLikes = post["herLikes"] as? [String : Bool] ?? [:]
-                var hisLikeCount = post["herLikeCount"] as? Int ?? 0
-                if let _ = hisLikes[uid] {
+                var herLikes: Dictionary<String, Bool>
+                herLikes = post["herLikes"] as? [String : Bool] ?? [:]
+                var herLikeCount = post["herLikeCount"] as? Int ?? 0
+                if let _ = herLikes[uid] {
                     // Unstar the post and remove self from likes
-                    hisLikeCount -= 1
-                    hisLikes.removeValue(forKey: uid)
+                    herLikeCount -= 1
+                    herLikes.removeValue(forKey: uid)
                 } else {
                     // Like the post and add self to likes
-                    hisLikeCount += 1
-                    hisLikes[uid] = true
+                    herLikeCount += 1
+                    herLikes[uid] = true
                 }
-                post["herLikeCount"] = hisLikeCount as AnyObject?
-                post["herLikes"] = hisLikes as AnyObject?
+                post["herLikeCount"] = herLikeCount as AnyObject?
+                post["herLikes"] = herLikes as AnyObject?
                 
                 // Set value and report transaction success
                 currentData.value = post

@@ -96,7 +96,6 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
         cell.delegate = self
 //        checkForPosts()
         
-        
         return cell
     }
     
