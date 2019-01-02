@@ -9,11 +9,14 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import JGProgressHUD
 
 class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PostsTableViewCellDelegate {
 
     var posts = [Post]()
     var users = [UserModel]()
+    
+    let progressHUD = JGProgressHUD(style: .dark)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +26,6 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
         postTextField.addTarget(self, action: #selector((toPostVC)), for: UIControlEvents.editingDidBegin)
         
         fetchPosts()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // checkForPosts()
     }
     
     func fetchPosts() {
@@ -49,6 +46,7 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
             self.posts = self.posts.filter{ $0.postID != key }
             self.tableView.reloadData()
         }
+        Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(stopActivityIndicator), userInfo: nil, repeats: false)
     }
     
     func fetchUser(userID: String, completed: @escaping () -> Void) {
@@ -71,15 +69,18 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
         present(viewController, animated: true, completion: nil)
     }
     
-//    func checkForPosts() {
-//        if self.posts.count == 0 {
-//            self.activityIndicator.stopAnimating()
-//            self.noPostsLabel.text = "There are currently no posts"
-//            self.noPostsLabel.isHidden = false
-//        } else {
-//            self.noPostsLabel.isHidden = true
-//        }
-//    }
+    @objc func stopActivityIndicator() {
+        activityIndicator.stopAnimating()
+        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(presentNoPostsMessage), userInfo: nil, repeats: false)
+    }
+    
+    @objc func presentNoPostsMessage() {
+        progressHUD.textLabel.text = "There are no posts at the moment. Post something yourself and/or make sure you're following other users."
+        progressHUD.tintColor = .white
+        progressHUD.indicatorView = nil
+        progressHUD.show(in: self.view)
+        progressHUD.dismiss(afterDelay: 7)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count

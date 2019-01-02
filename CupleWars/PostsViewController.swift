@@ -60,7 +60,7 @@ class PostsViewController: UIViewController, UITextViewDelegate {
         if postTextView.text == "" {
             return
         } else {
-            ProgressHUD.show("Waiting...")
+            //ProgressHUD.show("Waiting...")
             guard let text = postTextView.text else { return }
             guard let username = Auth.auth().currentUser?.displayName else { return }
             guard let userID = Auth.auth().currentUser?.uid else { return }
@@ -76,7 +76,7 @@ class PostsViewController: UIViewController, UITextViewDelegate {
                                        "herLikes": post?.herLikeCount ?? 0,
                                        "timestamp": ServerValue.timestamp()], withCompletionBlock: { (error, ref) in
                 if error != nil {
-                    ProgressHUD.showError("\(error!.localizedDescription)")
+                    //ProgressHUD.showError("\(error!.localizedDescription)")
                 }
                 
                 API.Feed.ref_Feed.child(API.User.current_User!.uid).child(newPostID).setValue(true)
@@ -84,12 +84,12 @@ class PostsViewController: UIViewController, UITextViewDelegate {
                 let myPostRef = API.MyPosts.ref_MyPosts.child(userID).child(newPostID)
                 myPostRef.setValue(true, withCompletionBlock: { (error, ref) in
                     if error != nil {
-                        ProgressHUD.showError("\(error!.localizedDescription)")
+                        //ProgressHUD.showError("\(error!.localizedDescription)")
                         return
                     }
                 })
                                         
-                ProgressHUD.showSuccess("Success")
+                //ProgressHUD.showSuccess("Success")
                 self.postTextView.text = ""
                 self.dismiss(animated: true, completion: nil)
             })

@@ -91,7 +91,7 @@ class PostsTableViewCell: UITableViewCell {
         API.Post.incrementLikesForHim(postID: post!.postID!, onSuccess: { (post) in
             self.updateHisLike(post: post)
         }) { (errorMessage) in
-            ProgressHUD.showError(errorMessage)
+            //ProgressHUD.showError(errorMessage)
         }
     }
     
@@ -115,7 +115,7 @@ class PostsTableViewCell: UITableViewCell {
         API.Post.incrementLikesForHer(postID: post!.postID!, onSuccess: { (post) in
             self.updateHerLike(post: post)
         }) { (errorMessage) in
-            ProgressHUD.showError(errorMessage)
+            //ProgressHUD.showError(errorMessage)
         }
     }
     

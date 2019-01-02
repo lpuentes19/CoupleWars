@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBAction func loginButtonTapped(_ sender: Any) {
-        ProgressHUD.show("Waiting...")
+        //ProgressHUD.show("Waiting...")
         
         emailTextField.layer.borderWidth = 0
         passwordTextField.layer.borderWidth = 0
@@ -49,7 +49,7 @@ class LoginViewController: UIViewController {
         
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             if let error = error {
-                ProgressHUD.showError("\(error.localizedDescription)")
+                //ProgressHUD.showError("\(error.localizedDescription)")
                 
                 self.emailTextField.layer.borderWidth = 1.5
                 self.emailTextField.layer.cornerRadius = 5
@@ -67,7 +67,7 @@ class LoginViewController: UIViewController {
                 
             } else {
                 
-                ProgressHUD.showSuccess("Success")
+                //ProgressHUD.showSuccess("Success")
                 
                 if email == email && password == password {
                     

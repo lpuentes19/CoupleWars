@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Foundation
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
@@ -164,10 +163,10 @@ class CreateAccountViewController: UIViewController {
             
         } else {
             
-            ProgressHUD.show("Waiting...", interaction: false)
+            //ProgressHUD.show("Waiting...", interaction: false)
             Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
                 if let error = error {
-                    ProgressHUD.showError("\(error.localizedDescription)")
+                    //ProgressHUD.showError("\(error.localizedDescription)")
                     return
                 }
                 
@@ -183,11 +182,11 @@ class CreateAccountViewController: UIViewController {
                     
                     self.ref.child("Users").child(user.uid).setValue(userInfo)
                     
-                    ProgressHUD.showSuccess("Success")
+                    //ProgressHUD.showSuccess("Success")
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let viewController = storyboard.instantiateViewController(withIdentifier: "loginVC")
                     self.present(viewController, animated: true, completion: nil)
-                    ProgressHUD.showSuccess("Success")
+                    //ProgressHUD.showSuccess("Success")
                 }
             })
         }

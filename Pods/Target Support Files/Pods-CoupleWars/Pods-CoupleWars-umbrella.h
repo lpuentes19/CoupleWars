@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_CupleWarsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_CupleWarsVersionString[];
+FOUNDATION_EXPORT double Pods_CoupleWarsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_CoupleWarsVersionString[];
 
