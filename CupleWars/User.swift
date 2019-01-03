@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 class UserModel {
     
@@ -25,5 +26,16 @@ extension UserModel {
         user.userID = key
         
         return user
+    }
+    
+    static func signInWith(email: String, password: String, onError: @escaping (String) -> Void, onSuccess: @escaping () -> Void) {
+        
+        Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
+            if error != nil {
+                onError(error!.localizedDescription)
+                return
+            }
+            onSuccess()
+        })
     }
 }
