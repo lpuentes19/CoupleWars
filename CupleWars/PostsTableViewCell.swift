@@ -87,7 +87,7 @@ class PostsTableViewCell: UITableViewCell {
         }
     }
     
-    func hisLikeImageTapped() {
+    @objc func hisLikeImageTapped() {
         API.Post.incrementLikesForHim(postID: post!.postID!, onSuccess: { (post) in
             self.updateHisLike(post: post)
         }) { (errorMessage) in
@@ -111,7 +111,7 @@ class PostsTableViewCell: UITableViewCell {
         }
     }
     
-    func herLikeImageTapped() {
+    @objc func herLikeImageTapped() {
         API.Post.incrementLikesForHer(postID: post!.postID!, onSuccess: { (post) in
             self.updateHerLike(post: post)
         }) { (errorMessage) in

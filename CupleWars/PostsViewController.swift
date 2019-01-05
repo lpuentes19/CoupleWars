@@ -30,7 +30,7 @@ class PostsViewController: UIViewController, UITextViewDelegate {
         postTextView.layer.cornerRadius = 5
     }
     
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         view.endEditing(true)
     }
     

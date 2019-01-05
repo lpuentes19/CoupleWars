@@ -78,7 +78,7 @@ class CreateAccountViewController: UIViewController {
             let email = emailTextField.text,
             let password = passwordTextField.text else { return }
         
-        if password.characters.count < 6 {
+        if password.count < 6 {
             passwordTextField.layer.borderWidth = 1.5
             passwordTextField.layer.cornerRadius = 5
             passwordTextField.layer.borderColor = UIColor.red.cgColor

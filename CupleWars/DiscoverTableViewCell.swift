@@ -30,7 +30,7 @@ class DiscoverTableViewCell: UITableViewCell {
         }
     }
     
-    func followAction() {
+    @objc func followAction() {
         if user!.isFollowing! == false {
             API.Follow.followAction(withUser: user!.userID!)
             configureUnFollowButton()
@@ -39,7 +39,7 @@ class DiscoverTableViewCell: UITableViewCell {
         
     }
     
-    func unFollowAction() {
+    @objc func unFollowAction() {
         if user!.isFollowing! == true {
             API.Follow.unFollowAction(withUser: user!.userID!)
             configureFollowButton()
