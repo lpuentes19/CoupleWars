@@ -20,7 +20,8 @@ class Post {
     var herLikeCount: Int?
     var hisLikes: Dictionary<String, Any>?
     var herLikes: Dictionary<String, Any>?
-    var isLiked: Bool?
+    var isHisLiked: Bool?
+    var isHerLiked: Bool?
     var date: Date = Date()
     
 }
@@ -42,9 +43,9 @@ extension Post {
         if let currentUserID = Auth.auth().currentUser?.uid {
             if post.hisLikes != nil {
                 if post.hisLikes?[currentUserID] != nil {
-                    post.isLiked = true
+                    post.isHisLiked = true
                 } else {
-                    post.isLiked = false
+                    post.isHisLiked = false
                 }
             }
         }
@@ -52,9 +53,9 @@ extension Post {
         if let currentUserID = Auth.auth().currentUser?.uid {
             if post.herLikes != nil {
                 if post.herLikes?[currentUserID] != nil {
-                    post.isLiked = true
+                    post.isHerLiked = true
                 } else {
-                    post.isLiked = false
+                    post.isHerLiked = false
                 }
             }
         }

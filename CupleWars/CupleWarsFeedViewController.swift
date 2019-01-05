@@ -80,11 +80,13 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     @objc func presentNoPostsMessage() {
-        progressHUD.textLabel.text = "There are no posts at the moment. \nPost something yourself and/or make sure you're following other users."
-        progressHUD.tintColor = .white
-        progressHUD.indicatorView = nil
-        progressHUD.show(in: self.view)
-        progressHUD.dismiss(afterDelay: 7)
+        if posts.count < 1 {
+            progressHUD.textLabel.text = "There are no posts at the moment. \nPost something yourself and/or make sure you're following other users."
+            progressHUD.tintColor = .white
+            progressHUD.indicatorView = nil
+            progressHUD.show(in: self.view)
+            progressHUD.dismiss(afterDelay: 7)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

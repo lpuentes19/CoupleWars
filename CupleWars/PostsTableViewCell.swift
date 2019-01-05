@@ -75,37 +75,29 @@ class PostsTableViewCell: UITableViewCell {
         })
         
         // Methods below checks for changes in his and her likes and updates them in real time
-        API.Post.observeHisLikeCount(withID: post.postID!) { (value) in
-            if value == 1 {
-                self.hisCountLabel.text = "\(value) Like"
-            } else {
-                if value != 0 {
-                    self.hisCountLabel.text = "\(value) Likes"
-                }
-            }
-        }
-        
-        API.Post.observeHerLikeCount(withID: post.postID!) { (value) in
-            if value == 1 {
-                self.herCountLabel.text = "\(value) Like"
-            } else {
-                if value != 0 {
-                    self.herCountLabel.text = "\(value) Likes"
-                }
-            }
-        }
-    }
-    
-    @objc func hisLikeImageTapped() {
-        API.Post.incrementLikesForHim(postID: post!.postID!, onSuccess: { (post) in
-            self.updateHisLike(post: post)
-        }) { (errorMessage) in
-            //ProgressHUD.showError(errorMessage)
-        }
+//        API.Post.observeHisLikeCount(withID: post.postID!) { (value) in
+//            if value == 1 {
+//                self.hisCountLabel.text = "\(value) Like"
+//            } else {
+//                if value != 0 {
+//                    self.hisCountLabel.text = "\(value) Likes"
+//                }
+//            }
+//        }
+//
+//        API.Post.observeHerLikeCount(withID: post.postID!) { (value) in
+//            if value == 1 {
+//                self.herCountLabel.text = "\(value) Like"
+//            } else {
+//                if value != 0 {
+//                    self.herCountLabel.text = "\(value) Likes"
+//                }
+//            }
+//        }
     }
     
     func updateHisLike(post: Post) {
-        let imageName = post.hisLikes == nil || !post.isLiked! ? "man" : "manFilled"
+        let imageName = post.hisLikes == nil || !post.isHisLiked! ? "man" : "manFilled"
         hisLikeImageView.image = UIImage(named: imageName)
         
         guard let count = post.hisLikeCount else { return }
@@ -120,16 +112,8 @@ class PostsTableViewCell: UITableViewCell {
         }
     }
     
-    @objc func herLikeImageTapped() {
-        API.Post.incrementLikesForHer(postID: post!.postID!, onSuccess: { (post) in
-            self.updateHerLike(post: post)
-        }) { (errorMessage) in
-            //ProgressHUD.showError(errorMessage)
-        }
-    }
-    
     func updateHerLike(post: Post) {
-        let imageName = post.herLikes == nil || !post.isLiked! ? "women" : "womanFilled"
+        let imageName = post.herLikes == nil || !post.isHerLiked! ? "women" : "womanFilled"
         herLikeImageView.image = UIImage(named: imageName)
         
         guard let count = post.herLikeCount else { return }
@@ -141,6 +125,28 @@ class PostsTableViewCell: UITableViewCell {
             if count == 0 {
                 herCountLabel.text = "0 Likes"
             }
+        }
+    }
+    
+    @objc func hisLikeImageTapped() {
+        API.Post.incrementLikesForHim(postID: post!.postID!, onSuccess: { (post) in
+            self.updateHisLike(post: post)
+            self.post?.hisLikes = post.hisLikes
+            self.post?.isHisLiked = post.isHisLiked
+            self.post?.hisLikeCount = post.hisLikeCount
+        }) { (errorMessage) in
+            //ProgressHUD.showError(errorMessage)
+        }
+    }
+    
+    @objc func herLikeImageTapped() {
+        API.Post.incrementLikesForHer(postID: post!.postID!, onSuccess: { (post) in
+            self.updateHerLike(post: post)
+            self.post?.herLikes = post.herLikes
+            self.post?.isHerLiked = post.isHerLiked
+            self.post?.herLikeCount = post.herLikeCount
+        }) { (errorMessage) in
+            //ProgressHUD.showError(errorMessage)
         }
     }
 
