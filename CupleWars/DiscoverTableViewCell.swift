@@ -10,6 +10,9 @@ import UIKit
 
 class DiscoverTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var followButton: UIButton!
+    
     var user: UserModel? {
         didSet {
             updateView()
@@ -68,7 +71,4 @@ class DiscoverTableViewCell: UITableViewCell {
         self.followButton.setTitle("Following", for: .normal)
         followButton.addTarget(self, action: #selector(unFollowAction), for: .touchUpInside)
     }
-    
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var followButton: UIButton!
 }

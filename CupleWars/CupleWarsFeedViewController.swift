@@ -13,6 +13,11 @@ import JGProgressHUD
 
 class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PostsTableViewCellDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var postTextField: UITextField!
+    @IBOutlet weak var noPostsLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var posts = [Post]()
     var users = [UserModel]()
     
@@ -100,10 +105,6 @@ class CupleWarsFeedViewController: UIViewController, UITableViewDelegate, UITabl
         return cell
     }
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var postTextField: UITextField!
-    @IBOutlet weak var noPostsLabel: UILabel!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBAction func logoutButtonTapped(_ sender: Any) {
         
         do {

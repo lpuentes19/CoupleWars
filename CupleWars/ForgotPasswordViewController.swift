@@ -11,6 +11,8 @@ import FirebaseAuth
 
 class ForgotPasswordViewController: UIViewController {
 
+    @IBOutlet weak var emailTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,7 +24,6 @@ class ForgotPasswordViewController: UIViewController {
         view.endEditing(true)
     }
     
-    @IBOutlet weak var emailTextField: UITextField!
     @IBAction func signInButtonTapped(_ sender: Any) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

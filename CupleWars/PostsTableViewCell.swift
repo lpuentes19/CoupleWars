@@ -10,6 +10,15 @@ import UIKit
 
 class PostsTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var postTextView: UITextView!
+    @IBOutlet weak var hisCountLabel: UILabel!
+    @IBOutlet weak var herCountLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var hisLikeImageView: UIImageView!
+    @IBOutlet weak var herLikeImageView: UIImageView!
+    @IBOutlet weak var flagButton: UIButton!
+    
     var delegate: PostsTableViewCellDelegate?
     
     var post: Post? {
@@ -134,15 +143,7 @@ class PostsTableViewCell: UITableViewCell {
             }
         }
     }
-    
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var postTextView: UITextView!
-    @IBOutlet weak var hisCountLabel: UILabel!
-    @IBOutlet weak var herCountLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var hisLikeImageView: UIImageView!
-    @IBOutlet weak var herLikeImageView: UIImageView!
-    @IBOutlet weak var flagButton: UIButton!
+
     @IBAction func flagButtonTapped(_ sender: Any) {
         
         if let topController = UIApplication.topViewController() {

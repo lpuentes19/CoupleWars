@@ -12,6 +12,8 @@ import FirebaseDatabase
 
 class PostsViewController: UIViewController, UITextViewDelegate {
 
+    @IBOutlet weak var postTextView: UITextView!
+    
     var post: Post?
     
     override func viewDidLoad() {
@@ -48,7 +50,6 @@ class PostsViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-    @IBOutlet weak var postTextView: UITextView!
     @IBAction func backButtonTapped(_ sender: Any) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "feedVC")
