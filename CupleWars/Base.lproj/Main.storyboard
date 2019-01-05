@@ -698,6 +698,7 @@
                         <outlet property="licensingSwitch" destination="dps-hG-RMi" id="o1e-6b-yHc"/>
                         <outlet property="passwordTextField" destination="5ou-vk-PSu" id="m8z-J9-GFY"/>
                         <outlet property="usernameTextField" destination="Zuo-az-Su1" id="pvz-Qd-0Yl"/>
+                        <segue destination="pBc-qf-65O" kind="presentation" identifier="SignUpComplete" id="tcF-cj-YXE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWY-tS-WGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -905,5 +906,6 @@ In order to ensure Couple Wars provides the best experience possible for everyon
     <inferredMetricsTieBreakers>
         <segue reference="Jnt-Oh-PVi"/>
         <segue reference="BZC-8z-lCc"/>
+        <segue reference="tcF-cj-YXE"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,13 +7,25 @@
 //
 
 import UIKit
+import JGProgressHUD
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
 
 class CreateAccountViewController: UIViewController {
 
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var invalidInfoLabel: UILabel!
+    @IBOutlet weak var createAccountButton: UIButton!
+    @IBOutlet weak var licensingSwitch: UISwitch!
+    
     var ref = Database.database().reference()
+    
+    let progressHUD = JGProgressHUD(style: .dark)
+    let errorHUD = JGProgressHUD(style: .dark)
+    let successHUD = JGProgressHUD(style: .dark)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +49,9 @@ class CreateAccountViewController: UIViewController {
         licensingSwitch.onTintColor = UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1.0)
     }
     
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var invalidInfoLabel: UILabel!
-    @IBOutlet weak var createAccountButton: UIButton!
-    @IBOutlet weak var licensingSwitch: UISwitch!
+    @objc func signUpComplete() {
+        performSegue(withIdentifier: "SignUpComplete", sender: self)
+    }
     
     @IBAction func licensingSwitchTouched(_ sender: Any) {
         
@@ -163,10 +172,19 @@ class CreateAccountViewController: UIViewController {
             
         } else {
             
-            //ProgressHUD.show("Waiting...", interaction: false)
+            progressHUD.textLabel.text = "Loading..."
+            progressHUD.show(in: self.view)
+            
             Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
-                if let error = error {
-                    //ProgressHUD.showError("\(error.localizedDescription)")
+                if error != nil {
+                    self.progressHUD.dismiss()
+                    
+                    self.errorHUD.textLabel.text = "\(error!.localizedDescription)"
+                    self.errorHUD.tintColor = .red
+                    self.errorHUD.indicatorView = JGProgressHUDErrorIndicatorView()
+                    self.errorHUD.show(in: self.view)
+                    self.errorHUD.dismiss(afterDelay: 3.0)
+                    
                     return
                 }
                 
@@ -182,14 +200,18 @@ class CreateAccountViewController: UIViewController {
                     
                     self.ref.child("Users").child(user.uid).setValue(userInfo)
                     
-                    //ProgressHUD.showSuccess("Success")
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let viewController = storyboard.instantiateViewController(withIdentifier: "loginVC")
-                    self.present(viewController, animated: true, completion: nil)
-                    //ProgressHUD.showSuccess("Success")
+                    self.progressHUD.dismiss()
+                    
+                    self.successHUD.textLabel.text = "Success"
+                    self.successHUD.tintColor = .green
+                    self.successHUD.indicatorView = JGProgressHUDSuccessIndicatorView()
+                    self.successHUD.show(in: self.view)
+                    self.successHUD.dismiss(afterDelay: 2.0)
+                    
+                    // Put the segue in a Timer to give the successHUD view time to show
+                    Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(CreateAccountViewController.signUpComplete), userInfo: nil, repeats: false)
                 }
             })
         }
     }
-    
 }
