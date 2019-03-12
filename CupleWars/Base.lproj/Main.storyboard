@@ -157,12 +157,6 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Couple Wars" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WJ-oN-yoH">
-                                <rect key="frame" x="52" y="46" width="263.5" height="111.5"/>
-                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="33"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gms-bd-fcS">
                                 <rect key="frame" x="303" y="20" width="56" height="36"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -316,6 +310,12 @@
                                     <segue destination="Zoe-Ne-zNl" kind="show" id="HGI-a1-tlQ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Couple Wars" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WJ-oN-yoH">
+                                <rect key="frame" x="26" y="48" width="323" height="111.5"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="33"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.25892877578735352" green="0.25891765952110291" blue="0.2589251697063446" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -325,13 +325,13 @@
                             <constraint firstAttribute="trailing" secondItem="gms-bd-fcS" secondAttribute="trailing" constant="16" id="Oa5-NF-XqI"/>
                             <constraint firstItem="qeK-tf-e0j" firstAttribute="top" secondItem="xfh-Xd-XGh" secondAttribute="bottom" id="P9a-bD-mJ9"/>
                             <constraint firstItem="xfh-Xd-XGh" firstAttribute="top" secondItem="UA3-aE-ckQ" secondAttribute="bottom" constant="23" id="Pey-W7-gwn"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5WJ-oN-yoH" secondAttribute="trailing" id="Snd-Bu-87t"/>
-                            <constraint firstItem="UA3-aE-ckQ" firstAttribute="top" secondItem="5WJ-oN-yoH" secondAttribute="bottom" constant="20.5" id="TWR-rr-fWE"/>
+                            <constraint firstAttribute="trailing" secondItem="5WJ-oN-yoH" secondAttribute="trailing" constant="26" id="Snd-Bu-87t"/>
+                            <constraint firstItem="UA3-aE-ckQ" firstAttribute="top" secondItem="5WJ-oN-yoH" secondAttribute="bottom" constant="18.5" id="TWR-rr-fWE"/>
                             <constraint firstItem="gms-bd-fcS" firstAttribute="top" secondItem="rYk-ca-SKX" secondAttribute="bottom" id="VsX-GI-FyK"/>
                             <constraint firstItem="UA3-aE-ckQ" firstAttribute="leading" secondItem="rka-KE-3LX" secondAttribute="leading" constant="16" id="Xns-9S-bdC"/>
                             <constraint firstItem="gms-bd-fcS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rka-KE-3LX" secondAttribute="leading" id="cx9-Ic-Mep"/>
-                            <constraint firstItem="5WJ-oN-yoH" firstAttribute="leading" secondItem="rka-KE-3LX" secondAttribute="leading" constant="52" id="d1h-Fy-ylS"/>
-                            <constraint firstItem="5WJ-oN-yoH" firstAttribute="top" secondItem="rka-KE-3LX" secondAttribute="top" constant="46" id="hyR-b5-Fkz"/>
+                            <constraint firstItem="5WJ-oN-yoH" firstAttribute="leading" secondItem="rka-KE-3LX" secondAttribute="leading" constant="26" id="d1h-Fy-ylS"/>
+                            <constraint firstItem="5WJ-oN-yoH" firstAttribute="top" secondItem="rka-KE-3LX" secondAttribute="top" constant="48" id="hyR-b5-Fkz"/>
                             <constraint firstItem="aoW-hj-8YZ" firstAttribute="centerX" secondItem="rka-KE-3LX" secondAttribute="centerX" id="kVu-pA-ycK"/>
                             <constraint firstItem="T50-Nw-i3W" firstAttribute="leading" secondItem="rka-KE-3LX" secondAttribute="leading" constant="16" id="mXk-nH-CtI"/>
                             <constraint firstAttribute="trailing" secondItem="xfh-Xd-XGh" secondAttribute="trailing" id="p7q-4h-QA2"/>
@@ -500,7 +500,6 @@
                             <constraint firstAttribute="trailing" secondItem="M5g-Rc-aWt" secondAttribute="trailing" constant="80" id="eBA-Wk-Htl"/>
                             <constraint firstItem="19H-xf-BJi" firstAttribute="leading" secondItem="9Bp-cU-o8x" secondAttribute="leading" constant="29" id="es7-pt-NwC"/>
                             <constraint firstItem="M5g-Rc-aWt" firstAttribute="top" secondItem="19H-xf-BJi" secondAttribute="bottom" constant="24" id="fzn-h1-pvH"/>
-                            <constraint firstAttribute="trailing" secondItem="hqN-9Y-ggM" secondAttribute="trailing" constant="308" id="hQV-vk-Mbg"/>
                             <constraint firstItem="19H-xf-BJi" firstAttribute="top" secondItem="u1Y-cu-WAs" secondAttribute="bottom" constant="17" id="j0O-Nd-8pY"/>
                             <constraint firstItem="M5g-Rc-aWt" firstAttribute="leading" secondItem="9Bp-cU-o8x" secondAttribute="leading" constant="80" id="nbX-T6-nE9"/>
                             <constraint firstItem="hqN-9Y-ggM" firstAttribute="leading" secondItem="9Bp-cU-o8x" secondAttribute="leading" constant="29" id="vnN-xY-bxB"/>
@@ -904,8 +903,8 @@ In order to ensure Couple Wars provides the best experience possible for everyon
         <image name="women" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Jnt-Oh-PVi"/>
-        <segue reference="BZC-8z-lCc"/>
+        <segue reference="rb6-M6-A5c"/>
+        <segue reference="YcU-5o-M1P"/>
         <segue reference="tcF-cj-YXE"/>
     </inferredMetricsTieBreakers>
 </document>
